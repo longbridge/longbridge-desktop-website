@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@types/bun": "^1.2.9"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  },
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  }
+}

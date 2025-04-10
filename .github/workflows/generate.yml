@@ -1,0 +1,35 @@
+name: Generate Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version of the release (e.g.: v0.1.30)"
+        required: true
+        default: ""
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    name: Generate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup | Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Generate
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          TAG: ${{ inputs.version }}
+        run: |
+          bun script/release-notes.ts
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
