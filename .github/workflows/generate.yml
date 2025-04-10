@@ -32,5 +32,14 @@ jobs:
         run: |
           bun script/release-notes.ts
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+      - name: Create PR for locales/ updates
+        run: |
+          BRANCH_NAME=update-pages-$(date +'%Y%m%d%H%M%S')
+          git checkout -b $BRANCH_NAME
+          git status
+          git add docs/
+          git commit -m "Update docs ${{ inputs.version }}"
+          git push origin $BRANCH_NAME
+
+          # Create Pull Request
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -d '{"title":"Update Release Notes ${{ inputs.version }}","head":"'$BRANCH_NAME'","base":"main"}' https://api.github.com/repos/${{ github.repository }}/pulls
