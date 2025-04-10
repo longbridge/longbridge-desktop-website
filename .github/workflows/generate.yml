@@ -27,6 +27,7 @@ jobs:
       - name: Generate
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          REPO: ${{ secrets.REPO }}
           TAG: ${{ inputs.version }}
         run: |
           bun script/release-notes.ts
