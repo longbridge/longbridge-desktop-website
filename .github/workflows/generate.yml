@@ -1,0 +1,54 @@
+name: Generate Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version of the release (e.g.: v0.1.30)"
+        required: true
+        default: ""
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    name: Generate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup | Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Generate
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          REPO: ${{ secrets.REPO }}
+          TAG: ${{ inputs.version }}
+        run: |
+          bun script/release-notes.ts
+
+      - name: Setup Git
+        run: |
+          git config --global user.name "AutoBot"
+          git config --global user.email "bot@users.noreply.github.com"
+
+      - name: Create PR
+        run: |
+          BRANCH_NAME=update-pages-$(date +'%Y%m%d%H%M%S')
+          git checkout -b $BRANCH_NAME
+          git status
+          git add . -A
+          git commit -m "Update docs ${{ inputs.version }}"
+          git push origin $BRANCH_NAME
+
+          # Create Pull Request
+          curl -X POST -H "Authorization: token ${{ secrets.TOKEN }}" -d '{"title":"Update Release Notes ${{ inputs.version }}","head":"'$BRANCH_NAME'","base":"main"}' https://api.github.com/repos/${{ github.repository }}/pulls
+
+      - name: Merge PR
+        run: |
+          curl -X POST -H "Authorization: token ${{ secrets.TOKEN }}" -d '{"commit_title":"Merge","commit_message":"Merge PR","sha":"$SHA","merge_method":"squash"}' https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER/merge

@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+:root {
+  --vp-c-brand-1: #1b1912;
+  --vp-c-brand-2: #1b1912;
+  --vp-c-brand-3: #37a0ff;
+  --vp-c-text-1: #1b1912;
+  --vp-c-text-2: #464f56;
+  --vp-home-hero-name-color: #101010;
+  --vp-layout-max-width: 1280px;
+  --vp-sidebar-bg-color: #F8F9FA;
+}
+
+.vp-doc {
+  h1 {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+}

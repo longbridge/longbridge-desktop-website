@@ -1,0 +1,52 @@
+name: Publish
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    name: build
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Download ossutils zip
+        run: |
+          wget https://github.com/aliyun/ossutil/releases/download/v1.7.17/ossutil-v1.7.17-linux-amd64.zip
+          unzip ossutil-v1.7.17-linux-amd64.zip && cp ./ossutil-v1.7.17-linux-amd64/ossutil ${{github.workspace}}/ && chmod +x ${{github.workspace}}/ossutil
+
+      - name: Test ossutil
+        run: |
+          ${{github.workspace}}/ossutil --version
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Install dependency
+        run: bun install
+
+      - name: Check latest version
+        run: |
+          VERSION=$(bun run script/check-latest.ts)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Build release
+        run: |
+          if [ -z "$VERSION" ]; then
+            echo "VERSION is not set"
+            exit 1
+          fi
+
+          echo "Build for version: $VERSION"
+          bun run build
+
+      - name: Upload to Aliyun OSS
+        env:
+          PREFIX: github/release/longbridge-desktop/website/
+          OSS_HOST: oss-cn-hangzhou.aliyuncs.com
+        run: |
+          ${{github.workspace}}/ossutil cp dist/assets/ oss://lb-assets/$PREFIX/assets/ -u -r -j 10 -e $OSS_HOST -i ${{ secrets.FE_LB_ASSET_ACCESS_KEY_ID }} -k ${{ secrets.FE_LB_ASSET_ACCESS_KEY_SECRET }} --meta=Cache-Control:max-age=31536000
+          ${{github.workspace}}/ossutil cp dist/ oss://lb-assets/$PREFIX -u -r -j 10 -e $OSS_HOST -i ${{ secrets.FE_LB_ASSET_ACCESS_KEY_ID }} -k ${{ secrets.FE_LB_ASSET_ACCESS_KEY_SECRET }} --meta=Cache-Control:no-cache
