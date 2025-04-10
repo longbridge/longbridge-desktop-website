@@ -47,4 +47,4 @@ jobs:
           git push origin $BRANCH_NAME
 
           # Create Pull Request
-          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -d '{"title":"Update Release Notes ${{ inputs.version }}","head":"'$BRANCH_NAME'","base":"main"}' https://api.github.com/repos/${{ github.repository }}/pulls
+          curl -X POST -H "Authorization: token ${{ secrets.TOKEN }}" -d '{"title":"Update Release Notes ${{ inputs.version }}","head":"'$BRANCH_NAME'","base":"main"}' https://api.github.com/repos/${{ github.repository }}/pulls
