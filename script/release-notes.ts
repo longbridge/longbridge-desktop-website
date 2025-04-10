@@ -25,8 +25,8 @@ type Locale = "en" | "zh-CN" | "zh-HK";
 
 const localePrefixes = {
   en: "docs/",
-  "zh-CN": "docs/zh-cn/",
-  "zh-HK": "docs/zh-hk/",
+  "zh-CN": "docs/zh-CN/",
+  "zh-HK": "docs/zh-HK/",
 };
 
 function docFileName(locale: Locale, filename: string): string {
