@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@types/bun": "^1.2.9",
+    "sass-embedded": "^1.86.3"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  },
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  }
+}
