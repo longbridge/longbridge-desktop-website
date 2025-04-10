@@ -32,12 +32,17 @@ jobs:
         run: |
           bun script/release-notes.ts
 
-      - name: Create PR for locales/ updates
+      - name: Setup Git
+        run: |
+          git config --global user.name "AutoBot"
+          git config --global user.email "bot@users.noreply.github.com"
+
+      - name: Create PR
         run: |
           BRANCH_NAME=update-pages-$(date +'%Y%m%d%H%M%S')
           git checkout -b $BRANCH_NAME
           git status
-          git add docs/
+          git add . -A
           git commit -m "Update docs ${{ inputs.version }}"
           git push origin $BRANCH_NAME
 
