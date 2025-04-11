@@ -7,8 +7,9 @@ const stableItems = getReleaseNotes(LOCALE, "");
 const previewItems = getReleaseNotes(LOCALE, "/preview");
 
 export default defineConfig({
-  title: "Longbridge 桌面客户端",
-  description: "Longbridge desktop application.",
+  title: "Longbridge Pro",
+  description: "全新长桥证券交易桌面客户端。",
+  titleTemplate: ":title - 长桥桌面客户端 - Longbridge",
   themeConfig: {
     nav: [
       { text: "首页", link: `/${LOCALE}` },

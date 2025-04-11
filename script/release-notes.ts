@@ -174,6 +174,10 @@ function buildNotePage(json: any, body: string): string {
   body = body.replace(/^#.*$/gm, "");
 
   let downloads = buildDownloadLinks(TAG);
+  let headingSuffix = "";
+  if (IS_PREVIEW) {
+    headingSuffix = `  <Badge type="warning" text="preview" />`;
+  }
 
   return `
 ---
@@ -181,7 +185,7 @@ title: # ${json.name}
 editLink: true
 ---
 
-# ${json.name}
+# ${json.name}${headingSuffix}
 
 ${body.trim()}
 

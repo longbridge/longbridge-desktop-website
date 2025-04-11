@@ -8,8 +8,10 @@ const previewItems = getReleaseNotes(LOCALE, "/preview");
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Longbridge Desktop",
-  description: "Longbridge desktop application.",
+  title: "Longbridge Pro",
+  description:
+    "Brand new trading desktop application of Longbridge Securities.",
+  titleTemplate: ":title - Longbridge Desktop",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
