@@ -171,7 +171,7 @@ export function buildReleaseNotesJSON(
 
 function buildNotePage(json: any, body: string): string {
   // Remove heading 1
-  body = body.replace(/^#.*$/gm, "");
+  body = body.replace(/^[#]{1}[^#].*$/gm, "");
 
   let downloads = buildDownloadLinks(TAG);
   let headingSuffix = "";
