@@ -6,6 +6,7 @@ import zh_hk from "./zh-HK.mts";
 export default defineConfig({
   base: "/",
   srcDir: "docs",
+  outDir: "dist",
   lastUpdated: true,
   cleanUrls: true,
   locales: {
