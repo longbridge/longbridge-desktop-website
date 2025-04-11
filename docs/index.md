@@ -23,7 +23,7 @@ features:
   - title: High Performance
     details: Smooth and responsive interface, no lag, stable FPS at 60+, and up to 120 FPS in some scenarios.
   - title: Low Overhead
-    details: Low CPU usage when running in the foreground (30%-40%), low memory usage (200MB-400MB), and low GPU usage (30%).
+    details: Low CPU & Memory usage when running in the foreground.
   - title: Cross Platform
-    details: Supports Windows, macOS, and Linux, built on platform-specific operating system APIs, and may support WebAssembly in the future.
+    details: Windows, macOS, and Linux all are support, built on platform-specific operating system APIs.
 ---

@@ -9,6 +9,7 @@ export default defineConfig({
   outDir: "dist",
   lastUpdated: true,
   cleanUrls: true,
+  appearance: false,
   head: [
     [
       "link",
@@ -20,6 +21,9 @@ export default defineConfig({
   ],
   themeConfig: {
     logo: "https://assets.lbctrl.com/uploads/1918a6d3-93d0-4c4f-95fc-a25c19e597bd/e19d0d3d0e85367309f4180194685f8a.png",
+    footer: {
+      copyright: "Copyright © 2024-present Longbridge",
+    },
   },
   locales: {
     root: { label: "English", ...en },
