@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 import { getReleaseNotes } from "./utils";
 
-const LOCALE = "zh-HK";
+const LOCALE = "zh-CN";
 
 const stableItems = getReleaseNotes(LOCALE, "");
 const previewItems = getReleaseNotes(LOCALE, "/preview");
