@@ -2,7 +2,6 @@ import { expect, test } from "bun:test";
 import { buildDownloadLinks, normalizeFileNames } from "./release-notes";
 
 test("buildDownloadLinks", () => {
-  // 设置环境变量 TAG 用于测试
   let links = buildDownloadLinks("v0.1.31");
   expect(links).toEqual(
     `
