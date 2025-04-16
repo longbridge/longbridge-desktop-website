@@ -1,5 +1,6 @@
 import { expect, test } from "bun:test";
-import { buildDownloadLinks, normalizeFileNames } from "./release-notes";
+import { buildDownloadLinks} from "./release-notes";
+import { normalizeFileNames } from "../.vitepress/config/utils";
 
 test("buildDownloadLinks", () => {
   let links = buildDownloadLinks("v0.1.31");

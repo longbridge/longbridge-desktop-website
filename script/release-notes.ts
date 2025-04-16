@@ -1,6 +1,7 @@
 #!/usr/bin/env bun
 import { $ } from "bun";
 import { randomUUID } from "crypto";
+import { normalizeFileNames } from "../.vitepress/config/utils";
 import path from "path";
 import fs from "fs";
 import process from "process";
@@ -193,45 +194,6 @@ ${body.trim()}
 
 ${downloads}
 `.trim();
-}
-
-// 版本号排序
-export function normalizeFileNames(names: string[]): string[] {
-  names.sort((a, b) => {
-    // 自定义版本号比较函数
-    const parseVersion = (ver: string) => {
-      const parts = ver.split('-');
-      const baseVersion = parts[0].replace('v', '').split('.').map(Number);
-      const suffix = parts[1] || '';
-      const isPreview = suffix.includes('preview');
-      const previewNum = isPreview ? parseInt(suffix.split('.')[1] || '0') : 0;
-      return { baseVersion, isPreview, previewNum };
-    };
-
-    const versionA = parseVersion(a);
-    const versionB = parseVersion(b);
-
-    // 比较基础版本号
-    for (let i = 0; i < versionA.baseVersion.length; i++) {
-      if (versionA.baseVersion[i] !== versionB.baseVersion[i]) {
-        return versionB.baseVersion[i] - versionA.baseVersion[i];
-      }
-    }
-
-    // 如果基础版本相同，正式版优先于预览版
-    if (versionA.isPreview !== versionB.isPreview) {
-      return versionA.isPreview ? 1 : -1;
-    }
-
-    // 如果都是预览版，比较预览版本号
-    if (versionA.isPreview && versionB.isPreview) {
-      return versionB.previewNum - versionA.previewNum;
-    }
-
-    return 0;
-  });
-  
-  return names;
 }
 
 function generateIndex(locale: Locale) {
