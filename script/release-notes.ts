@@ -87,7 +87,7 @@ export function buildDownloadLinks(version: string): string {
   }
 
   return `
-- [Windows x86_64](${CDN_URL}${OSS_PREFIX}/longbridge-${version}-windows-x86_64.zip)
+- [Windows x86_64](${CDN_URL}${OSS_PREFIX}/longbridge-${version}-windows-x86_64.exe)
 - [macOS ARM](${CDN_URL}${OSS_PREFIX}/longbridge-${version}-macos-aarch64.dmg)
 - [macOS x86_64](${CDN_URL}${OSS_PREFIX}/longbridge-${version}-macos-x86_64.dmg)
 - [Linux x64 (Debian)](${CDN_URL}${OSS_PREFIX}/longbridge-${version}-linux-x86_64.deb)
