@@ -177,7 +177,7 @@ function buildNotePage(json: any, body: string): string {
   let downloads = buildDownloadLinks(TAG);
   let headingSuffix = "";
   if (IS_PREVIEW) {
-    headingSuffix = `  <Badge type="warning" text="preview" />`;
+    headingSuffix = ` <Badge type="warning" text="preview" />`;
   }
 
   return `
