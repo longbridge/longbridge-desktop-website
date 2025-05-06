@@ -1,7 +1,12 @@
 <script setup>
 import { computed, ref, onMounted } from "vue";
 import { useRouter, useData } from "vitepress";
-import { getPlatform, getDownloads, createDownloadUrl } from "./utils";
+import {
+  getPlatform,
+  getDownloads,
+  createDownloadUrl,
+  getLocale,
+} from "./utils";
 
 const version = import.meta.env.VERSION || "v0.1.30";
 const router = useRouter();
@@ -46,7 +51,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="hero-section">
+  <div class="hero-section" :locale="getLocale()">
     <div class="hero-content">
       <h1 class="hero-name">
         {{ name }} <span class="hero-new-tag">New</span>
