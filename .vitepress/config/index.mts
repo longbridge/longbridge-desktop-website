@@ -14,6 +14,9 @@ export default defineConfig({
   appearance: false,
   vite: {
     plugins: [tailwindcss()],
+    define: {
+      'import.meta.env.VERSION': JSON.stringify(process.env.VERSION || 'v0.1.30')
+    },
   },
   head: [
     [
