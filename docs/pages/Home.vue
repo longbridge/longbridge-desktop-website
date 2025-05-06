@@ -122,7 +122,12 @@ onMounted(() => {
           </template>
         </div>
         <div class="release-notes">
-          <div class="release-version">{{ version }}</div>
+          <div class="release-version flex items-center gap-1">
+            <span>{{ version }}</span>
+            <span class="bg-orange-500 text-white px-1 rounded-md text-xs"
+              >Beta</span
+            >
+          </div>
           <a href="release-notes" class="release-notes-link">
             {{ download_more }}
           </a>
@@ -179,7 +184,7 @@ onMounted(() => {
 }
 
 .hero-tagline {
-  @apply text-2xl text-[var(--vp-c-text-2)] mb-10 leading-relaxed;
+  @apply text-xl text-[var(--vp-c-text-2)] mb-10 leading-relaxed;
 }
 
 .hero-buttons {
@@ -216,7 +221,7 @@ onMounted(() => {
 }
 
 .release-notes {
-  @apply items-center justify-center flex flex-row gap-x-5 text-base text-[var(--vp-c-text-2)];
+  @apply items-center justify-center flex flex-row gap-x-8 text-base text-[var(--vp-c-text-2)];
 }
 
 .release-notes-link {
