@@ -9,8 +9,6 @@ test("buildDownloadLinks", () => {
 - [Windows x86_64](https://assets.lbkrs.com/github/release/longbridge-desktop/stable/longbridge-v0.2.0-windows-x86_64.exe)
 - [macOS ARM](https://assets.lbkrs.com/github/release/longbridge-desktop/stable/longbridge-v0.2.0-macos-aarch64.dmg)
 - [macOS x86_64](https://assets.lbkrs.com/github/release/longbridge-desktop/stable/longbridge-v0.2.0-macos-x86_64.dmg)
-- [Linux x64 (Debian)](https://assets.lbkrs.com/github/release/longbridge-desktop/stable/longbridge-v0.2.0-linux-x86_64.deb)
-- [Linux x64 (AppImage)](https://assets.lbkrs.com/github/release/longbridge-desktop/stable/longbridge-v0.2.0-linux-x86_64.AppImage)
   `.trim(),
   );
 });
