@@ -11,6 +11,10 @@
   --vp-sidebar-bg-color: #F8F9FA;
 }
 
+.VPHome {
+  margin: 0 !important;
+}
+
 .vp-doc {
   h1 {
     display: flex;

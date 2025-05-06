@@ -155,6 +155,7 @@ onMounted(() => {
 
 <style scoped>
 @reference "tailwindcss";
+
 .hero-section {
   @apply flex flex-col items-center justify-center text-center py-16 px-8 max-w-[1200px] mx-auto gap-8;
 }
@@ -195,7 +196,7 @@ onMounted(() => {
 }
 
 .btn-download svg {
-  @apply w-5 h-5;
+  @apply w-7 h-7;
 }
 
 .btn-download.active {
@@ -263,11 +264,11 @@ onMounted(() => {
 }
 
 .features-container {
-  @apply max-w-[1200px] mx-auto py-16 px-8;
+  @apply flex flex-col max-w-[1200px] mx-auto py-16 px-8 gap-16;
 }
 
 .feature-row {
-  @apply flex items-start gap-16 min-h-[320px];
+  @apply flex items-start gap-16;
 }
 
 .feature-row.reverse {
@@ -275,7 +276,11 @@ onMounted(() => {
 }
 
 .feature-content {
-  @apply flex-[6];
+  @apply flex-[6] pl-3;
+}
+
+.feature-row.reverse .feature-content {
+  @apply pl-0 pr-3;
 }
 
 .feature-image {
@@ -286,12 +291,8 @@ onMounted(() => {
   @apply max-w-full h-auto transition-transform duration-300;
 }
 
-.feature-image img:hover {
-  @apply -translate-y-2;
-}
-
 .feature-content h3 {
-  @apply text-2xl font-semibold leading-tight mb-6;
+  @apply text-3xl font-semibold mb-8 mt-3;
   background: linear-gradient(
     120deg,
     var(--vp-c-brand) 0%,
@@ -304,7 +305,7 @@ onMounted(() => {
 }
 
 .feature-content li {
-  @apply mb-4 text-base leading-relaxed text-[var(--vp-c-text-1)] relative list-disc list-inside;
+  @apply mb-5 text-base leading-relaxed text-[var(--vp-c-text-1)] relative list-disc ml-6;
 }
 
 @media (max-width: 1200px) {
