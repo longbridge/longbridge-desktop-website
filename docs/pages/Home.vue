@@ -141,6 +141,9 @@ onMounted(() => {
             {{ download_more }}
           </a>
         </div>
+        <div
+          class="border-t border-dashed w-[250px] my-6 border-gray-300"
+        ></div>
         <div class="legacy-info" v-html="legacy_info"></div>
       </div>
     </div>
@@ -252,11 +255,11 @@ onMounted(() => {
 }
 
 .legacy-info {
-  @apply text-sm mt-2 text-gray-700 rounded-md py-1 px-4;
+  @apply text-sm text-gray-800 py-1 px-4;
 }
 
 .hero-image {
-  @apply w-full max-w-[1200px] mx-auto mb-8 relative h-[450px] flex justify-center items-center;
+  @apply w-full max-w-[1200px] mx-auto mb-8 relative h-[400px] flex justify-center items-center;
 }
 
 .hero-image-grid {
