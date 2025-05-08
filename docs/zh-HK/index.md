@@ -6,11 +6,11 @@ layout: home
 import Home from '../pages/Home.vue'
 </script>
 
-<Home 
+<Home
     name="Longbridge Pro"
     tagline="全新的專業證券交易桌面端，為您帶來極速流暢的投資體驗，讓交易更高效、更便捷。"
     download_more="查看更多版本"
-    legacy_info='當前為全新一代版本，功能正在持續優化和完善中，如需更完整的功能，可選擇 <a href="https://longbridge.com/download">下載上一代</a>。'
+    legacy_info='當前為全新一代版本，功能正在持續優化和完善中，如需更完整的功能，可選擇 <a href="https://longbridge.com/download" target="_blank">下載上一代</a>。'
     :features='[
         {
             "title": "全新架構，投資體驗全面提升",
