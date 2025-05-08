@@ -24,6 +24,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  legacy_info: {
+    type: String,
+    required: true,
+  },
   features: {
     type: Array,
     required: true,
@@ -137,6 +141,7 @@ onMounted(() => {
             {{ download_more }}
           </a>
         </div>
+        <div class="legacy-info" v-html="legacy_info"></div>
       </div>
     </div>
   </div>
@@ -244,6 +249,10 @@ onMounted(() => {
 .release-notes-link::after {
   content: "→";
   @apply transition-transform duration-200;
+}
+
+.legacy-info {
+  @apply text-sm mt-2 text-gray-700 rounded-md py-1 px-4;
 }
 
 .hero-image {

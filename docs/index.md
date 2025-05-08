@@ -9,6 +9,7 @@ import Home from './pages/Home.vue'
 <Home
   name="Longbridge Pro"
   tagline="A new professional securities trading desktop application, delivering an ultra-smooth investment experience for more efficient and convenient trading."
+  legacy_info='This brand new version is continuously being optimized and improved. <br />For a more complete feature set, you can download the <a href="https://longbridge.com/download">previous generation</a>.'
   download_more="View all versions"
   :features='[
     {
