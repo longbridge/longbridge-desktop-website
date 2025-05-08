@@ -162,17 +162,34 @@ export function buildReleaseNotesJSON(
   let [en = "", zhCN = "", zhHK = ""] = parts;
 
   let payload = {
-    en: buildNotePage(json, en),
-    "zh-CN": buildNotePage(json, zhCN),
-    "zh-HK": buildNotePage(json, zhHK),
+    en: buildNotePage("en", json, en),
+    "zh-CN": buildNotePage("zh-CN", json, zhCN),
+    "zh-HK": buildNotePage("zh-HK", json, zhHK),
   };
 
   return payload;
 }
 
-function buildNotePage(json: any, body: string): string {
+const locales = {
+  download: {
+    en: "Downloads",
+    "zh-CN": "下载",
+    "zh-HK": "下載",
+  },
+  releaseDate: {
+    en: "Release Date:",
+    "zh-CN": "发布日期：",
+    "zh-HK": "發布日期：",
+  },
+};
+
+function buildNotePage(locale: Locale, json: any, body: string): string {
   // Remove heading 1
   body = body.replace(/^[#]{1}[^#].*$/gm, "");
+
+  // 2025-05-08T12:20:56Z => 2025/05/08
+  let releaseDate = new Date(json.published_at).toISOString().split("T")[0];
+
 
   let downloads = buildDownloadLinks(TAG);
   let headingSuffix = "";
@@ -184,13 +201,16 @@ function buildNotePage(json: any, body: string): string {
 ---
 title: # ${json.name}
 editLink: true
+lastUpdated: false
 ---
 
-# ${json.name}${headingSuffix}
+# ${json.name} ${headingSuffix}
+
+_${locales.releaseDate[locale]} ${releaseDate}_
 
 ${body.trim()}
 
-## Downloads
+## ${locales.download[locale]}
 
 ${downloads}
 `.trim();
