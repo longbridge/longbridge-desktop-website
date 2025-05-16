@@ -4,6 +4,7 @@ import { getReleaseNotes } from "./utils";
 const LOCALE = "zh-HK";
 
 const stableItems = getReleaseNotes(LOCALE, "");
+const previewItems = getReleaseNotes(LOCALE, "preview");
 
 export default defineConfig({
   title: "Longbridge Pro",
@@ -21,6 +22,11 @@ export default defineConfig({
         text: "發布日誌",
         base: `/${LOCALE}/release-notes/`,
         items: stableItems,
+      },
+      {
+        text: "預覽版本",
+        base: `/${LOCALE}/release-notes/preview/`,
+        items: previewItems,
       },
     ],
 

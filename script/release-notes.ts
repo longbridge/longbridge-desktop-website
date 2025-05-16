@@ -181,6 +181,13 @@ const locales = {
     "zh-CN": "发布日期：",
     "zh-HK": "發布日期：",
   },
+  previewNote: {
+    en: "This is a preview version for early access, causing a high update frequency, it may have some issues. If you encounter any problems, please try upgrading or downgrading the version.",
+    "zh-CN":
+      "这是一个预览版本用于尝鲜体验，由于更新频率较高，可能存在一些问题，如发现问题请尝试升级或降级版本。",
+    "zh-HK":
+      "這是一個預覽版本用於嘗鮮體驗，由於更新頻率較高，可能存在一些問題，如發現問題請嘗試升級或降級版本。",
+  },
 };
 
 function buildNotePage(locale: Locale, json: any, body: string): string {
@@ -190,11 +197,12 @@ function buildNotePage(locale: Locale, json: any, body: string): string {
   // 2025-05-08T12:20:56Z => 2025/05/08
   let releaseDate = new Date(json.published_at).toISOString().split("T")[0];
 
-
   let downloads = buildDownloadLinks(TAG);
   let headingSuffix = "";
+  let previewNote = "";
   if (IS_PREVIEW) {
     headingSuffix = ` <Badge type="warning" text="preview" />`;
+    previewNote = `\n\n> [!CAUTION]\n> ${locales.previewNote[locale]}\n\n`;
   }
 
   return `
@@ -211,7 +219,7 @@ _${locales.releaseDate[locale]} ${releaseDate}_
 ${body.trim()}
 
 ## ${locales.download[locale]}
-
+${previewNote}
 ${downloads}
 `.trim();
 }
