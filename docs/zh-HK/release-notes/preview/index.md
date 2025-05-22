@@ -5,6 +5,7 @@ editLink: true
 
 # Release Notes
 
+- [v0.2.2-preview.5](v0.2.2-preview.5)
 - [v0.2.2-preview.4](v0.2.2-preview.4)
 - [v0.2.2-preview.3](v0.2.2-preview.3)
 - [v0.2.2-preview.2](v0.2.2-preview.2)
