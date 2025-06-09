@@ -138,15 +138,17 @@ export const useDetectMobile = () => {
 
 
 
-export const motionVisible = (time = 500, type = 'enter') => ({
+export const motionVisible = (time = 500, type = 'enter', options = { start: {}, end: {} }) => ({
   [`${type}`]: {
     opacity: 1,
     transition: {
       delay: time,
     },
+    ...options.start,
   },
   initial: {
     opacity: 0,
+    ...options.end,
   },
 })
 

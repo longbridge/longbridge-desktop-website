@@ -1,5 +1,5 @@
 <script setup>
-import { useDetectMobile, useLocale } from "./utils";
+import { useDetectMobile, useLocale, motionVisible } from "./utils";
 
 const { globalTrade } = useLocale();
 const isMobile = useDetectMobile();
@@ -8,7 +8,12 @@ const isMobile = useDetectMobile();
   <!-- Global Trading Section -->
   <section class="px-6 py-16">
     <div class="max-w-6xl mx-auto space-y-8">
-      <h2 class="text-3xl font-bold text-black lg:text-4xl">
+      <h2
+        class="text-3xl font-bold text-black lg:text-4xl"
+        v-motion="
+          motionVisible(300, 'visible', { start: { y: -50 }, end: { y: 0 } })
+        "
+      >
         <span v-html="globalTrade.title"></span>
       </h2>
       <div

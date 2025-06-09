@@ -63,7 +63,7 @@ const items: UpgradeItem[] = [
     <div class="w-auto mx-auto md:w-5xl">
       <div
         class="mb-12 text-3xl font-bold text-left text-black lg:text-4xl"
-        v-motion="motionVisible(300)"
+        v-motion="motionVisible(300, 'visible')"
       >
         <span v-html="upgrade.title"></span>
       </div>
@@ -71,7 +71,12 @@ const items: UpgradeItem[] = [
       <div
         class="grid md:grid-cols-3 gap-8 grid-cols-1 [&>div]:(bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-200 h-97)"
       >
-        <div v-for="item in items" :key="item.title" class="relative">
+        <div
+          v-for="(item, index) in items"
+          :key="item.title"
+          class="relative"
+          v-motion="motionVisible(100 * index + 300, 'visible')"
+        >
           <img
             :src="item.image"
             alt="flag image"

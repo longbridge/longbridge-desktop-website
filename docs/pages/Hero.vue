@@ -7,9 +7,8 @@ const { name, tagline, download_more, legacy_info } = useLocale();
 <template>
   <div class="max-w-6xl mx-auto">
     <div class="flex flex-col items-center justify-center mb-8">
-      <div class="relative">
+      <div class="relative" v-motion="motionVisible()">
         <h1
-          v-motion="motionVisible()"
           class="sm:!text-4xl md:!text-5xl lg:!text-6xl font-bold text-black mb-4 flex !items-baseline justify-center gap-4"
         >
           {{ name }}
@@ -36,7 +35,11 @@ const { name, tagline, download_more, legacy_info } = useLocale();
     />
 
     <!-- Main App Screenshot -->
-    <div class="w-auto mx-auto max-w-672xl lg:w-72rem" id="hero-image">
+    <div
+      class="w-auto mx-auto max-w-672xl lg:w-72rem"
+      id="hero-image"
+      v-motion="motionVisible()"
+    >
       <img
         src="https://assets.lbctrl.com/uploads/255864fe-b73c-4fb9-9910-71eb07f9a557/hero-image.png"
         alt="Longbridge Pro Interface"

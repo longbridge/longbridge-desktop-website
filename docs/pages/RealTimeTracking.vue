@@ -46,7 +46,9 @@ const setActiveTab = (index) => {
     <div class="max-w-6xl mx-auto">
       <h2
         class="!text-3xl lg:!text-4xl font-bold text-center !mb-12 text-black !pt-0"
-        v-motion="motionVisible()"
+        v-motion="
+          motionVisible(300, 'visible', { start: { y: -50 }, end: { y: 0 } })
+        "
       >
         <span v-html="realTimeTracking.title"></span>
       </h2>
@@ -104,7 +106,7 @@ const setActiveTab = (index) => {
               :src="tabs[activeTab].image"
               :alt="tabs[activeTab].title"
               class="w-88 h-49 lg:w-172 lg:h-98 rounded-lg"
-              v-motion="motionVisible()"
+              v-motion="motionVisible(300)"
             />
           </div>
 

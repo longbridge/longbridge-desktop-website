@@ -10,28 +10,6 @@ import Hero from "./Hero.vue";
 import { useDetectMobile, motionVisible } from "./utils";
 
 const isMobile = useDetectMobile();
-const props = defineProps({
-  name: {
-    type: String,
-    required: true,
-  },
-  tagline: {
-    type: String,
-    required: true,
-  },
-  download_more: {
-    type: String,
-    required: true,
-  },
-  legacy_info: {
-    type: String,
-    required: true,
-  },
-  features: {
-    type: Array,
-    required: true,
-  },
-});
 
 const { y } = useScroll(window);
 
@@ -76,7 +54,7 @@ watch(y, () => {
 
 <template>
   <div class="min-h-screen bg-white" ref="container">
-    <section class="py-16 px-6 text-center min-h-600px relative">
+    <section class="py-16 text-center min-h-600px relative">
       <template v-if="isMobile">
         <Hero />
         <Upgrade />
