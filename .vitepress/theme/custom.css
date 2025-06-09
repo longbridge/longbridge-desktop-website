@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 :root {
   --vp-c-brand-1: #1b1912;
   --vp-c-brand-2: #1b1912;
@@ -9,6 +7,9 @@
   --vp-home-hero-name-color: #101010;
   --vp-layout-max-width: 1280px;
   --vp-sidebar-bg-color: #F8F9FA;
+  --text-color-2: #82888d;
+  --text-color-3: #afb3b6;
+  --text-color-1-supplement: #464f56;
 }
 
 .VPHome {
@@ -20,7 +21,23 @@
     display: flex;
     gap: 12px;
     align-items: center;
+    font-family: "Cera Pro Light", sans-serif;
   }
+  h2,h3{
+    border: 0;
+    margin: 0;
+  }
+  p {
+    line-height: 1;
+    margin: 0;
+  }
+}
+
+/* reset preset vitepress padding */
+.vp-doc.container {
+  padding: 0px !important;
+  margin: 0px !important;
+  max-width: 100% !important;
 }
 
 /* medium plugin styles*/
