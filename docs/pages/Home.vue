@@ -73,7 +73,7 @@ watch(y, () => {
             class="absolute top-0 left-0 w-full z-11 h-[calc(100vh-64px+5rem)]"
           />
         </div>
-        <div class="absolute bottom-0 left-0 w-full h-20 z-10 bg-gray-50"></div>
+        <!-- <div class="absolute bottom-0 left-0 w-full h-24 z-10 bg-gray-50"></div> -->
       </template>
     </section>
 
