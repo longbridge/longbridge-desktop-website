@@ -2,7 +2,7 @@
 import DownloadInfo from "./DownloadInfo.vue";
 import { useLocale, motionVisible } from "./utils";
 
-const { name, tagline, download_more, legacy_info } = useLocale();
+const { name, tagline } = useLocale();
 </script>
 <template>
   <div class="max-w-6xl mx-auto">
@@ -27,12 +27,7 @@ const { name, tagline, download_more, legacy_info } = useLocale();
     </div>
 
     <!-- Download Buttons -->
-    <DownloadInfo
-      v-motion="motionVisible(1000)"
-      class="mb-6.5"
-      :download_more="download_more"
-      :legacy_info="legacy_info"
-    />
+    <DownloadInfo v-motion="motionVisible(1000)" class="mb-6.5" />
 
     <!-- Main App Screenshot -->
     <div

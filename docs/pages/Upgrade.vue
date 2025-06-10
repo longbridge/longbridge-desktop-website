@@ -58,7 +58,6 @@ const items: UpgradeItem[] = [
 ];
 </script>
 <template>
-  <!-- Upgraded Architecture Section -->
   <section class="relative flex items-center px-6 py-16" ref="flow">
     <div class="w-auto mx-auto md:w-5xl">
       <div
