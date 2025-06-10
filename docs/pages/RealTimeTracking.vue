@@ -42,12 +42,12 @@ const setActiveTab = (index) => {
 </script>
 
 <template>
-  <section class="px-6 py-20">
+  <section class="px-6 pb-18">
     <div class="max-w-6xl mx-auto">
       <h2
         class="!text-3xl lg:!text-4xl font-bold text-center !mb-12 text-black !pt-0"
         v-motion="
-          motionVisible(300, 'visible', { start: { y: -50 }, end: { y: 0 } })
+          motionVisible(300, 'visible', { start: { y: 20 }, end: { y: 0 } })
         "
       >
         <span v-html="realTimeTracking.title"></span>

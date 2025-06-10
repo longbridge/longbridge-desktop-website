@@ -59,7 +59,7 @@ const descriptionStyle = computed(() => {
 });
 
 const imageOpacity = useTransition(imageOpacityValue, {
-  duration: 500,
+  duration: 300,
   transition: TransitionPresets.easeInOutQuad,
 });
 
@@ -151,7 +151,7 @@ const handleSectionClick = (index) => {
           <div class="grid lg:grid-cols-2 gap-12 items-center grid-cols-1">
             <div class="space-y-6">
               <div class="overflow-hidden">
-                <h2 class="text-3xl lg:text-4xl font-bold text-black">
+                <h2 class="!text-3xl lg:!text-4xl font-bold text-black">
                   <span v-html="currentContent.title"></span>
                 </h2>
               </div>
@@ -201,7 +201,7 @@ const handleSectionClick = (index) => {
             </div>
             <div class="flex justify-center relative">
               <div class="relative w-full max-w-lg">
-                <div :style="imageStyle">
+                <div>
                   <component
                     v-if="currentContent.renderImage"
                     :is="currentContent.renderImage"
@@ -212,7 +212,6 @@ const handleSectionClick = (index) => {
                     :alt="currentContent.alt"
                     class="w-full h-auto rounded-lg transition-all duration-500"
                     :key="`image-${currentSection}`"
-                    v-motion="motionVisible()"
                   />
                 </div>
 

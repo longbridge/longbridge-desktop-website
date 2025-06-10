@@ -6,12 +6,12 @@ const isMobile = useDetectMobile();
 </script>
 <template>
   <!-- Global Trading Section -->
-  <section class="px-6 py-16">
+  <section class="px-6 py-18">
     <div class="max-w-6xl mx-auto space-y-8">
       <h2
-        class="text-3xl font-bold text-black lg:text-4xl"
+        class="!text-3xl font-bold text-black lg:!text-4xl"
         v-motion="
-          motionVisible(300, 'visible', { start: { y: -50 }, end: { y: 0 } })
+          motionVisible(300, 'visible', { start: { y: 20 }, end: { y: 0 } })
         "
       >
         <span v-html="globalTrade.title"></span>
