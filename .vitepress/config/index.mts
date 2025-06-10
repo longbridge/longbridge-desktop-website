@@ -7,7 +7,7 @@ import zh_cn from "./zh-CN.mts";
 import zh_hk from "./zh-HK.mts";
 
 export default defineConfig({
-  base: "/desktop/",
+  base: "/",
   srcDir: "docs",
   outDir: "dist",
   lastUpdated: true,
@@ -41,7 +41,7 @@ export default defineConfig({
     "zh-CN": { label: "简体中文", ...zh_cn },
     "zh-HK": { label: "繁體中文", ...zh_hk },
   },
-  transformHead({assets}) {
+  transformHead({ assets }) {
     const h1Font = assets.find(asset => /Cera-Pro-Light\.[\w-]+\.otf/.test(asset))
     if (!h1Font) return []
     return [
