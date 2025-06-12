@@ -48,7 +48,7 @@ watch(y, () => {
   // 添加缓动效果
   const y = translateY * 2; // 缓动系数
   const easedY = Number(y.toFixed(2));
-  if (easedY > 600) {
+  if (easedY > 700) {
     easedTranslateY.value = easedY;
   } else {
     easedTranslateY.value = 0;
@@ -72,9 +72,10 @@ watch(y, () => {
           }">
           <Upgrade class="absolute top-0 left-0 w-full h-[calc(100vh-64px+5rem)]" />
         </div>
-        <div v-if="!isMobile && easedTranslateY > 600"
-          class="absolute top-0 left-0 w-full h-full z-10 opacity-0 backdrop-blur-30px bg-white/80" :style="{
-            opacity: easedTranslateY > 600 ? easedTranslateY / 100 : 0,
+        <div v-if="!isMobile" class="absolute top-0 left-0 w-full h-full z-10 opacity-0 backdrop-blur-30px bg-white/80"
+          :style="{
+            opacity: easedTranslateY > 700 ? easedTranslateY / 100 : 0,
+            visibility: easedTranslateY > 700 ? 'visible' : 'hidden',
           }">
         </div>
       </template>
