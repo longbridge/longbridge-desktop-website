@@ -69,37 +69,37 @@ export default {
     tabs: {
       tab_0: {
         title: "智能异动监测",
-        description: "毫秒级预警自选股异动，机会从不漏网",
+        description: "毫秒级预警自选股异动，机会从不漏网。",
         image: "https://assets.lbctrl.com/uploads/3c70e18d-12f2-4287-8f45-9ad5658fcba1/real-time.png",
       },
       tab_1: {
         title: "直观热力图谱",
-        description: "全市场行情一目了然，热点尽在掌握",
+        description: "全市场行情一目了然，热点尽在掌握。",
         image: "https://assets.lbctrl.com/uploads/5a1afc15-98dc-4757-9396-65dd872d4b61/real-time-2.png",
       },
       tab_2: {
         title: "主力资金追踪",
-        description: "大单动向实时解析，迅速把握主力动向",
+        description: "大单动向实时解析，迅速把握主力动向。",
       },
     },
   },
   globalTrade: {
     title: "全球极速交易<br />多品种一键搞定",
     items: [
-      "港股/美股/A 股/新加坡股，一屏触达全球市场",
-      "做多/美股做空/美股期权/港股窝轮牛熊证，丰富工具把握机遇",
-      "开启智能交易面板，下单快人一步，持仓实时监控，交易显著提效"
+      "港股、美股、A 股、新加坡股，一屏触达全球市场。",
+      "做多、美股做空、美股期权、港股窝轮牛熊证，丰富工具把握机遇。",
+      "开启智能交易面板，下单快人一步，持仓实时监控，交易显著提效。"
     ],
   },
   smartNav: {
     button: "智能导航",
     button_2: "历史记录",
     title: "智能导航系统<br />市场动态一触即达",
-    description: "独创导航栏标签页，重要股票秒查报价",
-    description_2: "一键回溯重要信息，历史记录随时调取",
+    description: "独创导航栏标签页，重要股票秒查报价。",
+    description_2: "一键回溯重要信息，历史记录随时调取。",
   },
   multiPlatform: {
     title: "多端支持，专业盯盘更高效",
-    description: "全新跨平台原生版本，支持 Windows、Mac、Linux<br/>支持扩展多屏幕，行情、图表、资讯分屏掌控",
+    description: "全新跨平台原生版本，支持 Windows、Mac、Linux<br/>支持扩展多屏幕，行情、图表、资讯分屏掌控。",
   },
 };
