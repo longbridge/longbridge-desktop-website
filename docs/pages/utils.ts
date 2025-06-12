@@ -167,5 +167,5 @@ export const useLocale = () => {
   if (locales[lang]) {
     return locales[lang]
   }
-  return locales['zh-CN']
+  return locales['en']
 }
