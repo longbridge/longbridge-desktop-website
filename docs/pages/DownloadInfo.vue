@@ -3,7 +3,7 @@ import { computed, onMounted } from "vue";
 import { getDownloads, getPlatform } from "./utils";
 import { useLocale } from "./utils";
 
-const { download_more, legacy_info, download_link } = useLocale();
+const { download_more, legacy_info } = useLocale();
 
 const version = import.meta.env.VERSION || "v0.1.30";
 
@@ -65,12 +65,12 @@ onMounted(() => {
           <span class="version">{{ version }}</span>
           <span class="bg-orange-500 text-white px-1 rounded-md text-xs">Beta</span>
         </span>
-        <a :href="download_link" target="_blank"
+        <a href="release-notes"
           class="group flex items-center justify-center gap-1 cursor-pointer ml-2 !no-underline !text-[var(--vp-c-brand-3)] relative hover:animate-pulse">
           <span class="inline-block group-hover:translate-x-1 transition-transform duration-300">
             {{ download_more }}
           </span>
-          <svg class="group-hover:translate-x-2 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg"
+          <svg class="group-hover:translate-x-1 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg"
             width="16" height="16" viewBox="0 0 24 24">
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M5 12h14m-7-7l7 7l-7 7" />
