@@ -26,7 +26,7 @@ onMounted(() => {
 </script>
 <template>
   <div>
-    <div class="flex flex-wrap items-center gap-4 justify-center mb-4">
+    <div class="flex flex-wrap items-center gap-4 justify-center mb-4 lt-sm:(flex-col [&>a]:(min-w-35%))">
       <template v-for="link in downloads">
         <a :href="link.url"
           class="btn-download rounded-md min-w-35 hidden items-center gap-3 whitespace-nowrap text-base bg-[var(--vp-c-brand)] !text-white shadow-md py-2 px-4 font-medium hover:!-translate-y-0.5 !transition-all !duration-300 hover:shadow-lg !no-underline"

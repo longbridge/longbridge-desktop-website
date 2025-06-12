@@ -88,13 +88,13 @@ watch(y, () => {
       <!-- Global Trading Section -->
       <section class="px-6 py-8 lg:py-18">
         <div class="max-w-[1200px] mx-auto space-y-8">
-          <h2 class="!text-3xl font-bold text-black lg:!text-4xl" v-motion="motionVisible(300, 'visible', { start: { y: 20 }, end: { y: 0 } })
-            ">
+          <h2 class="!text-3xl font-bold text-black lg:!text-4xl lt-sm:(text-center)"
+            v-motion="motionVisible(300, 'visible', { start: { y: 20 }, end: { y: 0 } })">
             <span v-html="globalTrade.title"></span>
           </h2>
           <div
             class="flex flex-col-reverse items-center gap-12 px-6 py-8 lg:justify-between lg:flex-row bg-gray-50 lg:py-16 rounded-xl">
-            <ul class="space-y-10 lt-sm:(space-y-4) text-black list-none w-75 lg:text-xl">
+            <ul class="space-y-10 lt-sm:(space-y-4 !p-0) text-black list-none w-75 lg:text-xl">
               <li class="flex items-start gap-3">
                 <span class="flex-shrink-0 font-bold">✓</span>
                 <span v-html="globalTrade.items[0]"></span>
