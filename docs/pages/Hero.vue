@@ -5,7 +5,7 @@ import { useLocale, motionVisible } from "./utils";
 const { name, tagline } = useLocale();
 </script>
 <template>
-  <div class="max-w-[1240px] mx-auto">
+  <div class="max-w-[1200px] mx-auto">
     <div class="flex flex-col items-center justify-center mb-8">
       <div class="relative">
         <h1

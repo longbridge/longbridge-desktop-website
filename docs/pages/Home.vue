@@ -82,7 +82,7 @@ watch(y, () => {
 
       <!-- Global Trading Section -->
       <section class="px-6 py-18">
-        <div class="max-w-[1240px] mx-auto space-y-8">
+        <div class="max-w-[1200px] mx-auto space-y-8">
           <h2
             class="!text-3xl font-bold text-black lg:!text-4xl"
             v-motion="
@@ -141,7 +141,7 @@ watch(y, () => {
 
       <!-- Multi-Platform Monitoring -->
       <section class="py-16 px-6">
-        <div class="max-w-[1240px] mx-auto">
+        <div class="max-w-[1200px] mx-auto">
           <img
             src="https://assets.lbctrl.com/uploads/2d66f21e-86b5-4b79-aef3-32bfa7d6a6c3/multi.png"
             alt="Platform 6"
