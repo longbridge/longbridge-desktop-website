@@ -10,17 +10,17 @@
   --text-color-2: #82888d;
   --text-color-3: #afb3b6;
   --text-color-1-supplement: #464f56;
-  --lb-gray-1: #929292;
-  --vp-font-family-base: 'PingFang SC', 'Inter', ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --lb-font: 'Cera Pro Light', sans-serif;
 }
 
 .VPHome {
   margin: 0 !important;
 }
 
-.vp-doc {
+.vp-doc #home-page {
+  --lb-gray-1: #929292;
+  --vp-font-family-base: 'PingFang SC', 'Inter', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --lb-font: 'Cera Pro Light', sans-serif;
   h1 {
     display: flex;
     gap: 12px;
