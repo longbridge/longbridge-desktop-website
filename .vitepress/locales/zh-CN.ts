@@ -100,6 +100,6 @@ export default {
   },
   multiPlatform: {
     title: "多端支持，专业盯盘更高效",
-    description: "全新跨平台原生版本，支持 Windows、Mac、Linux<br/>支持扩展多屏幕，行情、图表、资讯分屏掌控。",
+    description: "全新跨平台原生版本，支持 Windows、Mac、Linux<br/>支持扩展多屏幕，行情、图表、资讯分屏掌控",
   },
 };
