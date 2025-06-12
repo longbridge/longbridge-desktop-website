@@ -345,7 +345,6 @@ const t = (key) => {
 </template>
 
 <style scoped>
-@reference "tailwindcss";
 
 .contact-item .links {
     @apply flex flex-col gap-3 mt-3 mb-5;

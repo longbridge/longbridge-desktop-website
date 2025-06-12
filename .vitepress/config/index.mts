@@ -1,5 +1,6 @@
 import { defineConfig } from "vitepress";
-import tailwindcss from '@tailwindcss/vite'
+import Unocss from 'unocss/vite'
+import Inspect from 'vite-plugin-vue-inspector'
 
 import en from "./en.mts";
 import zh_cn from "./zh-CN.mts";
@@ -13,7 +14,12 @@ export default defineConfig({
   cleanUrls: true,
   appearance: false,
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [
+      Unocss({
+        configFile: '../../unocss.config.ts',
+      }),
+      Inspect()
+    ],
     define: {
       'import.meta.env.VERSION': JSON.stringify(process.env.VERSION || 'v0.1.30')
     },
@@ -34,5 +40,21 @@ export default defineConfig({
     root: { label: "English", ...en },
     "zh-CN": { label: "简体中文", ...zh_cn },
     "zh-HK": { label: "繁體中文", ...zh_hk },
+  },
+  transformHead({ assets }) {
+    const h1Font = assets.find(asset => /Cera-Pro-Light\.[\w-]+\.otf/.test(asset))
+    if (!h1Font) return []
+    return [
+      [
+        "link",
+        {
+          rel: "preload",
+          href: h1Font,
+          as: "font",
+          type: "font/otf",
+          crossorigin: "",
+        },
+      ],
+    ];
   },
 });
