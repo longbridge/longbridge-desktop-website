@@ -157,7 +157,6 @@ export const motionVisible = (time = 500, type = 'enter', options = {
 })
 
 export const useLocale = () => {
-
   const lang = getLocale()
   const locales = {
     en,
