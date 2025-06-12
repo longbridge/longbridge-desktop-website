@@ -1,7 +1,7 @@
 export default {
     name: "Longbridge Pro",
-    tagline: "A new professional securities trading desktop application, delivering an ultra-smooth investment experience for more efficient and convenient trading.",
-    download_more: "All versions...",
+    tagline: "Faster, smoother, more efficient",
+    download_more: "View all versions >",
     legacy_info: `We're constantly improving and optimizing the features in this latest version. <br />For access to more complete functionality, feel free to <a href="https://longbridge.com/download" target="_blank">download the previous version.</a>`,
     features: [
         {
@@ -41,7 +41,7 @@ export default {
         }
     ],
     upgrade: {
-        title: "Upgraded Architecture<br />Enhanced Experience",
+        title: "Upgraded Architecture,<br />Enhanced Experience",
         tab1: {
             title: "Lightning<br />Speed",
             description_1: "Up to",
@@ -52,9 +52,10 @@ export default {
         },
         tab2: {
             title: "Instant<br />Launch",
-            description_1: "Ready in",
+            description_1: "Ready in under",
             description_2: "2s",
-            description_3: "Seize every investment opportunity",
+            description_3: "Seize every investment",
+            description_4: "opportunity"
         },
         tab3: {
             title: "Featherlight<br />Installation",
@@ -68,23 +69,23 @@ export default {
         title: "Real-Time Tracking Seizing Trading Edge",
         tabs: {
             tab_0: {
-                title: "Smart Anomaly Monitoring",
+                title: "Smart Activity Monitoring",
                 description:
-                    "Get millisecond alerts on your watchlist, so you'll always catch key stock moves",
+                    "Get millisecond alerts on your watchlist, so you'll always catch key stock moves.",
                 image:
                     "https://assets.lbctrl.com/uploads/4f00591c-9460-4593-bff8-65209054f9fe/real-time.png",
             },
             tab_1: {
-                title: "Interactive Heatmaps",
+                title: "Intuitive Heatmap",
                 description:
-                    "Visualize market trends with interactive heat maps and real-time data analysis",
+                    "Visualize market trends with interactive heat maps and real-time data analysis.",
                 image:
                     "https://assets.lbctrl.com/uploads/5a1afc15-98dc-4757-9396-65dd872d4b61/real-time-2.png",
             },
             tab_2: {
-                title: "Big Money Radar",
+                title: "Institutional Flow Tracking",
                 description:
-                    "Track institutional movements and large volume transactions in real-time",
+                    "Track institutional movements and large volume transactions in real-time.",
             },
         },
     },
@@ -100,8 +101,8 @@ export default {
         button: "Smart Navigation",
         button_2: "History",
         title: "Smart Navigation, <br/>Instant Insights",
-        description: "Customizable tabbed navigation for instant stock quotes",
-        description_2: "One-click access to historical records",
+        description: "Customizable tabbed navigation <br/>for instant stock quotes",
+        description_2: "One-click access to <br/>historical records",
     },
     multiPlatform: {
         title: "Multi-Platform Support, <br/>Professional Market Monitoring",

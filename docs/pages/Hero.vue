@@ -5,9 +5,9 @@ import { useLocale, motionVisible } from "./utils";
 const { name, tagline } = useLocale();
 </script>
 <template>
-  <div class="max-w-6xl mx-auto">
+  <div class="max-w-[1240px] mx-auto">
     <div class="flex flex-col items-center justify-center mb-8">
-      <div class="relative" v-motion="motionVisible()">
+      <div class="relative">
         <h1
           class="sm:!text-4xl md:!text-5xl lg:!text-6xl font-bold text-black mb-4 flex !items-baseline justify-center gap-4"
         >
@@ -19,24 +19,23 @@ const { name, tagline } = useLocale();
         >
       </div>
       <p
-        v-motion="motionVisible(750)"
-        class="max-w-2xl mx-auto text-lg text-gray-600"
+        class="max-w-2xl mx-auto text-lg text-[var(--lb-gray-1)]"
       >
         {{ tagline }}
       </p>
     </div>
 
     <!-- Download Buttons -->
-    <DownloadInfo v-motion="motionVisible(1000)" class="mb-6.5" />
+    <DownloadInfo class="mb-6.5" />
 
     <!-- Main App Screenshot -->
     <div
-      class="w-auto mx-auto max-w-672xl lg:w-72rem"
+      class="w-auto mx-auto lg:w-5xl"
       id="hero-image"
-      v-motion="motionVisible()"
+      v-motion="motionVisible(300, 'visible')"
     >
       <img
-        src="https://assets.lbctrl.com/uploads/255864fe-b73c-4fb9-9910-71eb07f9a557/hero-image.png"
+        src="https://assets.lbctrl.com/uploads/53064e20-ebbb-4e0a-9e52-c2607e274c6f/hero-image.png"
         alt="Longbridge Pro Interface"
         class="w-full h-auto rounded-lg"
       />

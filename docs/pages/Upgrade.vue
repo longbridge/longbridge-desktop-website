@@ -35,10 +35,11 @@ const items: UpgradeItem[] = [
     description: [
       { style: "text-lg lg:text-xl", text: upgrade.tab2.description_1 },
       {
-        style: "text-10 leading-8 lg:text-17.5 lg:leading-15 font-bold",
+        style: "text-10 leading-8 lg:text-17.5 lg:leading-15 font-bold mb-4",
         text: upgrade.tab2.description_2,
       },
-      { style: "mb-26px", text: upgrade.tab2.description_3 },
+      { style: "", text: upgrade.tab2.description_3 },
+      { style: "", text: upgrade.tab2.description_4 },
     ],
     image:
       "https://assets.lbctrl.com/uploads/581199f5-90c6-48b1-98fc-6fd8b626ffb9/flag-2.png",
@@ -88,8 +89,8 @@ const items: UpgradeItem[] = [
             <p class="text-lg font-semibold text-left text-black lg:text-6.5">
               <span v-html="item.title"></span>
             </p>
-            <div class="space-y-2 text-left">
-              <p class="flex" v-for="desc in item.description" :key="desc.text">
+            <div class="flex-1 flex flex-col justify-end space-y-2 text-left">
+              <p class="flex" v-for="desc in item.description.filter(desc => desc.text)" :key="desc.text">
                 <span :class="desc.style">{{ desc.text }}</span>
                 <span
                   v-for="child in desc.children"
