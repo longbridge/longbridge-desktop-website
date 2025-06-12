@@ -2,6 +2,7 @@ export default {
     name: "Longbridge Pro",
     tagline: "Faster, smoother, more efficient",
     download_more: "View all versions",
+    download_link: "https://longbridge.com/desktop/release-notes",
     legacy_info: `We're constantly improving and optimizing the features in this latest version. <br />For access to more complete functionality, feel free to <a href="https://longbridge.com/download" target="_blank">download the previous version.</a>`,
     features: [
         {

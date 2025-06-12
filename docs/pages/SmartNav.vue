@@ -44,19 +44,19 @@ const handleTabClick = (index) => {
         <div class="flex flex-col lg:flex-row justify-between items-center bg-white rounded-xl">
           <!-- 左侧内容 -->
           <div class="space-y-8 flex flex-col justify-between h-full">
-            <div class="pt-12 px-8 lg:px-12">
+            <div class="pt-12 px-12 lt-sm:(px-8 pt-4)">
               <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-black leading-tight">
                 <span v-html="content.title"></span>
               </h1>
             </div>
 
             <!-- 特性列表 -->
-            <div class="space-y-6 pb-12">
+            <div class="space-y-6 pb-12 lt-sm:(pb-4)">
               <div v-for="(feature, index) in content.features" :key="index" :data-active="activeTab === index"
                 class="space-y-1 pl-8 lg:pl-12 relative hover:cursor-pointer data-[active='true']:(after:bg-black) after:(content-[''] w-3px h-full bg-[var(--lb-gray-1)] absolute left-0 top-0)"
                 @click="handleTabClick(index)">
                 <div :data-active="activeTab === index"
-                  class="text-lg lg:text-xl text-[var(--lb-gray-1)] data-[active='true']:(text-black font-bold)"
+                  class="text-xl lt-sm:(text-sm) text-[var(--lb-gray-1)] data-[active='true']:(text-black font-bold)"
                   v-html="feature"></div>
               </div>
             </div>
