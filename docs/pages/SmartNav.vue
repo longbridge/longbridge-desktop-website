@@ -1,10 +1,9 @@
 <script setup>
 import { ref, useTemplateRef } from "vue";
-import { useLocale, useDetectMobile } from "./utils";
+import { useLocale } from "./utils";
 import { useIntersectionObserver } from "@vueuse/core";
 
 const { smartNav } = useLocale();
-const isMobile = useDetectMobile();
 const video = useTemplateRef('video');
 useIntersectionObserver(video, ([{ isIntersecting }]) => {
   if (isIntersecting && video.value.paused) {
@@ -32,7 +31,7 @@ const content = {
 }
 const handleTabClick = (index) => {
   activeTab.value = index;
-  if (video.value &&video.value.paused) {
+  if (video.value && video.value.paused) {
     video.value.play();
   }
 }
@@ -55,9 +54,10 @@ const handleTabClick = (index) => {
             <div class="space-y-6 pb-12">
               <div v-for="(feature, index) in content.features" :key="index" :data-active="activeTab === index"
                 class="space-y-1 pl-12 relative hover:cursor-pointer data-[active='true']:(after:bg-black) after:(content-[''] w-3px h-full bg-[var(--lb-gray-1)] absolute left-0 top-0)"
-                @click="handleTabClick(index)"
-                >
-                <div :data-active="activeTab === index " class="text-lg lg:text-xl text-[var(--lb-gray-1)] data-[active='true']:(text-black font-bold)" v-html="feature"></div>
+                @click="handleTabClick(index)">
+                <div :data-active="activeTab === index"
+                  class="text-lg lg:text-xl text-[var(--lb-gray-1)] data-[active='true']:(text-black font-bold)"
+                  v-html="feature"></div>
               </div>
             </div>
           </div>
@@ -65,7 +65,9 @@ const handleTabClick = (index) => {
           <!-- 右侧图片 -->
           <div class="flex justify-center lg:justify-end py-4 pr-4">
             <div class="relative max-w-3xl w-full">
-               <video ref="video" src="https://assets.lbctrl.com/uploads/7f24579e-1c9c-4958-8af5-c2aa294d9498/desktop_en.mp4" class="rounded-lg w-83 h-46 lg:w-160 lg:h-90" :controls="false"></video>
+              <video ref="video"
+                src="https://assets.lbctrl.com/uploads/7f24579e-1c9c-4958-8af5-c2aa294d9498/desktop_en.mp4"
+                class="rounded-lg w-83 h-46 lg:w-160 lg:h-90" :controls="false"></video>
             </div>
           </div>
         </div>

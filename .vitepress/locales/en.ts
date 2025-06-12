@@ -1,7 +1,7 @@
 export default {
     name: "Longbridge Pro",
     tagline: "Faster, smoother, more efficient",
-    download_more: "View all versions >",
+    download_more: "View all versions",
     legacy_info: `We're constantly improving and optimizing the features in this latest version. <br />For access to more complete functionality, feel free to <a href="https://longbridge.com/download" target="_blank">download the previous version.</a>`,
     features: [
         {
@@ -73,24 +73,26 @@ export default {
                 description:
                     "Get millisecond alerts on your watchlist, so you'll always catch key stock moves.",
                 image:
-                    "https://assets.lbctrl.com/uploads/3c70e18d-12f2-4287-8f45-9ad5658fcba1/real-time.png",
+                    "https://assets.lbctrl.com/uploads/a216146b-4e0e-468d-a5e4-2eb2cd464f05/real-time.png",
             },
             tab_1: {
                 title: "Intuitive Heatmap",
                 description:
                     "Visualize market trends with interactive heat maps and real-time data analysis.",
                 image:
-                    "https://assets.lbctrl.com/uploads/5a1afc15-98dc-4757-9396-65dd872d4b61/real-time-2.png",
+                    "https://assets.lbctrl.com/uploads/f6beade7-25d6-4e4c-884b-7bac76576990/real-time-2.png",
             },
             tab_2: {
                 title: "Institutional Flow Tracking",
                 description:
                     "Track institutional movements and large volume transactions in real-time.",
+                image:
+                    "https://assets.lbctrl.com/uploads/f518cc0a-fdd7-4461-963b-6c093a636dbf/real-time-3.png",
             },
         },
     },
     globalTrade: {
-        title: "Global Trading<br />At Your Fingertips",
+        title: "Global Trading,<br />at Your Fingertips",
         items: [
             "Trade HK, US, A-shares, and Singapore stocks, all from one screen",
             "Diverse tools including long/short positions, US stock options, and HK Warrants/CBBCs",

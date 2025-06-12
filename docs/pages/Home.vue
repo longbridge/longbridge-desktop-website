@@ -98,11 +98,12 @@ watch(y, () => {
               </li>
             </ul>
             <div class="relative flex justify-center">
-              <img src="https://assets.lbctrl.com/uploads/2ab5532e-1d1f-4a0a-bb3a-e6a6a6db784a/global.png"
+              <img src="https://assets.lbctrl.com/uploads/4afae8f6-0ae0-42e2-9ada-d90fb8ecbc3b/global.png"
                 alt="Global Trading Interface" class="rounded-lg w-83 h-46 lg:w-160 lg:h-90" />
-              <img src="https://assets.lbctrl.com/uploads/e365e33e-77ef-45f3-bf5a-0e7738e8bfd9/global-mask.png"
+              <img src="https://assets.lbctrl.com/uploads/3dfc6dbf-2b0a-4c91-80d6-4f021c20bed2/global-mask.png"
                 alt="Global Trading Interface"
-                class="absolute top-0 left-0 rounded-lg w-60 h-30 md:w-100 md:h-50 lg:w-141 lg:h-66" v-motion="{
+                class="absolute top-0 left-0 rounded-lg w-60 h-30 md:w-100 md:h-50 lg:w-141 lg:h-66 object-cover"
+                v-motion="{
                   visible: {
                     y: !isMobile ? 145 : 104,
                     x: !isMobile ? -100 : -33,

@@ -70,16 +70,17 @@ export default {
       tab_0: {
         title: "智能异动监测",
         description: "毫秒级预警自选股异动，机会从不漏网",
-        image: "https://assets.lbctrl.com/uploads/3c70e18d-12f2-4287-8f45-9ad5658fcba1/real-time.png",
+        image: "https://assets.lbctrl.com/uploads/a216146b-4e0e-468d-a5e4-2eb2cd464f05/real-time.png",
       },
       tab_1: {
         title: "直观热力图谱",
         description: "全市场行情一目了然，热点尽在掌握",
-        image: "https://assets.lbctrl.com/uploads/5a1afc15-98dc-4757-9396-65dd872d4b61/real-time-2.png",
+        image: "https://assets.lbctrl.com/uploads/f6beade7-25d6-4e4c-884b-7bac76576990/real-time-2.png",
       },
       tab_2: {
         title: "主力资金追踪",
         description: "大单动向实时解析，迅速把握主力动向",
+        image: "https://assets.lbctrl.com/uploads/f518cc0a-fdd7-4461-963b-6c093a636dbf/real-time-3.png",
       },
     },
   },

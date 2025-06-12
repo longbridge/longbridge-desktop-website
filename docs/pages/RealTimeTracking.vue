@@ -1,38 +1,8 @@
 <script setup>
-import { ref, shallowRef, h } from "vue";
-import MotionImage from "./MotionImage.vue";
-import { useLocale, motionVisible, useDetectMobile } from "./utils";
+import { ref, shallowRef } from "vue";
+import { useLocale, motionVisible } from "./utils";
 
 const { realTimeTracking } = useLocale();
-const isMobile = useDetectMobile();
-
-const vMotion = !isMobile.value
-  ? {
-    initial: {
-      opacity: 0,
-      y: -420,
-      x: 600,
-    },
-    visible: {
-      opacity: 1,
-      y: -420,
-      x: 530,
-      transition: {
-        duration: 500,
-      },
-    },
-  }
-  : {
-    initial: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 500,
-      },
-    },
-  };
 
 const tabs = shallowRef([
   {
@@ -48,16 +18,7 @@ const tabs = shallowRef([
   {
     title: realTimeTracking.tabs.tab_2.title,
     description: realTimeTracking.tabs.tab_2.description,
-    renderImage: h(MotionImage, {
-      image_url:
-        "https://assets.lbctrl.com/uploads/422bc401-c665-459a-b976-cd13dc957612/real-time-3.png",
-      image_class: 'relative w-88 h-49 lg:w-172 lg:h-98 rounded-lg',
-      image_mask_url:
-        "https://assets.lbctrl.com/uploads/3f2b052b-428c-434e-a6ea-09571c18d519/real-time-3-mask.png",
-      image_mask_position: isMobile.value ? { top: "-22px", right: "-10px" } : {},
-      image_mask_class: 'absolute w-25 h-45 lg:w-50 lg:h-91 rounded-lg',
-      vMotion,
-    }),
+    image: realTimeTracking.tabs.tab_2.image,
   },
 ]);
 // 响应式状态
@@ -112,7 +73,7 @@ const setActiveTab = (index) => {
               <component :is="tabs[activeTab].renderImage" />
             </template>
             <img v-else :src="tabs[activeTab].image" :alt="tabs[activeTab].title"
-              class="w-88 h-49 lg:w-172 lg:h-98 rounded-lg" v-motion="motionVisible(300)" />
+              class="w-88 h-49 lg:w-172 lg:h-98 rounded-lg object-cover" v-motion="motionVisible(300)" />
           </div>
 
           <!-- Tabs with underline style -->
