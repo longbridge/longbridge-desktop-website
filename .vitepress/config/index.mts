@@ -7,7 +7,7 @@ import zh_cn from "./zh-CN.mts";
 import zh_hk from "./zh-HK.mts";
 
 export default defineConfig({
-  base: "/",
+  base: "/desktop/",
   srcDir: "docs",
   outDir: "dist",
   lastUpdated: true,
