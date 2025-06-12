@@ -59,7 +59,7 @@ watch(y, () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-white" ref="container">
+  <div id="home-page" class="min-h-screen bg-white" ref="container">
     <section class="py-16 text-center min-h-600px relative">
       <template v-if="isMobile">
         <Hero />
