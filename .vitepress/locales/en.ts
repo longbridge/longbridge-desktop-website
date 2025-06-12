@@ -2,7 +2,7 @@ export default {
     name: "Longbridge Pro",
     tagline: "Faster, smoother, more efficient",
     download_more: "View all versions >",
-    legacy_info: `We're constantly improving and optimizing the features in this latest version. <br />For access to more complete functionality, feel free to <a href="https://longbridge.com/download" target="_blank">download the previous version.</a>`,
+    legacy_info: `We're constantly improving and optimizing the features in this latest version.<br />For access to more complete functionality, feel free to <a href="https://longbridge.com/download" target="_blank">download the previous version.</a>`,
     features: [
         {
             "title": "New Architecture, Enhanced Investment Experience",
@@ -47,7 +47,7 @@ export default {
             description_1: "Up to",
             description_2: "120",
             description_3: "FPS",
-            description_4: "Seamless trading, setting a new",
+            description_4: "Seamless trading, setting a new.",
             description_5: "speed benchmark",
         },
         tab2: {
@@ -90,22 +90,22 @@ export default {
         },
     },
     globalTrade: {
-        title: "Global Trading<br />At Your Fingertips",
+        title: "Global Trading,<br />at Your Fingertips",
         items: [
-            "Trade HK, US, A-shares, and Singapore stocks, all from one screen",
-            "Diverse tools including long/short positions, US stock options, and HK Warrants/CBBCs",
-            "Smart order panel with real-time portfolio tracking",
+            "Trade HK, US, A-shares, and Singapore stocks, all from one screen.",
+            "Diverse tools including long/short positions, US stock options, and HK Warrants/CBBCs.",
+            "Smart order panel with real-time portfolio tracking.",
         ],
     },
     smartNav: {
         button: "Smart Navigation",
         button_2: "History",
-        title: "Smart Navigation, <br/>Instant Insights",
-        description: "Customizable tabbed navigation <br/>for instant stock quotes",
-        description_2: "One-click access to <br/>historical records",
+        title: "Smart Navigation,<br/>Instant Insights",
+        description: "Customizable tabbed navigation <br/>for instant stock quotes.",
+        description_2: "One-click access to <br/>historical records.",
     },
     multiPlatform: {
-        title: "Multi-Platform Support, <br/>Professional Market Monitoring",
+        title: "Multi-platform Support,<br/>Professional Market Monitoring",
         description: "Native versions for Windows, Mac, and Linux.<br/>Multi-screen support for full control of market data, charts, and news.",
     },
 };
