@@ -24,7 +24,7 @@ const { name, tagline } = useLocale();
     <DownloadInfo class="mb-6.5" />
 
     <!-- Main App Screenshot -->
-    <div class="w-auto mx-auto lg:w-5xl" id="hero-image" v-motion="motionVisible(300, 'visible')">
+    <div class="w-auto mx-auto lg:w-5xl px-0 lg:px-2" id="hero-image" v-motion="motionVisible(300, 'visible')">
       <img src="https://assets.lbctrl.com/uploads/8d685eb9-abd4-4297-9f3d-a22bf4e98e78/hero-image.png"
         alt="Longbridge Pro Interface" class="w-full h-auto rounded-lg" />
     </div>

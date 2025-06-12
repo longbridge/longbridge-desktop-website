@@ -47,7 +47,12 @@ watch(y, () => {
 
   // 添加缓动效果
   const y = translateY * 2; // 缓动系数
-  easedTranslateY.value = Number(y.toFixed(2));
+  const easedY = Number(y.toFixed(2));
+  if (easedY > 600) {
+    easedTranslateY.value = easedY;
+  } else {
+    easedTranslateY.value = 0;
+  }
 });
 </script>
 
@@ -60,13 +65,17 @@ watch(y, () => {
       </template>
       <template v-else>
         <Hero />
-        <div class="will-change-transform backdrop-blur-30px bg-white/80" ref="upgrade" :style="{
-          transform: `translateY(-${easedTranslateY}px)`,
-          marginBottom: `-${easedTranslateY}px`,
-        }">
-          <Upgrade class="absolute top-0 left-0 w-full z-11 h-[calc(100vh-64px+5rem)]" />
+        <div class="relative z-11 transition-opacity duration-300 will-change-transform backdrop-blur-30px bg-white/80"
+          ref="upgrade" :style="{
+            transform: `translateY(-${easedTranslateY}px)`,
+            marginBottom: `-${easedTranslateY}px`,
+          }">
+          <Upgrade class="absolute top-0 left-0 w-full h-[calc(100vh-64px+5rem)]" />
         </div>
-        <!-- <div class="absolute bottom-0 left-0 w-full h-24 z-10 bg-gray-50"></div> -->
+        <div class="absolute top-0 left-0 w-full h-full z-10 opacity-0 backdrop-blur-30px bg-white/80" :style="{
+          opacity: easedTranslateY > 600 ? easedTranslateY / 100 : 0,
+        }">
+        </div>
       </template>
     </section>
 
