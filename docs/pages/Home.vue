@@ -72,8 +72,8 @@ watch(y, () => {
           }">
           <Upgrade class="absolute top-0 left-0 w-full h-[calc(100vh-64px+5rem)]" />
         </div>
-        <div v-if="!isMobile" class="absolute top-0 left-0 w-full h-full z-10 opacity-0 backdrop-blur-30px bg-white/80"
-          :style="{
+        <div v-if="!isMobile && easedTranslateY > 600"
+          class="absolute top-0 left-0 w-full h-full z-10 opacity-0 backdrop-blur-30px bg-white/80" :style="{
             opacity: easedTranslateY > 600 ? easedTranslateY / 100 : 0,
           }">
         </div>
