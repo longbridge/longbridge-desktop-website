@@ -47,7 +47,12 @@ watch(y, () => {
 
   // 添加缓动效果
   const y = translateY * 2; // 缓动系数
-  easedTranslateY.value = Number(y.toFixed(2));
+  const easedY = Number(y.toFixed(2));
+  if (easedY > 600) {
+    easedTranslateY.value = easedY;
+  } else {
+    easedTranslateY.value = 0;
+  }
 });
 </script>
 
@@ -60,13 +65,18 @@ watch(y, () => {
       </template>
       <template v-else>
         <Hero />
-        <div class="will-change-transform backdrop-blur-30px bg-white/80" ref="upgrade" :style="{
-          transform: `translateY(-${easedTranslateY}px)`,
-          marginBottom: `-${easedTranslateY}px`,
-        }">
-          <Upgrade class="absolute top-0 left-0 w-full z-11 h-[calc(100vh-64px+5rem)]" />
+        <div class="relative z-11 transition-opacity duration-300 will-change-transform backdrop-blur-30px bg-white/80"
+          ref="upgrade" :style="{
+            transform: `translateY(-${easedTranslateY}px)`,
+            marginBottom: `-${easedTranslateY}px`,
+          }">
+          <Upgrade class="absolute top-0 left-0 w-full h-[calc(100vh-64px+5rem)]" />
         </div>
-        <!-- <div class="absolute bottom-0 left-0 w-full h-24 z-10 bg-gray-50"></div> -->
+        <div v-if="!isMobile" class="absolute top-0 left-0 w-full h-full z-10 opacity-0 backdrop-blur-30px bg-white/80"
+          :style="{
+            opacity: easedTranslateY > 600 ? easedTranslateY / 100 : 0,
+          }">
+        </div>
       </template>
     </section>
 
@@ -75,7 +85,7 @@ watch(y, () => {
       <RealTimeTracking class="bg-gray-50" />
 
       <!-- Global Trading Section -->
-      <section class="px-6 py-18">
+      <section class="px-6 py-8 lg:py-18">
         <div class="max-w-[1200px] mx-auto space-y-8">
           <h2 class="!text-3xl font-bold text-black lg:!text-4xl" v-motion="motionVisible(300, 'visible', { start: { y: 20 }, end: { y: 0 } })
             ">
@@ -98,14 +108,16 @@ watch(y, () => {
               </li>
             </ul>
             <div class="relative flex justify-center">
-              <img src="https://assets.lbctrl.com/uploads/2ab5532e-1d1f-4a0a-bb3a-e6a6a6db784a/global.png"
+              <img src="https://assets.lbctrl.com/uploads/4afae8f6-0ae0-42e2-9ada-d90fb8ecbc3b/global.png"
                 alt="Global Trading Interface" class="rounded-lg w-83 h-46 lg:w-160 lg:h-90" />
-              <img src="https://assets.lbctrl.com/uploads/e365e33e-77ef-45f3-bf5a-0e7738e8bfd9/global-mask.png"
+              <img v-if="!isMobile"
+                src="https://assets.lbctrl.com/uploads/3dfc6dbf-2b0a-4c91-80d6-4f021c20bed2/global-mask.png"
                 alt="Global Trading Interface"
-                class="absolute top-0 left-0 rounded-lg w-60 h-30 md:w-100 md:h-50 lg:w-141 lg:h-66" v-motion="{
+                class="absolute top-0 left-0 rounded-lg w-60 h-30 md:w-100 md:h-50 lg:w-141 lg:h-66 object-cover"
+                v-motion="{
                   visible: {
-                    y: !isMobile ? 145 : 104,
-                    x: !isMobile ? -100 : -33,
+                    y: 145,
+                    x: -100,
                     transition: {
                       duration: 500,
                     },
@@ -130,7 +142,7 @@ watch(y, () => {
           <h2 class="!text-3xl lg:!text-4xl font-bold text-center mb-12 text-black">
             <span v-motion="motionVisible()" v-html="multiPlatform.title"></span>
           </h2>
-          <div class="text-center text-xl my-5">
+          <div class="text-center text-sm lg:text-xl my-5">
             <span v-motion="motionVisible()" v-html="multiPlatform.description"></span>
           </div>
         </div>
