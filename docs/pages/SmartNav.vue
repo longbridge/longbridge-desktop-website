@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, useTemplateRef } from "vue";
+import { ref, useTemplateRef } from "vue";
 import { useLocale, useDetectMobile } from "./utils";
 import { useIntersectionObserver } from "@vueuse/core";
 
@@ -29,8 +29,6 @@ const content = {
     smartNav.description,
     smartNav.description_2
   ],
-  image: "https://assets.lbctrl.com/uploads/7c4b0de7-8850-4b5e-8831-0d7facd5a1ba/scr-20250502-mjmo.png",
-  alt: "Smart Navigation Interface"
 }
 const handleTabClick = (index) => {
   activeTab.value = index;

@@ -60,17 +60,11 @@ watch(y, () => {
       </template>
       <template v-else>
         <Hero />
-        <div
-          class="will-change-transform backdrop-blur-30px bg-white/80"
-          ref="upgrade"
-          :style="{
-            transform: `translateY(-${easedTranslateY}px)`,
-            marginBottom: `-${easedTranslateY}px`,
-          }"
-        >
-          <Upgrade
-            class="absolute top-0 left-0 w-full z-11 h-[calc(100vh-64px+5rem)]"
-          />
+        <div class="will-change-transform backdrop-blur-30px bg-white/80" ref="upgrade" :style="{
+          transform: `translateY(-${easedTranslateY}px)`,
+          marginBottom: `-${easedTranslateY}px`,
+        }">
+          <Upgrade class="absolute top-0 left-0 w-full z-11 h-[calc(100vh-64px+5rem)]" />
         </div>
         <!-- <div class="absolute bottom-0 left-0 w-full h-24 z-10 bg-gray-50"></div> -->
       </template>
@@ -83,17 +77,12 @@ watch(y, () => {
       <!-- Global Trading Section -->
       <section class="px-6 py-18">
         <div class="max-w-[1200px] mx-auto space-y-8">
-          <h2
-            class="!text-3xl font-bold text-black lg:!text-4xl"
-            v-motion="
-              motionVisible(300, 'visible', { start: { y: 20 }, end: { y: 0 } })
-            "
-          >
+          <h2 class="!text-3xl font-bold text-black lg:!text-4xl" v-motion="motionVisible(300, 'visible', { start: { y: 20 }, end: { y: 0 } })
+            ">
             <span v-html="globalTrade.title"></span>
           </h2>
           <div
-            class="flex flex-col-reverse items-center gap-12 px-6 py-8 lg:justify-between lg:flex-row bg-gray-50 lg:py-16 rounded-xl"
-          >
+            class="flex flex-col-reverse items-center gap-12 px-6 py-8 lg:justify-between lg:flex-row bg-gray-50 lg:py-16 rounded-xl">
             <ul class="space-y-10 text-black list-none w-75 lg:text-xl">
               <li class="flex items-start gap-3">
                 <span class="flex-shrink-0 font-bold">✓</span>
@@ -109,16 +98,11 @@ watch(y, () => {
               </li>
             </ul>
             <div class="relative flex justify-center">
-              <img
-                src="https://assets.lbctrl.com/uploads/2ab5532e-1d1f-4a0a-bb3a-e6a6a6db784a/global.png"
+              <img src="https://assets.lbctrl.com/uploads/2ab5532e-1d1f-4a0a-bb3a-e6a6a6db784a/global.png"
+                alt="Global Trading Interface" class="rounded-lg w-83 h-46 lg:w-160 lg:h-90" />
+              <img src="https://assets.lbctrl.com/uploads/e365e33e-77ef-45f3-bf5a-0e7738e8bfd9/global-mask.png"
                 alt="Global Trading Interface"
-                class="rounded-lg w-83 h-46 lg:w-160 lg:h-90"
-              />
-              <img
-                src="https://assets.lbctrl.com/uploads/44fb4de5-1e6a-4ca7-b02c-2cde9ff96972/global-mask.png"
-                alt="Global Trading Interface"
-                class="absolute top-0 left-0 rounded-lg w-60 h-30 md:w-100 md:h-50 lg:w-141 lg:h-66"
-                v-motion="{
+                class="absolute top-0 left-0 rounded-lg w-60 h-30 md:w-100 md:h-50 lg:w-141 lg:h-66" v-motion="{
                   visible: {
                     y: !isMobile ? 145 : 104,
                     x: !isMobile ? -100 : -33,
@@ -130,8 +114,7 @@ watch(y, () => {
                     y: 0,
                     x: 0,
                   },
-                }"
-              />
+                }" />
             </div>
           </div>
         </div>
@@ -142,24 +125,13 @@ watch(y, () => {
       <!-- Multi-Platform Monitoring -->
       <section class="py-16 px-6">
         <div class="max-w-[1200px] mx-auto">
-          <img
-            src="https://assets.lbctrl.com/uploads/2d66f21e-86b5-4b79-aef3-32bfa7d6a6c3/multi.png"
-            alt="Platform 6"
-            class="w-full h-auto rounded max-w-full"
-          />
-          <h2
-            class="!text-3xl lg:!text-4xl font-bold text-center mb-12 text-black"
-          >
-            <span
-              v-motion="motionVisible()"
-              v-html="multiPlatform.title"
-            ></span>
+          <img src="https://assets.lbctrl.com/uploads/2d66f21e-86b5-4b79-aef3-32bfa7d6a6c3/multi.png" alt="Platform 6"
+            class="w-full h-auto rounded max-w-full" />
+          <h2 class="!text-3xl lg:!text-4xl font-bold text-center mb-12 text-black">
+            <span v-motion="motionVisible()" v-html="multiPlatform.title"></span>
           </h2>
           <div class="text-center text-xl my-5">
-            <span
-              v-motion="motionVisible()"
-              v-html="multiPlatform.description"
-            ></span>
+            <span v-motion="motionVisible()" v-html="multiPlatform.description"></span>
           </div>
         </div>
         <div class="mt-8">

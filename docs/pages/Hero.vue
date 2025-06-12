@@ -35,7 +35,7 @@ const { name, tagline } = useLocale();
       v-motion="motionVisible(300, 'visible')"
     >
       <img
-        src="https://assets.lbctrl.com/uploads/53064e20-ebbb-4e0a-9e52-c2607e274c6f/hero-image.png"
+        src="https://assets.lbctrl.com/uploads/92a6beb3-72c5-48d3-83c2-ad5d6306598b/hero-image.png"
         alt="Longbridge Pro Interface"
         class="w-full h-auto rounded-lg"
       />

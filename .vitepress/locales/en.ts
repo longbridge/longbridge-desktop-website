@@ -73,7 +73,7 @@ export default {
                 description:
                     "Get millisecond alerts on your watchlist, so you'll always catch key stock moves.",
                 image:
-                    "https://assets.lbctrl.com/uploads/4f00591c-9460-4593-bff8-65209054f9fe/real-time.png",
+                    "https://assets.lbctrl.com/uploads/3c70e18d-12f2-4287-8f45-9ad5658fcba1/real-time.png",
             },
             tab_1: {
                 title: "Intuitive Heatmap",

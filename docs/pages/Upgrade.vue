@@ -48,7 +48,7 @@ const items: UpgradeItem[] = [
     title: upgrade.tab3.title,
     description: [
       { style: "text-10 font-bold", text: upgrade.tab3.description_1 },
-      { style: "", text: upgrade.tab3.description_2 },
+      { style: "mb-4", text: upgrade.tab3.description_2 },
       { style: "text-10 font-bold", text: upgrade.tab3.description_3 },
       { style: "", text: upgrade.tab3.description_4 },
     ],

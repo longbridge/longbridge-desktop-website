@@ -70,7 +70,7 @@ export default {
       tab_0: {
         title: "智能异动监测",
         description: "毫秒级预警自选股异动，机会从不漏网",
-        image: "https://assets.lbctrl.com/uploads/4f00591c-9460-4593-bff8-65209054f9fe/real-time.png",
+        image: "https://assets.lbctrl.com/uploads/3c70e18d-12f2-4287-8f45-9ad5658fcba1/real-time.png",
       },
       tab_1: {
         title: "直观热力图谱",
