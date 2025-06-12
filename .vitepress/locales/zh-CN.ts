@@ -1,7 +1,8 @@
 export default {
   name: "Longbridge Pro",
   tagline: "全新的专业证券交易桌面端，更专业、更流畅、更高效",
-  download_more: "查看更多版本",
+  download_more: "https://longbridge.com/desktop/zh-CN/release-notes",
+  download_link: "https://longbridge.com/download",
   legacy_info: '当前为全新一代版本，功能正在持续优化和完善中，如需更完整的功能，可选择 <a href="https://longbridge.com/download" target="_blank">下载上一代版本</a>',
   features: [
     {

@@ -72,8 +72,8 @@ watch(y, () => {
           }">
           <Upgrade class="absolute top-0 left-0 w-full h-[calc(100vh-64px+5rem)]" />
         </div>
-        <div v-if="!isMobile" class="absolute top-0 left-0 w-full h-full z-10 opacity-0 backdrop-blur-30px bg-white/80"
-          :style="{
+        <div v-if="!isMobile && easedTranslateY > 600"
+          class="absolute top-0 left-0 w-full h-full z-10 opacity-0 backdrop-blur-30px bg-white/80" :style="{
             opacity: easedTranslateY > 600 ? easedTranslateY / 100 : 0,
           }">
         </div>
@@ -93,7 +93,7 @@ watch(y, () => {
           </h2>
           <div
             class="flex flex-col-reverse items-center gap-12 px-6 py-8 lg:justify-between lg:flex-row bg-gray-50 lg:py-16 rounded-xl">
-            <ul class="space-y-10 text-black list-none w-75 lg:text-xl">
+            <ul class="space-y-10 lt-sm:(space-y-4) text-black list-none w-75 lg:text-xl">
               <li class="flex items-start gap-3">
                 <span class="flex-shrink-0 font-bold">✓</span>
                 <span v-html="globalTrade.items[0]"></span>
@@ -109,12 +109,10 @@ watch(y, () => {
             </ul>
             <div class="relative flex justify-center">
               <img src="https://assets.lbctrl.com/uploads/4afae8f6-0ae0-42e2-9ada-d90fb8ecbc3b/global.png"
-                alt="Global Trading Interface" class="rounded-lg w-83 h-46 lg:w-160 lg:h-90" />
+                alt="Global Trading Interface" class="rounded-lg w-83 lg:w-160" />
               <img v-if="!isMobile"
                 src="https://assets.lbctrl.com/uploads/3dfc6dbf-2b0a-4c91-80d6-4f021c20bed2/global-mask.png"
-                alt="Global Trading Interface"
-                class="absolute top-0 left-0 rounded-lg w-60 h-30 md:w-100 md:h-50 lg:w-141 lg:h-66 object-cover"
-                v-motion="{
+                alt="Global Trading Interface" class="absolute top-0 left-0 rounded-lg w-60 md:w-100 lg:w-141" v-motion="{
                   visible: {
                     y: 145,
                     x: -100,

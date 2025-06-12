@@ -72,8 +72,8 @@ const setActiveTab = (index) => {
             <template v-if="tabs[activeTab].renderImage">
               <component :is="tabs[activeTab].renderImage" />
             </template>
-            <img v-else :src="tabs[activeTab].image" :alt="tabs[activeTab].title"
-              class="w-88 h-49 lg:w-172 lg:h-98 rounded-lg object-cover" v-motion="motionVisible(300)" />
+            <img v-else :src="tabs[activeTab].image" :alt="tabs[activeTab].title" class="w-88 lg:w-172 rounded-lg"
+              v-motion="motionVisible(300)" />
           </div>
 
           <!-- Tabs with underline style -->
