@@ -37,7 +37,7 @@ const items: UpgradeItem[] = [
     description: [
       { style: "text-lg lg:text-xl font-bold", text: upgrade.tab2.description_1 },
       {
-        style: "text-10 leading-8 lg:text-17.5 lg:leading-15 font-bold mb-1 lg:mb-4 font-[var(--lb-font)]",
+        style: "text-10 leading-8 lg:text-17.5 lg:leading-15 font-bold mb-4 lt-sm:(mb-1) font-[var(--lb-font)]",
         text: upgrade.tab2.description_2,
       },
       { style: "mt-2 lg:mt-0", text: upgrade.tab2.description_3 },

@@ -41,7 +41,7 @@ const handleTabClick = (index) => {
   <div class="bg-gray-50">
     <section class="py-16 lg:py-24 px-8">
       <div class="max-w-[1200px] mx-auto">
-        <div class="flex flex-col lg:flex-row justify-between items-center bg-white rounded-xl">
+        <div class="flex lt-sm:(flex-col) flex-row justify-between items-center bg-white rounded-xl">
           <!-- 左侧内容 -->
           <div class="space-y-8 flex flex-col justify-between h-full">
             <div class="pt-12 px-12 lt-sm:(px-8 pt-4)">

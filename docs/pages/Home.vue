@@ -48,11 +48,13 @@ watch(y, () => {
   // 添加缓动效果
   const y = translateY * 2; // 缓动系数
   const easedY = Number(y.toFixed(2));
-  if (easedY > 700) {
-    easedTranslateY.value = easedY;
-  } else {
-    easedTranslateY.value = 0;
-  }
+  easedTranslateY.value = easedY;
+
+  // if (easedY > 700) {
+  //   easedTranslateY.value = easedY;
+  // } else {
+  //   easedTranslateY.value = 0;
+  // }
 });
 </script>
 
@@ -72,12 +74,12 @@ watch(y, () => {
           }">
           <Upgrade class="absolute top-0 left-0 w-full h-[calc(100vh-64px+5rem)]" />
         </div>
-        <div v-if="!isMobile" class="absolute top-0 left-0 w-full h-full z-10 opacity-0 backdrop-blur-30px bg-white/80"
+        <!-- <div v-if="!isMobile" class="absolute top-0 left-0 w-full h-full z-10 opacity-0 backdrop-blur-30px bg-white/80"
           :style="{
             opacity: easedTranslateY > 700 ? easedTranslateY / 100 : 0,
             visibility: easedTranslateY > 700 ? 'visible' : 'hidden',
           }">
-        </div>
+        </div> -->
       </template>
     </section>
 
@@ -93,7 +95,7 @@ watch(y, () => {
             <span v-html="globalTrade.title"></span>
           </h2>
           <div
-            class="flex flex-col-reverse items-center gap-12 px-6 py-8 lg:justify-between lg:flex-row bg-gray-50 lg:py-16 rounded-xl">
+            class="lt-md:(flex-col-reverse items-center py-8 gap-6) flex justify-between flex-row gap-12 px-6 bg-gray-50 py-16 rounded-xl">
             <ul class="space-y-10 lt-sm:(space-y-4 !p-0) text-black list-none w-75 lg:text-xl">
               <li class="flex items-start gap-3">
                 <span class="flex-shrink-0 font-bold">✓</span>
@@ -110,7 +112,7 @@ watch(y, () => {
             </ul>
             <div class="relative flex justify-center">
               <img src="https://assets.lbctrl.com/uploads/4afae8f6-0ae0-42e2-9ada-d90fb8ecbc3b/global.png"
-                alt="Global Trading Interface" class="rounded-lg w-83 lg:w-160" />
+                alt="Global Trading Interface" class="rounded-lg w-160 lt-sm:(w-83)" />
               <img v-if="!isMobile"
                 src="https://assets.lbctrl.com/uploads/3dfc6dbf-2b0a-4c91-80d6-4f021c20bed2/global-mask.png"
                 alt="Global Trading Interface" class="absolute top-0 left-0 rounded-lg w-60 md:w-100 lg:w-141" v-motion="{
