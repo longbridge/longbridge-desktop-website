@@ -136,8 +136,6 @@ export const useDetectMobile = () => {
   return isMobile;
 };
 
-
-
 export const motionVisible = (time = 500, type = 'enter', options = {
   start: {
     opacity: 0,
