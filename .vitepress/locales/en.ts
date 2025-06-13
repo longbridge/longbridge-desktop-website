@@ -47,7 +47,7 @@ export default {
             description_1: "Up to",
             description_2: "120",
             description_3: "FPS",
-            description_4: "Seamless trading, setting a new.",
+            description_4: "Seamless trading, setting a new",
             description_5: "speed benchmark",
         },
         tab2: {
@@ -66,7 +66,7 @@ export default {
         },
     },
     realTimeTracking: {
-        title: "Real-Time Tracking Seizing Trading Edge",
+        title: "Real-Time Tracking, Seizing Trading Edge",
         tabs: {
             tab_0: {
                 title: "Smart Activity Monitoring",
@@ -94,17 +94,17 @@ export default {
     globalTrade: {
         title: "Global Trading,<br />at Your Fingertips",
         items: [
-            "Trade HK, US, A-shares, and Singapore stocks, all from one screen.",
-            "Diverse tools including long/short positions, US stock options, and HK Warrants/CBBCs.",
-            "Smart order panel with real-time portfolio tracking.",
+            "Trade HK, US, A-shares, and Singapore stocks, all from one screen",
+            "Diverse tools including long/short positions, US stock options, and HK Warrants/CBBCs",
+            "Smart order panel with real-time portfolio tracking",
         ],
     },
     smartNav: {
         button: "Smart Navigation",
         button_2: "History",
         title: "Smart Navigation,<br/>Instant Insights",
-        description: "Customizable tabbed navigation <br/>for instant stock quotes.",
-        description_2: "One-click access to <br/>historical records.",
+        description: "Customizable tabbed navigation <br/>for instant stock quotes",
+        description_2: "One-click access to <br/>historical records",
     },
     multiPlatform: {
         title: "Multi-platform Support,<br/>Professional Market Monitoring",

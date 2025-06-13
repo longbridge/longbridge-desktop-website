@@ -65,9 +65,9 @@ const handleTabClick = (index) => {
           <!-- 右侧图片 -->
           <div class="flex justify-center lg:justify-end py-4 px-4 lg:pl-0">
             <div class="relative max-w-3xl w-full">
-              <video ref="video"
+              <video ref="video" playsinline="true" webkit-playsinline="true" muted="true"
                 src="https://assets.lbctrl.com/uploads/7f24579e-1c9c-4958-8af5-c2aa294d9498/desktop_en.mp4"
-                class="rounded-lg w-83 h-46 lg:w-160 lg:h-90" :controls="false"></video>
+                class="rounded-lg w-83 h-46 lg:w-160 lg:h-90"></video>
             </div>
           </div>
         </div>
@@ -75,3 +75,14 @@ const handleTabClick = (index) => {
     </section>
   </div>
 </template>
+<style scoped>
+video::-webkit-media-controls-play-button {
+  display: none;
+  -webkit-appearance: none;
+}
+
+video::-webkit-media-controls-panel {
+  display: none;
+  -webkit-appearance: none;
+}
+</style>

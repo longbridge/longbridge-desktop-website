@@ -166,3 +166,10 @@ export const useLocale = () => {
   }
   return locales['en']
 }
+
+export const getLocaleByAppUA = () => {
+  const ua = navigator?.userAgent || ''
+  const lang = ua.match(/lblang\/(\S+)/) || []
+  return lang[1]
+}
+
