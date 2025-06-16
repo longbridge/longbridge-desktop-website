@@ -3,59 +3,64 @@ import RealTimeTracking from "./RealTimeTracking.vue";
 import SmartNav from "./SmartNav.vue";
 import Upgrade from "./Upgrade.vue";
 import { useScroll } from "@vueuse/core";
-import { watch, useTemplateRef, ref } from "vue";
+import { watch, useTemplateRef, ref, onMounted } from "vue";
 import Hero from "./Hero.vue";
 import { useDetectMobile, motionVisible, useLocale } from "./utils";
 import DownloadInfo from "./DownloadInfo.vue";
 
 const isMobile = useDetectMobile();
 const { multiPlatform, globalTrade } = useLocale();
-const { y } = useScroll(window);
 
 const easedTranslateY = ref(0);
 const upgrade = useTemplateRef("upgrade");
-watch(y, () => {
-  if (isMobile.value) return;
-  const heroImage = document.getElementById("hero-image");
-  if (!heroImage || !upgrade.value) return;
 
-  const upgradeRect = upgrade.value.getBoundingClientRect();
-  const heroRect = heroImage.getBoundingClientRect();
-  const viewportHeight = window.innerHeight;
-  const viewportCenter = viewportHeight / 2;
+onMounted(() => {
+  if (typeof window === 'undefined') return
+  const { y } = useScroll(window);
 
-  // 计算 hero 元素中心点相对于视口的位置
-  const heroCenter = heroRect.top;
+  watch(y, () => {
+    if (isMobile.value) return;
+    const heroImage = document.getElementById("hero-image");
+    if (!heroImage || !upgrade.value) return;
 
-  // 距离顶部小于 64px(header 高度) 时，不进行移动
-  if (upgradeRect.top <= 64) {
-    return;
-  }
+    const upgradeRect = upgrade.value.getBoundingClientRect();
+    const heroRect = heroImage.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const viewportCenter = viewportHeight / 2;
 
-  // 计算滚动进度：当 hero 中心在视口中心时为 0.5
-  const scrollProgress = (viewportCenter - heroCenter) / viewportHeight;
-  // 根据滚动进度计算 translateY
-  // 当 scrollProgress = 0 时（hero 在视口底部），translateY 应该让 Upgrade 完全显示
-  // 当 scrollProgress = 1 时（hero 在视口顶部），translateY 应该让 Upgrade 完全遮住 hero
-  let translateY = scrollProgress * viewportHeight;
+    // 计算 hero 元素中心点相对于视口的位置
+    const heroCenter = heroRect.top;
 
-  // 平滑限制范围，避免突兀的移动
-  const maxTranslate = viewportHeight * 2.2;
-  const minTranslate = -viewportHeight * 0.2;
+    // 距离顶部小于 64px(header 高度) 时，不进行移动
+    if (upgradeRect.top <= 64) {
+      return;
+    }
 
-  translateY = Math.max(minTranslate, Math.min(maxTranslate, translateY));
+    // 计算滚动进度：当 hero 中心在视口中心时为 0.5
+    const scrollProgress = (viewportCenter - heroCenter) / viewportHeight;
+    // 根据滚动进度计算 translateY
+    // 当 scrollProgress = 0 时（hero 在视口底部），translateY 应该让 Upgrade 完全显示
+    // 当 scrollProgress = 1 时（hero 在视口顶部），translateY 应该让 Upgrade 完全遮住 hero
+    let translateY = scrollProgress * viewportHeight;
 
-  // 添加缓动效果
-  const y = translateY * 2; // 缓动系数
-  const easedY = Number(y.toFixed(2));
-  easedTranslateY.value = easedY;
+    // 平滑限制范围，避免突兀的移动
+    const maxTranslate = viewportHeight * 2.2;
+    const minTranslate = -viewportHeight * 0.2;
 
-  // if (easedY > 700) {
-  //   easedTranslateY.value = easedY;
-  // } else {
-  //   easedTranslateY.value = 0;
-  // }
-});
+    translateY = Math.max(minTranslate, Math.min(maxTranslate, translateY));
+
+    // 添加缓动效果
+    const y = translateY * 2; // 缓动系数
+    const easedY = Number(y.toFixed(2));
+    easedTranslateY.value = easedY;
+
+    // if (easedY > 700) {
+    //   easedTranslateY.value = easedY;
+    // } else {
+    //   easedTranslateY.value = 0;
+    // }
+  });
+})
 </script>
 
 <template>
