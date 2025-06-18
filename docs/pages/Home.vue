@@ -1,93 +1,93 @@
 <script setup>
-import RealTimeTracking from "./RealTimeTracking.vue";
-import SmartNav from "./SmartNav.vue";
 import Upgrade from "./Upgrade.vue";
 import { useScroll } from "@vueuse/core";
-import { watch, useTemplateRef, ref, onMounted } from "vue";
+import { watch, useTemplateRef, ref } from "vue";
 import Hero from "./Hero.vue";
-import { useDetectMobile, motionVisible, useLocale } from "./utils";
+import { useDetectMobile, easeOutCubic, useLocale, motionVisible } from "./utils";
 import DownloadInfo from "./DownloadInfo.vue";
+import RealTimeTracking from "./RealTimeTracking.vue";
+import SmartNav from "./SmartNav.vue";
+
 
 const isMobile = useDetectMobile();
-const { multiPlatform, globalTrade } = useLocale();
+const { name, tagline, multiPlatform, globalTrade } = useLocale();
 
-const easedTranslateY = ref(0);
+const section1 = useTemplateRef("section1");
 const upgrade = useTemplateRef("upgrade");
+const img = useTemplateRef("hero-image");
 
-onMounted(() => {
-  if (typeof window === 'undefined') return
-  const { y } = useScroll(window);
+const { y } = useScroll(window);
+const imgEased = ref(0);
+const upgradeEased = ref(0);
+const updateSectionAnimations = (scrollTop) => {
+  const section1Height = section1.value.offsetHeight;
+  const section1Progress = Math.max(0, Math.min(1,
+    scrollTop / section1Height
+  ));
+  animateSection(section1Progress);
+}
+const animateSection = (progress) => {
+  const imgProgress = Math.max(0, Math.min(1, (progress - 0.1) / 0.4));
+  const upgradeProgress = Math.max(0, Math.min(1, (progress - 0.1) / 0.3));
 
-  watch(y, () => {
-    if (isMobile.value) return;
-    const heroImage = document.getElementById("hero-image");
-    if (!heroImage || !upgrade.value) return;
-
-    const upgradeRect = upgrade.value.getBoundingClientRect();
-    const heroRect = heroImage.getBoundingClientRect();
-    const viewportHeight = window.innerHeight;
-    const viewportCenter = viewportHeight / 2;
-
-    // 计算 hero 元素中心点相对于视口的位置
-    const heroCenter = heroRect.top;
-
-    // 距离顶部小于 64px(header 高度) 时，不进行移动
-    if (upgradeRect.top <= 64) {
-      return;
-    }
-
-    // 计算滚动进度：当 hero 中心在视口中心时为 0.5
-    const scrollProgress = (viewportCenter - heroCenter) / viewportHeight;
-    // 根据滚动进度计算 translateY
-    // 当 scrollProgress = 0 时（hero 在视口底部），translateY 应该让 Upgrade 完全显示
-    // 当 scrollProgress = 1 时（hero 在视口顶部），translateY 应该让 Upgrade 完全遮住 hero
-    let translateY = scrollProgress * viewportHeight;
-
-    // 平滑限制范围，避免突兀的移动
-    const maxTranslate = viewportHeight * 2.2;
-    const minTranslate = -viewportHeight * 0.2;
-
-    translateY = Math.max(minTranslate, Math.min(maxTranslate, translateY));
-
-    // 添加缓动效果
-    const y = translateY * 2; // 缓动系数
-    const easedY = Number(y.toFixed(2));
-    easedTranslateY.value = easedY;
-
-    // if (easedY > 700) {
-    //   easedTranslateY.value = easedY;
-    // } else {
-    //   easedTranslateY.value = 0;
-    // }
-  });
-})
+  if (img.value) {
+    imgEased.value = easeOutCubic(imgProgress);
+  }
+  if (upgrade.value) {
+    upgradeEased.value = upgradeProgress;
+  }
+}
+watch(y, (y) => {
+  updateSectionAnimations(y);
+});
 </script>
 
 <template>
-  <div id="home-page" class="min-h-screen bg-white" ref="container">
-    <section class="py-16 text-center min-h-600px relative">
+  <div class="min-h-screen bg-white">
+    <section class="py-16 text-center h-200vh relative" ref="section1">
       <template v-if="isMobile">
         <Hero />
         <Upgrade />
       </template>
       <template v-else>
-        <Hero />
-        <div class="relative z-11 transition-opacity duration-300 will-change-transform backdrop-blur-30px bg-white/80"
-          ref="upgrade" :style="{
-            transform: `translateY(-${easedTranslateY}px)`,
-            marginBottom: `-${easedTranslateY}px`,
-          }">
-          <Upgrade class="absolute top-0 left-0 w-full h-[calc(100vh-64px+5rem)]" />
+        <div class="max-w-[1200px] mx-auto">
+          <div class="flex flex-col items-center justify-center mb-8">
+            <div class="relative">
+              <h1
+                class="sm:!text-4xl md:!text-5xl lg:!text-6xl font-bold text-black mb-4 flex !items-baseline justify-center gap-4">
+                {{ name }}
+              </h1>
+              <span
+                class="absolute top-[16px] -right-[calc(3rem+12px)] lg:-right-[calc(5.25rem+12px)] flex items-center justify-center w-12 h-5 lg:w-21 lg:h-8 bg-black text-white px-3 py-1 rounded-full text-xs md:text-sm lg:text-lg font-bold">NEW</span>
+            </div>
+            <p class="max-w-2xl mx-auto text-lg text-[var(--lb-gray-1)]">
+              {{ tagline }}
+            </p>
+          </div>
+
+          <DownloadInfo class="mb-6.5" />
         </div>
-        <!-- <div v-if="!isMobile" class="absolute top-0 left-0 w-full h-full z-10 opacity-0 backdrop-blur-30px bg-white/80"
-          :style="{
-            opacity: easedTranslateY > 700 ? easedTranslateY / 100 : 0,
-            visibility: easedTranslateY > 700 ? 'visible' : 'hidden',
-          }">
-        </div> -->
+
+        <div ref="hero-image" class="w-auto mx-auto lg:w-5xl scale-80 sticky top-30%" :style="{
+          transform: `scale(${0.8 + (imgEased * 0.4)}) translateY(-${imgEased * 120}px)`,
+        }">
+          <img src="https://assets.lbctrl.com/uploads/92a6beb3-72c5-48d3-83c2-ad5d6306598b/hero-image.png"
+            alt="Longbridge Pro Interface" class="w-full h-auto rounded-lg" />
+        </div>
+
+        <div v-if="upgradeEased"
+          class="absolute top-0 left-0 w-full h-full z-10 bg-white/50 transition-all duration-100" :style="{
+            backdropFilter: `blur(${upgradeEased * 5}px)`,
+            opacity: upgradeEased,
+          }"></div>
+        <div class="absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-400px z-11" :style="{
+          opacity: upgradeEased,
+          transform: `translateX(-50%) translateY(-${upgradeEased * 350}px)`,
+        }" ref="upgrade">
+          <Upgrade />
+        </div>
       </template>
     </section>
-
     <div class="relative z-10 bg-white">
       <!-- Real-Time Tracking Section - Using Component -->
       <RealTimeTracking class="bg-gray-50" />
