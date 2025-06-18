@@ -6,10 +6,11 @@
   --vp-c-text-2: #464f56;
   --vp-home-hero-name-color: #101010;
   --vp-layout-max-width: 1280px;
-  --vp-sidebar-bg-color: #F8F9FA;
+  --vp-sidebar-bg-color: #f8f9fa;
   --text-color-2: #82888d;
   --text-color-3: #afb3b6;
   --text-color-1-supplement: #464f56;
+  --lb-gray-1: #929292;
 }
 
 .VPHome {
@@ -17,17 +18,18 @@
 }
 
 .vp-doc #home-page {
-  --lb-gray-1: #929292;
-  --vp-font-family-base: 'PingFang SC', 'Inter', ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --lb-font: 'Cera Pro Light', sans-serif;
+  --vp-font-family-base:
+    "PingFang SC", "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --lb-font: "Cera Pro Light", sans-serif;
   h1 {
     display: flex;
     gap: 12px;
     align-items: center;
     font-family: "Cera Pro Light", sans-serif;
   }
-  h2,h3{
+  h2,
+  h3 {
     border: 0;
     margin: 0;
     padding: 0;
