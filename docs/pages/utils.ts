@@ -133,7 +133,8 @@ export const easeInOutCubic = (t: number) => {
 export const useDetectMobile = () => {
   const { width } = useWindowSize();
   const isMobile = computed(() => width.value < 1024);
-  return isMobile;
+  const isMedium = computed(() => width.value < 1280);
+  return { isMobile, isMedium };
 };
 
 export const motionVisible = (time = 500, type = 'enter', options = {

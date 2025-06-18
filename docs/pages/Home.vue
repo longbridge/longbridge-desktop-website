@@ -1,7 +1,7 @@
 <script setup>
 import Upgrade from "./Upgrade.vue";
 import { useScroll } from "@vueuse/core";
-import { watch, useTemplateRef, ref } from "vue";
+import { watch, useTemplateRef, ref, onMounted } from "vue";
 import Hero from "./Hero.vue";
 import { useDetectMobile, easeOutCubic, useLocale, motionVisible } from "./utils";
 import DownloadInfo from "./DownloadInfo.vue";
@@ -9,14 +9,13 @@ import RealTimeTracking from "./RealTimeTracking.vue";
 import SmartNav from "./SmartNav.vue";
 
 
-const isMobile = useDetectMobile();
+const { isMobile, isMedium } = useDetectMobile();
 const { name, tagline, multiPlatform, globalTrade } = useLocale();
 
 const section1 = useTemplateRef("section1");
 const upgrade = useTemplateRef("upgrade");
 const img = useTemplateRef("hero-image");
 
-const { y } = useScroll(window);
 const imgEased = ref(0);
 const upgradeEased = ref(0);
 const updateSectionAnimations = (scrollTop) => {
@@ -37,9 +36,16 @@ const animateSection = (progress) => {
     upgradeEased.value = upgradeProgress;
   }
 }
-watch(y, (y) => {
-  updateSectionAnimations(y);
-});
+onMounted(() => {
+  if (typeof window === 'undefined') {
+    return;
+  }
+  const { y } = useScroll(window);
+  watch(y, (y) => {
+    updateSectionAnimations(y);
+  });
+
+})
 </script>
 
 <template>
@@ -50,7 +56,9 @@ watch(y, (y) => {
         <Upgrade />
       </template>
       <template v-else>
-        <div class="max-w-[1200px] mx-auto">
+        <div class="max-w-[1200px] mx-auto" :style="{
+          transform: `translateY(-${imgEased * 100}px)`,
+        }">
           <div class="flex flex-col items-center justify-center mb-8">
             <div class="relative">
               <h1
@@ -69,7 +77,7 @@ watch(y, (y) => {
         </div>
 
         <div ref="hero-image" class="w-auto mx-auto lg:w-5xl scale-80 sticky top-30%" :style="{
-          transform: `scale(${0.8 + (imgEased * 0.4)}) translateY(-${imgEased * 120}px)`,
+          transform: `scale(${0.8 + (imgEased * (isMedium ? 0.2 : 0.4))}) translateY(-${imgEased * 120}px)`,
         }">
           <img src="https://assets.lbctrl.com/uploads/92a6beb3-72c5-48d3-83c2-ad5d6306598b/hero-image.png"
             alt="Longbridge Pro Interface" class="w-full h-auto rounded-lg" />
