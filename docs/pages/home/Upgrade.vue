@@ -74,7 +74,7 @@ const items: UpgradeItem[] = [
 ];
 </script>
 <template>
-    <section class="relative flex items-center px-6" ref="flow">
+    <section class="relative flex items-center px-6 mt-20" ref="flow">
         <div class="w-auto mx-auto md:w-5xl">
             <div class="mb-12 text-3xl font-bold text-left text-black lg:text-4xl"
                 v-motion="motionVisible(300, 'visible')">

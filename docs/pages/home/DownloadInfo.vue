@@ -25,7 +25,7 @@ onMounted(() => {
 </script>
 <template>
     <div>
-        <div class="flex flex-wrap items-center gap-4 justify-center mb-4 lt-sm:(flex-col [&>a]:(w-35%))">
+        <div class="flex flex-wrap items-center gap-4 justify-center mb-5 lt-sm:(flex-col [&>a]:(w-35%))">
             <template v-for="link in downloads">
                 <a :href="link.url"
                     class="btn-download rounded-md min-w-35 hidden items-center gap-3 whitespace-nowrap text-base bg-[var(--vp-c-brand)] !text-white shadow-md py-2 px-4 font-medium hover:!-translate-y-0.5 !transition-all !duration-300 hover:shadow-lg !no-underline"
@@ -79,7 +79,7 @@ onMounted(() => {
                     </svg>
                 </a>
             </p>
-            <div class="text-sm text-[var(--lb-gray-1)] mt-4 py-1 px-4 [&_a]:(text-[var(--vp-c-brand-3)] !no-underline)"
+            <div class="text-sm text-[var(--lb-gray-1)] mt-5 py-1 px-4 [&_a]:(text-[var(--vp-c-brand-3)] !no-underline)"
                 v-html="legacy_info">
             </div>
         </div>
