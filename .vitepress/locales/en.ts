@@ -6,7 +6,7 @@ export default {
     features: [
         {
             "title": "New Architecture, Enhanced Investment Experience",
-            "image": "https://assets.lbctrl.com/uploads/8c541832-5725-4844-ac80-156279a83144/output.png",
+            "image": "https://assets.lbctrl.com/uploads/35f52f06-1e04-4b1e-9f95-0881ac2c04d3/output.png",
             "items": [
                 "Ultra-Smooth Performance: Highly responsive interface with zero lag, stable 60+ FPS with peaks up to 120 FPS.",
                 "Resource-Efficient: Optimized performance with minimal CPU and memory footprint for seamless operation.",
@@ -15,7 +15,7 @@ export default {
         },
         {
             "title": "Navigation, Market Insights at a Glance",
-            "image": "https://assets.lbctrl.com/uploads/69043ccc-cbbe-44e6-93c5-a37cd4829dd7/scr-20250502-kqry.png",
+            "image": "https://assets.lbctrl.com/uploads/585ce6ff-6524-4d2b-8eb7-2dad906c6815/scr-20250502-kqry.png",
             "items": [
                 "Redesigned collapsible left-side navigation bar for better layout efficiency.",
                 "Support for multiple stock tabs, enabling quick price checks and market tracking.",
@@ -24,7 +24,7 @@ export default {
         },
         {
             "title": "Global Trading, Multi-Asset Support",
-            "image": "https://assets.lbctrl.com/uploads/c2842fa5-f8ca-44e7-aad5-5b8a38f49dcb/scr-20250502-kiym.png",
+            "image": "https://assets.lbctrl.com/uploads/2eef7734-7c8e-4fa4-9565-c954d38774e8/scr-20250502-kiym.png",
             "items": [
                 "Real-time quotes and trading for HK, US, and SG stocks.",
                 "US stocks support two-way trading (long/short) for flexible strategies.",
@@ -33,7 +33,7 @@ export default {
         },
         {
             "title": "Cross Platform, Professional Market Monitoring",
-            "image": "https://assets.lbctrl.com/uploads/982af099-639e-428c-b9dc-1881dc52921c/scr-20250502-krlh.png",
+            "image": "https://assets.lbctrl.com/uploads/26b72b9a-c8c1-448c-902e-ae6fcfd45253/scr-20250502-krlh.png",
             "items": [
                 "Cross-platform native support for macOS, Windows, and Linux.",
                 "Multi-screen support for split-view tracking of quotes, charts, and news."
@@ -73,21 +73,21 @@ export default {
                 description:
                     "Get millisecond alerts on your watchlist, so you'll always catch key stock moves.",
                 image:
-                    "https://assets.lbctrl.com/uploads/a216146b-4e0e-468d-a5e4-2eb2cd464f05/real-time.png",
+                    "https://assets.lbctrl.com/uploads/afc938b3-e0c0-4560-8700-8712fc71f1dc/real-time.png",
             },
             tab_1: {
                 title: "Intuitive Heatmap",
                 description:
                     "Visualize market trends with interactive heat maps and real-time data analysis.",
                 image:
-                    "https://assets.lbctrl.com/uploads/f6beade7-25d6-4e4c-884b-7bac76576990/real-time-2.png",
+                    "https://assets.lbctrl.com/uploads/62a0d228-2e42-489b-87e0-8fb9c62e6e5d/real-time-2.png",
             },
             tab_2: {
                 title: "Institutional Flow Tracking",
                 description:
                     "Track institutional movements and large volume transactions in real-time.",
                 image:
-                    "https://assets.lbctrl.com/uploads/f518cc0a-fdd7-4461-963b-6c093a636dbf/real-time-3.png",
+                    "https://assets.lbctrl.com/uploads/1d6a5183-598e-4510-b76d-1fa3016c66f3/real-time-3.png",
             },
         },
     },
