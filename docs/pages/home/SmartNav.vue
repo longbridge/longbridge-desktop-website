@@ -74,7 +74,7 @@ const handleTabClick = (index) => {
                                     class="rounded-lg w-83 max-h-46 lg:w-160 lg:max-h-90"></video>
                             </template>
                             <template v-else>
-                                <img src="https://assets.lbctrl.com/uploads/795f8f25-3ee0-4cb8-ba74-9c42f5a2cb72/smart-2.png"
+                                <img src="https://assets.lbctrl.com/uploads/3ad53fca-8014-442b-9c75-81c87458e4bb/smart-2.png"
                                     class="rounded-lg w-83 max-h-46 lg:w-160 lg:max-h-90">
                             </template>
                         </div>

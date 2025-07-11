@@ -6,7 +6,7 @@ export default {
     features: [
         {
             "title": "全新架構，投資體驗全面提升",
-            "image": "https://assets.lbctrl.com/uploads/8c541832-5725-4844-ac80-156279a83144/output.png",
+            "image": "https://assets.lbctrl.com/uploads/35f52f06-1e04-4b1e-9f95-0881ac2c04d3/output.png",
             "items": [
                 "極速流暢：界面反應迅捷，操作無卡頓，穩定支援 60+ FPS，最高可達 120 FPS。",
                 "高效低耗：深度優化資源佔用，CPU 與記憶體消耗大幅降低，運行更輕快。",
@@ -15,7 +15,7 @@ export default {
         },
         {
             "title": "智能導航，一欄掌握市場動態",
-            "image": "https://assets.lbctrl.com/uploads/69043ccc-cbbe-44e6-93c5-a37cd4829dd7/scr-20250502-kqry.png",
+            "image": "https://assets.lbctrl.com/uploads/585ce6ff-6524-4d2b-8eb7-2dad906c6815/scr-20250502-kqry.png",
             "items": [
                 "左側導航欄全新設計，支援展開和收起，提升版面空間使用率。",
                 "支援多個「個股」分頁切換，快速查看報價，掌握市場動態。",
@@ -24,7 +24,7 @@ export default {
         },
         {
             "title": "環球交易，滿足多品種需求",
-            "image": "https://assets.lbctrl.com/uploads/c2842fa5-f8ca-44e7-aad5-5b8a38f49dcb/scr-20250502-kiym.png",
+            "image": "https://assets.lbctrl.com/uploads/2eef7734-7c8e-4fa4-9565-c954d38774e8/scr-20250502-kiym.png",
             "items": [
                 "支援港股、美股、新加坡股的行情盯盤和交易。",
                 "美股支援雙向交易，做多做空靈活選擇。",
@@ -33,7 +33,7 @@ export default {
         },
         {
             "title": "多端支援，專業盯盤更高效",
-            "image": "https://assets.lbctrl.com/uploads/982af099-639e-428c-b9dc-1881dc52921c/scr-20250502-krlh.png",
+            "image": "https://assets.lbctrl.com/uploads/26b72b9a-c8c1-448c-902e-ae6fcfd45253/scr-20250502-krlh.png",
             "items": [
                 "全新的跨平台原生版本，支援 macOS、Windows、Linux。",
                 "支援擴展多螢幕，行情、圖表、資訊分屏掌控。"
@@ -70,17 +70,17 @@ export default {
             tab_0: {
                 title: "智能異動監測",
                 description: "毫秒級預警自選股異動，機會從不漏網",
-                image: "https://assets.lbctrl.com/uploads/a216146b-4e0e-468d-a5e4-2eb2cd464f05/real-time.png",
+                image: "https://assets.lbctrl.com/uploads/afc938b3-e0c0-4560-8700-8712fc71f1dc/real-time.png",
             },
             tab_1: {
                 title: "直觀熱力圖譜",
                 description: "全市場行情一目了然，熱點盡在掌握",
-                image: "https://assets.lbctrl.com/uploads/f6beade7-25d6-4e4c-884b-7bac76576990/real-time-2.png",
+                image: "https://assets.lbctrl.com/uploads/62a0d228-2e42-489b-87e0-8fb9c62e6e5d/real-time-2.png",
             },
             tab_2: {
                 title: "主力資金追蹤",
                 description: "大單動向實時解析，迅速把握主力動向",
-                image: "https://assets.lbctrl.com/uploads/f518cc0a-fdd7-4461-963b-6c093a636dbf/real-time-3.png",
+                image: "https://assets.lbctrl.com/uploads/1d6a5183-598e-4510-b76d-1fa3016c66f3/real-time-3.png",
             },
         },
     },

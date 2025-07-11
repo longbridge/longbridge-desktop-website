@@ -27,7 +27,7 @@ const { multiPlatform } = useLocale();
       <!-- Multi-Platform Monitoring -->
       <section class="py-16 px-6">
         <div class="max-w-[1200px] mx-auto">
-          <img src="https://assets.lbctrl.com/uploads/2d66f21e-86b5-4b79-aef3-32bfa7d6a6c3/multi.png" alt="Platform 6"
+          <img src="https://assets.lbctrl.com/uploads/ea7c0629-92cd-4353-8df7-e0cb1eb795e2/multi.png" alt="Platform 6"
             class="w-full h-auto rounded max-w-full" />
           <h2 class="!text-3xl lg:!text-4xl font-bold text-center mb-12 text-black">
             <span v-motion="motionVisible()" v-html="multiPlatform.title"></span>

@@ -6,7 +6,7 @@ export default {
   features: [
     {
       "title": "全新架构，投资体验全面提升",
-      "image": "https://assets.lbctrl.com/uploads/8c541832-5725-4844-ac80-156279a83144/output.png",
+      "image": "https://assets.lbctrl.com/uploads/35f52f06-1e04-4b1e-9f95-0881ac2c04d3/output.png",
       "items": [
         "极速流畅：界面响应迅捷，操作无卡顿，稳定支持 60+ FPS，最高可达 120 FPS。",
         "高效低耗：深度优化资源占用，CPU 与内存消耗大幅降低，运行更轻快。",
@@ -15,7 +15,7 @@ export default {
     },
     {
       "title": "智能导航，一栏掌握市场动态",
-      "image": "https://assets.lbctrl.com/uploads/69043ccc-cbbe-44e6-93c5-a37cd4829dd7/scr-20250502-kqry.png",
+      "image": "https://assets.lbctrl.com/uploads/585ce6ff-6524-4d2b-8eb7-2dad906c6815/scr-20250502-kqry.png",
       "items": [
         "左侧导航栏全新设计，支持展开和收起，提升布局空间使用率。",
         "支持多个「个股」标签页切换，快速查看报价，掌握市场动态。",
@@ -24,7 +24,7 @@ export default {
     },
     {
       "title": "全球交易，满足多品种需求",
-      "image": "https://assets.lbctrl.com/uploads/c2842fa5-f8ca-44e7-aad5-5b8a38f49dcb/scr-20250502-kiym.png",
+      "image": "https://assets.lbctrl.com/uploads/2eef7734-7c8e-4fa4-9565-c954d38774e8/scr-20250502-kiym.png",
       "items": [
         "支持港股、美股、新加坡股的行情盯盘和交易。",
         "美股支持双向交易，做多做空灵活选择。",
@@ -33,7 +33,7 @@ export default {
     },
     {
       "title": "多端支持，专业盯盘更高效",
-      "image": "https://assets.lbctrl.com/uploads/982af099-639e-428c-b9dc-1881dc52921c/scr-20250502-krlh.png",
+      "image": "https://assets.lbctrl.com/uploads/26b72b9a-c8c1-448c-902e-ae6fcfd45253/scr-20250502-krlh.png",
       "items": [
         "全新的跨平台原生版本，支持 macOS、Windows、Linux。",
         "支持扩展多屏幕，行情、图表、资讯分屏掌控。"
@@ -70,17 +70,17 @@ export default {
       tab_0: {
         title: "智能异动监测",
         description: "毫秒级预警自选股异动，机会从不漏网",
-        image: "https://assets.lbctrl.com/uploads/a216146b-4e0e-468d-a5e4-2eb2cd464f05/real-time.png",
+        image: "https://assets.lbctrl.com/uploads/afc938b3-e0c0-4560-8700-8712fc71f1dc/real-time.png",
       },
       tab_1: {
         title: "直观热力图谱",
         description: "全市场行情一目了然，热点尽在掌握",
-        image: "https://assets.lbctrl.com/uploads/f6beade7-25d6-4e4c-884b-7bac76576990/real-time-2.png",
+        image: "https://assets.lbctrl.com/uploads/62a0d228-2e42-489b-87e0-8fb9c62e6e5d/real-time-2.png",
       },
       tab_2: {
         title: "主力资金追踪",
         description: "大单动向实时解析，迅速把握主力动向",
-        image: "https://assets.lbctrl.com/uploads/f518cc0a-fdd7-4461-963b-6c093a636dbf/real-time-3.png",
+        image: "https://assets.lbctrl.com/uploads/1d6a5183-598e-4510-b76d-1fa3016c66f3/real-time-3.png",
       },
     },
   },
