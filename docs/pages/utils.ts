@@ -60,8 +60,8 @@ export const createDownloadUrl = (
     windows: `windows-${arch}.exe`,
     macos: `macos-${arch}.dmg`,
     linux: {
-      appimage: `linux-${arch}.AppImage`,
       deb: `linux-${arch}.deb`,
+      appimage: `linux-${arch}.AppImage`,
     },
   };
 
@@ -88,16 +88,16 @@ export const getDownloads = (version: string) => {
     linux: [
       {
         text: "Linux",
-        suffix: "AppImage",
-        url: createDownloadUrl(version, "linux", "x86_64", "appimage"),
-        platform: "linux",
-      },
-      {
-        text: "Linux",
         suffix: "deb",
         url: createDownloadUrl(version, "linux", "x86_64", "deb"),
         platform: "linux",
       },
+      {
+        text: "Linux",
+        suffix: "AppImage",
+        url: createDownloadUrl(version, "linux", "x86_64", "appimage"),
+        platform: "linux",
+      }
     ],
     macos: [
       {
