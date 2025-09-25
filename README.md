@@ -4,6 +4,6 @@ The website of the Longbridge Pro.
 
 Visit: https://longbridge.com/desktop
 
-## License 
+## License
 
 Copyright Longbridge.
