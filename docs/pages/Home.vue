@@ -6,7 +6,6 @@ import SmartNav from "./home/SmartNav.vue";
 import Upgrade from "./home/Upgrade.vue";
 import Hero from "./home/Hero.vue";
 
-
 const { multiPlatform } = useLocale();
 </script>
 
@@ -25,7 +24,7 @@ const { multiPlatform } = useLocale();
       <SmartNav v-motion="motionVisible()" />
 
       <!-- Multi-Platform Monitoring -->
-      <section class="py-16 px-6">
+      <!-- <section class="py-16 px-6">
         <div class="max-w-[1200px] mx-auto">
           <img src="https://assets.lbctrl.com/uploads/ea7c0629-92cd-4353-8df7-e0cb1eb795e2/multi.png" alt="Platform 6"
             class="w-full h-auto rounded max-w-full" />
@@ -39,7 +38,7 @@ const { multiPlatform } = useLocale();
         <div class="mt-8">
           <DownloadInfo />
         </div>
-      </section>
+      </section> -->
     </div>
   </div>
 </template>
