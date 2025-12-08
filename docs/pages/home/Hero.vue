@@ -34,7 +34,7 @@ const { name, tagline } = useLocale();
     >
       <img
         src="https://assets.lbctrl.com/uploads/f191627a-c46b-407b-b8be-aa5a5b193109/watchlist.webp"
-        alt="Longbridge Pro Interface"
+        alt="Longbridge Pro - Watchlist"
         class="w-full h-auto rounded-lg"
       />
     </div>
