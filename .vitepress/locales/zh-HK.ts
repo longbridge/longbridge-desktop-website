@@ -70,17 +70,17 @@ export default {
             tab_0: {
                 title: "智能異動監測",
                 description: "毫秒級預警自選股異動，機會從不漏網",
-                image: "https://assets.lbctrl.com/uploads/afc938b3-e0c0-4560-8700-8712fc71f1dc/real-time.png",
+                image: "https://assets.lbctrl.com/uploads/b93a73bb-6e91-4413-8954-8adff194aa3e/market.webp",
             },
             tab_1: {
                 title: "直觀熱力圖譜",
                 description: "全市場行情一目了然，熱點盡在掌握",
-                image: "https://assets.lbctrl.com/uploads/62a0d228-2e42-489b-87e0-8fb9c62e6e5d/real-time-2.png",
+                image: "https://assets.lbctrl.com/uploads/72542fb3-e707-4e3c-b92a-c766f3a3fe23/heatmap.webp",
             },
             tab_2: {
                 title: "主力資金追蹤",
                 description: "大單動向實時解析，迅速把握主力動向",
-                image: "https://assets.lbctrl.com/uploads/1d6a5183-598e-4510-b76d-1fa3016c66f3/real-time-3.png",
+                image: "https://assets.lbctrl.com/uploads/097f6747-5865-4d10-878d-385bb2f50d82/stock-detail.webp",
             },
         },
     },

@@ -73,21 +73,21 @@ export default {
                 description:
                     "Get millisecond alerts on your watchlist, so you'll always catch key stock moves.",
                 image:
-                    "https://assets.lbctrl.com/uploads/afc938b3-e0c0-4560-8700-8712fc71f1dc/real-time.png",
+                    "https://assets.lbctrl.com/uploads/b93a73bb-6e91-4413-8954-8adff194aa3e/market.webp",
             },
             tab_1: {
                 title: "Intuitive Heatmap",
                 description:
                     "Visualize market trends with interactive heat maps and real-time data analysis.",
                 image:
-                    "https://assets.lbctrl.com/uploads/62a0d228-2e42-489b-87e0-8fb9c62e6e5d/real-time-2.png",
+                    "https://assets.lbctrl.com/uploads/72542fb3-e707-4e3c-b92a-c766f3a3fe23/heatmap.webp",
             },
             tab_2: {
                 title: "Institutional Flow Tracking",
                 description:
                     "Track institutional movements and large volume transactions in real-time.",
                 image:
-                    "https://assets.lbctrl.com/uploads/1d6a5183-598e-4510-b76d-1fa3016c66f3/real-time-3.png",
+                    "https://assets.lbctrl.com/uploads/097f6747-5865-4d10-878d-385bb2f50d82/stock-detail.webp",
             },
         },
     },
