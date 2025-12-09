@@ -24,21 +24,32 @@ const { multiPlatform } = useLocale();
       <SmartNav v-motion="motionVisible()" />
 
       <!-- Multi-Platform Monitoring -->
-      <!-- <section class="py-16 px-6">
+      <section class="py-16 px-6">
         <div class="max-w-[1200px] mx-auto">
-          <img src="https://assets.lbctrl.com/uploads/ea7c0629-92cd-4353-8df7-e0cb1eb795e2/multi.png" alt="Platform 6"
-            class="w-full h-auto rounded max-w-full" />
-          <h2 class="!text-3xl lg:!text-4xl font-bold text-center mb-12 text-black">
-            <span v-motion="motionVisible()" v-html="multiPlatform.title"></span>
+          <img
+            src="https://assets.lbctrl.com/uploads/78728886-0410-429c-ba4a-db2a6ea4911e/multi.webp"
+            alt="Platform 6"
+            class="w-full h-auto rounded max-w-full"
+          />
+          <h2
+            class="!text-3xl lg:!text-4xl font-bold text-center mb-12 text-black"
+          >
+            <span
+              v-motion="motionVisible()"
+              v-html="multiPlatform.title"
+            ></span>
           </h2>
           <div class="text-center text-sm lg:text-xl my-5">
-            <span v-motion="motionVisible()" v-html="multiPlatform.description"></span>
+            <span
+              v-motion="motionVisible()"
+              v-html="multiPlatform.description"
+            ></span>
           </div>
         </div>
         <div class="mt-8">
           <DownloadInfo />
         </div>
-      </section> -->
+      </section>
     </div>
   </div>
 </template>
