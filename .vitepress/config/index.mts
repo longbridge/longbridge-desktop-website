@@ -1,6 +1,5 @@
 import { defineConfig } from "vitepress";
 import Unocss from "unocss/vite";
-import Inspect from "vite-plugin-vue-inspector";
 
 import en from "./en.mts";
 import zh_cn from "./zh-CN.mts";
@@ -18,7 +17,6 @@ export default defineConfig({
       Unocss({
         configFile: "../../unocss.config.ts",
       }),
-      Inspect(),
     ],
     define: {
       "import.meta.env.VERSION": JSON.stringify(
