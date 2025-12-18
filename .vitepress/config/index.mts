@@ -1,6 +1,5 @@
 import { defineConfig } from "vitepress";
-import Unocss from 'unocss/vite'
-import Inspect from 'vite-plugin-vue-inspector'
+import Unocss from "unocss/vite";
 
 import en from "./en.mts";
 import zh_cn from "./zh-CN.mts";
@@ -16,12 +15,13 @@ export default defineConfig({
   vite: {
     plugins: [
       Unocss({
-        configFile: '../../unocss.config.ts',
+        configFile: "../../unocss.config.ts",
       }),
-      Inspect()
     ],
     define: {
-      'import.meta.env.VERSION': JSON.stringify(process.env.VERSION || 'v0.1.30')
+      "import.meta.env.VERSION": JSON.stringify(
+        process.env.VERSION || "v0.1.30",
+      ),
     },
   },
   head: [
@@ -42,8 +42,10 @@ export default defineConfig({
     "zh-HK": { label: "繁體中文", ...zh_hk },
   },
   transformHead({ assets }) {
-    const h1Font = assets.find(asset => /Cera-Pro-Light\.[\w-]+\.otf/.test(asset))
-    if (!h1Font) return []
+    const h1Font = assets.find((asset) =>
+      /Cera-Pro-Light\.[\w-]+\.otf/.test(asset),
+    );
+    if (!h1Font) return [];
     return [
       [
         "link",
