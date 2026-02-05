@@ -1,8 +1,8 @@
 <script setup>
-import DownloadInfo from "./DownloadInfo.vue";
-import { useLocale, motionVisible } from "../utils";
+import DownloadInfo from './DownloadInfo.vue'
+import { useLocale, motionVisible } from '../utils'
 
-const { name, tagline } = useLocale();
+const { name, tagline } = useLocale()
 </script>
 <template>
   <div class="max-w-[1200px] mx-auto">
@@ -33,7 +33,7 @@ const { name, tagline } = useLocale();
       v-motion="motionVisible(300, 'visible')"
     >
       <img
-        src="https://assets.lbctrl.com/uploads/f191627a-c46b-407b-b8be-aa5a5b193109/watchlist.webp"
+        src="https://assets.lbctrl.com/uploads/f4da8c9b-cd12-4a4d-804c-f850d326ca21/home.png"
         alt="Longbridge Pro - Watchlist"
         class="w-full h-auto rounded-lg"
       />
