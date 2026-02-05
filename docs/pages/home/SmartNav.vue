@@ -1,39 +1,39 @@
 <script setup>
-import { ref, useTemplateRef } from "vue";
-import { useLocale } from "../utils";
-import { useIntersectionObserver } from "@vueuse/core";
+import { ref, useTemplateRef } from 'vue'
+import { useLocale } from '../utils'
+import { useIntersectionObserver } from '@vueuse/core'
 
-const { smartNav } = useLocale();
-const video = useTemplateRef("video");
+const { smartNav } = useLocale()
+const video = useTemplateRef('video')
 useIntersectionObserver(video, ([{ isIntersecting }]) => {
   if (video.value) {
     if (isIntersecting && video.value.paused) {
-      video.value.play();
+      video.value.play()
     } else {
-      video.value.pause();
+      video.value.pause()
     }
   }
-});
+})
 // Props 定义
 const props = defineProps({
   stickyOffset: {
     type: Number,
-    default: 64,
-  },
-});
+    default: 64
+  }
+})
 
-const activeTab = ref(0);
+const activeTab = ref(0)
 // 简化的内容配置
 const content = {
   title: smartNav.title,
-  features: [smartNav.description, smartNav.description_2],
-};
-const handleTabClick = (index) => {
-  activeTab.value = index;
+  features: [smartNav.description, smartNav.description_2]
+}
+const handleTabClick = index => {
+  activeTab.value = index
   if (video.value && video.value.paused) {
-    video.value.play();
+    video.value.play()
   }
-};
+}
 </script>
 
 <template>
@@ -80,13 +80,13 @@ const handleTabClick = (index) => {
                   playsinline="true"
                   webkit-playsinline="true"
                   muted="true"
-                  src="https://assets.lbctrl.com/uploads/cf38bebc-96a5-42cb-9c37-f1b6de1be240/stock-navgation.mp4"
+                  src="https://assets.lbctrl.com/uploads/f3161729-43d6-42e7-9a11-0408882ea933/video.mp4"
                   class="rounded-lg w-83 max-h-46 lg:w-160 lg:max-h-90"
                 ></video>
               </template>
               <template v-else>
                 <img
-                  src="https://assets.lbctrl.com/uploads/68e4f451-9fc5-43ba-80da-72018cf8d091/global-history.webp"
+                  src="https://assets.lbctrl.com/uploads/d5cc7eb1-b1bb-42ac-b648-8c637b9d3d90/history.png"
                   class="rounded-lg w-83 max-h-56 lg:w-160 lg:max-h-112"
                 />
               </template>
