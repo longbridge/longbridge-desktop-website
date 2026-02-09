@@ -29,12 +29,12 @@ export default defineConfig({
       'link',
       {
         rel: 'icon',
-        href: 'https://pub.lbkrs.com/files/202107/35tULHe3n4Pp4EtA/logo.png'
+        href: 'https://assets.wbrks.com/assets/logo/logo1.png'
       }
     ]
   ],
   themeConfig: {
-    logo: 'https://assets.lbctrl.com/uploads/ec60ff51-e760-4471-9317-e698dd9f21b3/app-icon.ico'
+    logo: 'https://assets.wbrks.com/assets/logo/icon-full-radius.png'
   },
   locales: {
     root: { label: 'English', ...en },
