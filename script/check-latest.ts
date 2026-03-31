@@ -10,7 +10,8 @@ async function main() {
 
   try {
     // Fetch the latest.json file
-    const response = await fetch("https://assets.lbctrl.com/github/release/longbridge-desktop/stable/latest.json");
+    const url = `https://assets.lbctrl.com/github/release/longbridge-desktop/stable/latest.json?_=${Date.now()}`;
+    const response = await fetch(url, { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`Failed to fetch latest.json: ${response.statusText}`);
     }
