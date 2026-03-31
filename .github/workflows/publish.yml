@@ -32,6 +32,7 @@ jobs:
         run: |
           VERSION=$(bun run script/check-latest.ts)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "Latest version: $VERSION"
 
       - name: Build release
         run: |
