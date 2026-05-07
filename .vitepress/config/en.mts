@@ -26,11 +26,15 @@ export default defineConfig({
         base: "/release-notes/",
         items: stableItems,
       },
-      {
-        text: "Preview",
-        base: "/release-notes/preview/",
-        items: previewItems,
-      },
+      ...(previewItems.length > 0
+        ? [
+            {
+              text: "Preview",
+              base: "/release-notes/preview/",
+              items: previewItems,
+            },
+          ]
+        : []),
     ],
 
     socialLinks: [{ icon: "github", link: "https://github.com/longbridge" }],
