@@ -1,7 +1,10 @@
 #!/usr/bin/env bun
 import { $ } from "bun";
 import { randomUUID } from "crypto";
-import { normalizeFileNames } from "../.vitepress/config/utils";
+import {
+  filterSupersededPreviews,
+  normalizeFileNames,
+} from "../.vitepress/config/utils";
 import path from "path";
 import fs from "fs";
 import process from "process";
@@ -225,10 +228,11 @@ ${downloads}
 }
 
 function generateIndex(locale: Locale) {
-  let dir = "release-notes";
+  let stableDir = "release-notes";
   if (locale != "en") {
-    dir = `${locale}/release-notes`;
+    stableDir = `${locale}/release-notes`;
   }
+  let dir = stableDir;
   if (IS_PREVIEW) {
     dir += "/preview";
   }
@@ -250,6 +254,19 @@ function generateIndex(locale: Locale) {
 
     names.push(name);
   }
+
+  if (IS_PREVIEW) {
+    const stableRoot = path.join(process.cwd(), "docs", stableDir);
+    if (fs.existsSync(stableRoot)) {
+      const stableNames = fs
+        .readdirSync(stableRoot)
+        .filter((file) => file.endsWith(".md"))
+        .map((file) => path.basename(file, ".md"))
+        .filter((name) => name !== "index");
+      names = filterSupersededPreviews(names, stableNames);
+    }
+  }
+
   names = normalizeFileNames(names);
 
   let links: string[] = [];

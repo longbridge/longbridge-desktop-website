@@ -23,11 +23,15 @@ export default defineConfig({
         base: `/${LOCALE}/release-notes/`,
         items: stableItems,
       },
-      {
-        text: "预览版本",
-        base: `/${LOCALE}/release-notes/preview/`,
-        items: previewItems,
-      },
+      ...(previewItems.length > 0
+        ? [
+            {
+              text: "预览版本",
+              base: `/${LOCALE}/release-notes/preview/`,
+              items: previewItems,
+            },
+          ]
+        : []),
     ],
 
     socialLinks: [{ icon: "github", link: "https://github.com/longbridge" }],

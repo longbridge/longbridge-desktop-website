@@ -4,6 +4,36 @@ import { DefaultTheme } from "vitepress";
 
 const MAX_ITEMS = 50;
 
+// 过滤掉已被稳定版取代的 preview。
+// 规则：只要存在任何 base >= preview base 的稳定版，就视为已过时。
+// 例如 v0.7.0-preview.* 在 v0.7.1 稳定发布后会被隐藏。
+export function filterSupersededPreviews(
+  previewNames: string[],
+  stableNames: string[],
+): string[] {
+  const parseBase = (name: string): number[] =>
+    name
+      .split("-")[0]
+      .replace(/^v/, "")
+      .split(".")
+      .map((n) => Number(n) || 0);
+
+  const compareBase = (a: number[], b: number[]): number => {
+    const len = Math.max(a.length, b.length);
+    for (let i = 0; i < len; i++) {
+      const diff = (a[i] ?? 0) - (b[i] ?? 0);
+      if (diff !== 0) return diff;
+    }
+    return 0;
+  };
+
+  const stableBases = stableNames.map(parseBase);
+  return previewNames.filter((name) => {
+    const previewBase = parseBase(name);
+    return !stableBases.some((s) => compareBase(s, previewBase) >= 0);
+  });
+}
+
 // 版本号排序
 export function normalizeFileNames(names: string[]): string[] {
   names.sort((a, b) => {
@@ -66,6 +96,18 @@ export function getReleaseNotes(
     }
 
     names.push(name);
+  }
+
+  if (prefix === "preview") {
+    const stableDir = path.join("docs", dir);
+    if (fs.existsSync(stableDir)) {
+      const stableNames = fs
+        .readdirSync(stableDir)
+        .filter((file) => file.endsWith(".md"))
+        .map((file) => path.basename(file, ".md"))
+        .filter((name) => name !== "index");
+      names = filterSupersededPreviews(names, stableNames);
+    }
   }
 
   names = normalizeFileNames(names);
