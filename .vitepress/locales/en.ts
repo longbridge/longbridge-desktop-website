@@ -4,6 +4,14 @@ export default {
   download_more: 'View all versions',
   download_for: 'Download for {os}',
   also_available: 'Also available for',
+  hero: {
+    title_1: 'Faster, smoother,',
+    title_2: 'more efficient.',
+    description:
+      "Brand new trading desktop application of Longbridge Securities. We're constantly improving and optimizing the features in this latest version.",
+    legacy:
+      'For access to more complete functionality, feel free to <a href="https://longbridge.com/download" target="_blank" rel="noopener">download the previous version.</a>'
+  },
   nav_download: 'Download',
   legacy_info: `We're constantly improving and optimizing the features in this latest version. <br />For access to more complete functionality, feel free to <a href="https://longbridge.com/download" target="_blank">download the previous version.</a>`,
   features: [

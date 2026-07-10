@@ -4,6 +4,13 @@ export default {
   download_more: '查看更多版本',
   download_for: '下载 {os} 版',
   also_available: '同时支持',
+  hero: {
+    title_1: '更快、更流畅、',
+    title_2: '更高效。',
+    description: '长桥证券全新交易桌面端应用。我们正在持续改进和优化最新版本的功能。',
+    legacy:
+      '如需更完整的功能，欢迎 <a href="https://longbridge.com/download" target="_blank" rel="noopener">下载旧版本。</a>'
+  },
   nav_download: '下载',
   legacy_info:
     '当前为全新一代版本，功能正在持续优化和完善中，如需更完整的功能，可选择 <a href="https://longbridge.com/download" target="_blank">下载上一代版本</a>',
