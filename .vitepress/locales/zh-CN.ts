@@ -56,28 +56,13 @@ export default {
     }
   ],
   upgrade: {
-    title: '架构全面革新<br />打造极致投资体验',
-    tab1: {
-      title: '极速流畅',
-      description_1: '最高',
-      description_2: '120',
-      description_3: 'FPS 超流畅体验',
-      description_4: '操作行云流水',
-      description_5: '行业速度新标杆'
-    },
-    tab2: {
-      title: '秒级响应',
-      description_1: '极速启动',
-      description_2: '2s',
-      description_3: '把握每一个投资良机。'
-    },
-    tab3: {
-      title: '轻如鸿羽',
-      description_1: '-40%',
-      description_2: 'CPU 占用直降',
-      description_3: '-70%',
-      description_4: '内存消耗锐减'
-    }
+    label: '全新架构',
+    title: '全新架构，体验升级。',
+    cards: [
+      { value: '120', unit: 'FPS', title: '极速渲染', description: '高达 120 FPS，交易丝滑流畅，树立速度新标杆。' },
+      { value: '<2', unit: 's', title: '秒级启动', description: '2 秒内即刻就绪，把握每一个投资机会。' },
+      { value: '-40', unit: '%CPU', title: '轻若无物', description: 'CPU 占用降低 40%，内存占用降低 70%。' }
+    ]
   },
   realTimeTracking: {
     title: '异动实时追踪，捕捉投资先机',

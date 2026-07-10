@@ -56,29 +56,28 @@ export default {
     }
   ],
   upgrade: {
-    title: 'Upgraded Architecture,<br />Enhanced Experience',
-    tab1: {
-      title: 'Lightning<br />Speed',
-      description_1: 'Up to',
-      description_2: '120',
-      description_3: 'FPS',
-      description_4: 'Seamless trading, setting a new',
-      description_5: 'speed benchmark'
-    },
-    tab2: {
-      title: 'Instant<br />Launch',
-      description_1: 'Ready in under',
-      description_2: '2s',
-      description_3: 'Seize every investment',
-      description_4: 'opportunity'
-    },
-    tab3: {
-      title: 'Featherlight<br />Installation',
-      description_1: '-40%',
-      description_2: 'CPU usage',
-      description_3: '-70%',
-      description_4: 'Memory consumption'
-    }
+    label: 'Upgraded Architecture',
+    title: 'Upgraded architecture, enhanced experience.',
+    cards: [
+      {
+        value: '120',
+        unit: 'FPS',
+        title: 'Lightning Speed',
+        description: 'Up to 120 FPS — seamless trading, setting a new speed benchmark.'
+      },
+      {
+        value: '<2',
+        unit: 's',
+        title: 'Instant Launch',
+        description: 'Ready in under 2 seconds — seize every investment opportunity.'
+      },
+      {
+        value: '-40',
+        unit: '%CPU',
+        title: 'Featherlight Installation',
+        description: '-40% CPU usage, -70% memory consumption.'
+      }
+    ]
   },
   realTimeTracking: {
     title: 'Real-Time Tracking, Seizing Trading Edge',
