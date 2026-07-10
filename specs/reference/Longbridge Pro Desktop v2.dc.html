@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",sans-serif}
+a{color:var(--brand,#00ADA2);text-decoration:none}a:hover{opacity:.85}
+:root{
+--bg:#FFFFFF; --bg2:#F5F6F6; --bg3:#FAFAFA;
+--surface:#FFFFFF; --border:#EAEBEC; --divider:#EAEBEC;
+--h:#0A0E19; --text:#3C3C43; --text2:#67676C; --text3:#9D9FA3;
+--brand:#00ADA2; --brand-label:#00B8B8;
+--btn-bg:#000000; --btn-fg:#FFFFFF; --btn-hover:#282828;
+--btn2-bg:#F3F5F6; --btn2-fg:#3C3C43; --btn2-border:#EAEBEC; --btn2-hover:#EBEDEE;
+--nav-bg:rgba(255,255,255,0.85);
+--chip-bg:#FFFFFF; --chip-fg:#52585D;
+--tab-active-bg:#FFFFFF; --tab-active-border:#00ADA2; --tab-active-fg:#0A0E19; --tab-ring:rgba(0,173,162,0.10);
+--hover-wash:rgba(0,0,0,0.04);
+--hero-bg:linear-gradient(to top,rgba(255,255,255,1) 0%,rgba(255,255,255,0.75) 45%,rgba(255,255,255,0.35) 100%),radial-gradient(rgba(10,14,25,0.22) 1px,transparent 1px);
+--shot-shadow:0px 4px 16px rgba(0,0,0,0.08);
+--card-hover-border:#DCDEE0; --card-hover-shadow:0px 2px 8px rgba(0,0,0,0.04);
+--track-bg:#F5F6F6; --track-tab-bg:#FFFFFF; --track-tab-active-bg:#FFFFFF;
+--glow:rgba(0,173,162,0.10);
+}
+[data-theme="dark"]{
+--bg:#0A0E19; --bg2:#161A26; --bg3:#0A0E19;
+--surface:#13182A; --border:#3C3F44; --divider:rgba(255,255,255,0.06);
+--h:#FFFFFF; --text:#DFDFD6; --text2:#98989F; --text3:#6A6A71;
+--brand:#00F0C4; --brand-label:#00F0C4;
+--btn-bg:#FFFFFF; --btn-fg:#000000; --btn-hover:#E8E8E8;
+--btn2-bg:rgba(80,80,80,0.5); --btn2-fg:#D1D5DB; --btn2-border:rgba(255,255,255,0.12); --btn2-hover:rgba(80,80,80,0.7);
+--nav-bg:rgba(10,14,25,0.8);
+--chip-bg:rgba(80,80,80,0.5); --chip-fg:#D1D5DB;
+--tab-active-bg:#13182A; --tab-active-border:rgba(0,240,196,0.5); --tab-active-fg:#00F0C4; --tab-ring:rgba(0,240,196,0.10);
+--hover-wash:rgba(255,255,255,0.06);
+--hero-bg:linear-gradient(to top,rgba(10,14,25,1) 0%,rgba(10,14,25,0.65) 50%,rgba(10,14,25,0.25) 100%),radial-gradient(rgba(223,223,214,0.18) 1px,transparent 1px);
+--shot-shadow:0px 4px 24px rgba(0,0,0,0.4);
+--card-hover-border:#4F5260; --card-hover-shadow:0px 2px 8px rgba(0,240,196,0.06);
+--track-bg:#09252A; --track-tab-bg:rgba(32,58,63,0.5); --track-tab-active-bg:#203A3F;
+--glow:rgba(0,240,196,0.14);
+}
+</style>
+</helmet>
+
+<div data-theme="{{ theme }}" style="background:var(--bg);color:var(--text);min-height:100vh;transition:background 0.25s">
+
+  <!-- nav -->
+  <div data-screen-label="Nav" style="position:sticky;top:0;z-index:40;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:var(--nav-bg);backdrop-filter:saturate(1.8) blur(20px);border-bottom:1px solid var(--divider)">
+    <div style="display:flex;align-items:center;gap:10px">
+      <img src="https://assets.wbrks.com/assets/logo/icon-full-radius.png" alt="Longbridge" style="width:28px;height:28px;border-radius:7px">
+      <span style="font-size:16px;font-weight:700;color:var(--h)">Longbridge Pro</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:4px">
+      <a href="https://longbridge.com" style="font-size:14px;font-weight:500;color:var(--h);padding:8px 12px;border-radius:6px" style-hover="background:var(--hover-wash)">{{ t.navHome }}</a>
+      <a href="https://longbridge.com/desktop/" style="font-size:14px;font-weight:700;color:var(--brand);padding:8px 12px;border-radius:6px">Longbridge Pro</a>
+      <a href="https://longbridge.com/desktop/release-notes" style="font-size:14px;font-weight:500;color:var(--h);padding:8px 12px;border-radius:6px" style-hover="background:var(--hover-wash)">{{ t.navRelease }}</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="position:relative">
+        <div onClick="{{ toggleLangOpen }}" style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--text);padding:6px 10px;border:1px solid var(--border);border-radius:8px;cursor:pointer;user-select:none" style-hover="background:var(--hover-wash)">{{ langLabel }} <span style="font-size:10px;color:var(--text3)">▾</span></div>
+        <sc-if value="{{ langOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:38px;right:0;background:var(--surface);border:1px solid var(--border);border-radius:8px;box-shadow:0px 4px 16px rgba(0,0,0,0.08);padding:6px;min-width:150px;display:flex;flex-direction:column;gap:2px;z-index:50">
+            <sc-for list="{{ langOptions }}" as="lo" hint-placeholder-count="3">
+              <div onClick="{{ lo.select }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;font-weight:500;padding:8px 10px;border-radius:6px;cursor:pointer;color:var(--h)" style-hover="background:var(--hover-wash)"><span>{{ lo.label }}</span><span style="color:var(--brand);font-size:12px">{{ lo.mark }}</span></div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <a href="https://github.com/longbridge" style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:12px;font-weight:700;border:1px solid var(--border)" style-hover="background:var(--hover-wash)">GH</a>
+      <div onClick="{{ toggleTheme }}" title="Toggle theme" style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--text2);cursor:pointer;font-size:15px;user-select:none" style-hover="background:var(--hover-wash)">{{ themeIcon }}</div>
+      <a href="https://longbridge.com/download" style="background:var(--btn-bg);color:var(--btn-fg);font-size:14px;font-weight:500;padding:8px 20px;border-radius:999px" style-hover="background:var(--btn-hover)">{{ t.navDownload }}</a>
+    </div>
+  </div>
+
+  <!-- hero -->
+  <div data-screen-label="Hero" style="position:relative;overflow:hidden;background-image:var(--hero-bg);background-size:auto,16px 16px;padding:88px 40px 0;text-align:center">
+    <div style="display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1px;color:var(--brand-label);margin-bottom:20px"><span style="width:6px;height:6px;border-radius:50%;background:var(--brand-label)"></span>LONGBRIDGE PRO · v0.17.1 BETA</div>
+    <h1 style="margin:0 0 20px;font-size:64px;line-height:1.05;font-weight:600;color:var(--h)">{{ t.heroT1 }}<br><span style="color:var(--brand)">{{ t.heroT2 }}</span></h1>
+    <p style="margin:0 auto 12px;max-width:580px;font-size:16px;line-height:1.7;color:var(--text2)">{{ t.heroDesc }}</p>
+    <p style="margin:0 0 32px;font-size:13.5px;color:var(--text3)">{{ t.heroPrevPre }} <a href="https://longbridge.com/download" style="font-weight:700">{{ t.heroPrevLink }}</a></p>
+    <div style="display:flex;justify-content:center;gap:12px;margin-bottom:16px">
+      <a href="https://longbridge.com/download" style="display:flex;align-items:center;gap:8px;background:var(--btn-bg);color:var(--btn-fg);font-size:15px;font-weight:500;padding:12px 28px;border-radius:999px;box-shadow:rgba(15,17,21,0.04) 0px 1px 2px 0px" style-hover="background:var(--btn-hover)">{{ downloadLabel }}</a>
+      <a href="https://longbridge.com/release-notes" style="display:flex;align-items:center;background:var(--btn2-bg);border:1px solid var(--btn2-border);color:var(--btn2-fg);font-size:14px;font-weight:500;padding:12px 24px;border-radius:999px" style-hover="background:var(--btn2-hover)">{{ t.viewAll }}</a>
+    </div>
+    <div style="font-size:12px;color:var(--text3);margin-bottom:56px">{{ alsoAvailable }}</div>
+    <div style="position:relative;max-width:1080px;margin:0 auto">
+      <div style="position:absolute;left:-60px;right:-60px;top:-40px;height:280px;background:radial-gradient(50% 100% at 50% 100%,var(--glow) 0%,transparent 70%);pointer-events:none"></div>
+      <img src="https://assets.lbctrl.com/uploads/f4da8c9b-cd12-4a4d-804c-f850d326ca21/home.png" alt="Longbridge Pro — Watchlist" style="position:relative;display:block;width:100%;border:1px solid var(--border);border-radius:16px 16px 0 0;border-bottom:none;box-shadow:var(--shot-shadow)">
+    </div>
+  </div>
+
+  <!-- feature cards -->
+  <div data-screen-label="Architecture" style="border-top:1px solid var(--divider)">
+    <div style="padding:80px 40px;max-width:1200px;margin:0 auto;box-sizing:border-box">
+      <div style="font-size:11.5px;font-weight:700;color:var(--brand-label);letter-spacing:1px;margin-bottom:14px">{{ t.archLabel }}</div>
+      <h2 style="margin:0 0 40px;font-size:36px;font-weight:600;line-height:1.15;color:var(--h);max-width:560px">{{ t.archTitle }}</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 24px" style-hover="border:1px solid var(--card-hover-border);box-shadow:var(--card-hover-shadow)">
+          <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:44px;font-weight:600;line-height:1;color:var(--brand);margin-bottom:16px">120<span style="font-size:20px;color:var(--text2)">FPS</span></div>
+          <div style="font-size:19px;font-weight:700;color:var(--h);margin-bottom:8px">{{ t.f1t }}</div>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:var(--text2)">{{ t.f1d }}</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 24px" style-hover="border:1px solid var(--card-hover-border);box-shadow:var(--card-hover-shadow)">
+          <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:44px;font-weight:600;line-height:1;color:var(--brand);margin-bottom:16px">&lt;2<span style="font-size:20px;color:var(--text2)">s</span></div>
+          <div style="font-size:19px;font-weight:700;color:var(--h);margin-bottom:8px">{{ t.f2t }}</div>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:var(--text2)">{{ t.f2d }}</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 24px" style-hover="border:1px solid var(--card-hover-border);box-shadow:var(--card-hover-shadow)">
+          <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:44px;font-weight:600;line-height:1;color:var(--brand);margin-bottom:16px">-40<span style="font-size:20px;color:var(--text2)">%CPU</span></div>
+          <div style="font-size:19px;font-weight:700;color:var(--h);margin-bottom:8px">{{ t.f3t }}</div>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:var(--text2)">{{ t.f3d }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- real-time tracking -->
+  <div data-screen-label="Real-time tracking" style="background:var(--track-bg);border-top:1px solid var(--divider);padding:80px 40px">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:380px 1fr;gap:48px;align-items:center">
+      <div>
+        <div style="font-size:11.5px;font-weight:700;color:var(--brand-label);letter-spacing:1px;margin-bottom:14px">{{ t.trackLabel }}</div>
+        <h2 style="margin:0 0 20px;font-size:36px;font-weight:600;line-height:1.15;color:var(--h)">{{ t.trackTitle }}</h2>
+        <p style="margin:0 0 28px;font-size:15px;line-height:1.7;color:var(--text2)">{{ t.trackDesc }}</p>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="background:var(--track-tab-active-bg);border:1px solid var(--tab-active-border);border-radius:12px;padding:14px 16px;font-size:14px;font-weight:600;color:var(--tab-active-fg);box-shadow:0px 0px 0px 3px var(--tab-ring)">{{ t.tab1 }}</div>
+          <div style="background:var(--track-tab-bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:14px;font-weight:500;color:var(--text)" style-hover="border:1px solid var(--card-hover-border)">{{ t.tab2 }}</div>
+          <div style="background:var(--track-tab-bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:14px;font-weight:500;color:var(--text)" style-hover="border:1px solid var(--card-hover-border)">{{ t.tab3 }}</div>
+        </div>
+      </div>
+      <img src="https://assets.lbctrl.com/uploads/019b7300-18da-4428-abe9-e7f438ad827b/market.png" alt="Smart activity monitoring" style="width:100%;border:1px solid var(--border);border-radius:16px;background:var(--surface)">
+    </div>
+  </div>
+
+  <!-- smart navigation -->
+  <div data-screen-label="Smart navigation" style="padding:80px 40px;border-top:1px solid var(--divider)">
+    <div style="max-width:1200px;margin:0 auto;text-align:center">
+      <div style="font-size:11.5px;font-weight:700;color:var(--brand-label);letter-spacing:1px;margin-bottom:14px">{{ t.navSecLabel }}</div>
+      <h2 style="margin:0 0 16px;font-size:36px;font-weight:600;color:var(--h)">{{ t.navSecTitle }}</h2>
+      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px 32px;margin-bottom:36px;font-size:14px;color:var(--text2)">
+        <div><span style="color:var(--brand);font-weight:700">•</span> {{ t.navSecP1 }}</div>
+        <div><span style="color:var(--brand);font-weight:700">•</span> {{ t.navSecP2 }}</div>
+      </div>
+      <video src="https://assets.lbctrl.com/uploads/f3161729-43d6-42e7-9a11-0408882ea933/video.mp4" autoplay muted loop playsinline style="width:1000px;max-width:100%;border:1px solid var(--border);border-radius:16px;display:block;margin:0 auto"></video>
+    </div>
+  </div>
+
+  <!-- multi-platform -->
+  <div data-screen-label="Multi-platform" style="background:var(--bg2);border-top:1px solid var(--divider);padding:80px 40px">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:center">
+      <img src="https://assets.lbctrl.com/uploads/78728886-0410-429c-ba4a-db2a6ea4911e/multi.webp" alt="Multi-platform support" style="width:100%">
+      <div>
+        <div style="font-size:11.5px;font-weight:700;color:var(--brand-label);letter-spacing:1px;margin-bottom:14px">{{ t.multiLabel }}</div>
+        <h2 style="margin:0 0 20px;font-size:36px;font-weight:600;line-height:1.15;color:var(--h)">{{ t.multiTitle }}</h2>
+        <p style="margin:0 0 24px;font-size:15px;line-height:1.7;color:var(--text2)">{{ t.multiDesc }}</p>
+        <div style="display:flex;gap:8px">
+          <span style="font-size:12px;font-weight:600;color:var(--chip-fg);background:var(--chip-bg);border:1px solid var(--border);padding:6px 12px;border-radius:4px">macOS</span>
+          <span style="font-size:12px;font-weight:600;color:var(--chip-fg);background:var(--chip-bg);border:1px solid var(--border);padding:6px 12px;border-radius:4px">Windows</span>
+          <span style="font-size:12px;font-weight:600;color:var(--chip-fg);background:var(--chip-bg);border:1px solid var(--border);padding:6px 12px;border-radius:4px">Linux</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- bottom CTA -->
+  <div data-screen-label="Bottom CTA" style="border-top:1px solid var(--divider);padding:88px 40px;text-align:center">
+    <h2 style="margin:0 0 12px;font-size:36px;font-weight:600;color:var(--h)">{{ t.ctaTitle }}</h2>
+    <p style="margin:0 0 28px;font-size:14px;color:var(--text3)">v0.17.1 Beta · <a href="https://longbridge.com/release-notes" style="font-weight:700">{{ t.viewAll }}</a></p>
+    <div style="display:flex;justify-content:center;gap:12px">
+      <a href="https://longbridge.com/download" style="background:var(--btn-bg);color:var(--btn-fg);font-size:15px;font-weight:500;padding:12px 28px;border-radius:999px" style-hover="background:var(--btn-hover)">{{ downloadLabel }}</a>
+      <a href="https://longbridge.com/download" style="background:var(--btn2-bg);border:1px solid var(--btn2-border);color:var(--btn2-fg);font-size:14px;font-weight:500;padding:12px 24px;border-radius:999px" style-hover="background:var(--btn2-hover)">{{ t.prevBtn }}</a>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div data-screen-label="Footer" style="background:var(--bg3);border-top:1px solid var(--divider);padding:56px 40px 32px">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px"><img src="https://assets.wbrks.com/assets/logo/icon-full-radius.png" alt="" style="width:24px;height:24px;border-radius:6px"><span style="font-size:14px;font-weight:700;color:var(--h)">Longbridge Pro</span></div>
+          <div style="font-size:12.5px;line-height:1.8;color:var(--text3)">{{ t.waTitle }} · <a href="https://wa.me/6563303033">+65 6330 3033</a><br>{{ t.dealingTitle }} · <a href="https://wa.me/6563303030">+65 6330 3030</a><br>{{ t.tradingDays }}<br>{{ t.emailTitle }} · <a href="mailto:contact@longbridge.sg">contact@longbridge.sg</a></div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:1px;color:var(--text3);margin-bottom:14px">{{ t.colTerms }}</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
+            <sc-for list="{{ termsLinks }}" as="lnk" hint-placeholder-count="6"><a href="{{ lnk.href }}" style="color:var(--text)" style-hover="color:var(--brand)">{{ lnk.label }}</a></sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:1px;color:var(--text3);margin-bottom:14px">{{ t.colAbout }}</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
+            <sc-for list="{{ aboutLinks }}" as="lnk" hint-placeholder-count="6"><a href="{{ lnk.href }}" style="color:var(--text)" style-hover="color:var(--brand)">{{ lnk.label }}</a></sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:1px;color:var(--text3);margin-bottom:14px">{{ t.colMore }}</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
+            <sc-for list="{{ moreLinks }}" as="lnk" hint-placeholder-count="4"><a href="{{ lnk.href }}" style="color:var(--text)" style-hover="color:var(--brand)">{{ lnk.label }}</a></sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--divider);padding-top:24px;flex-wrap:wrap;gap:12px">
+        <div style="font-size:12px;color:var(--text3)">© 2024 – Present Longbridge</div>
+        <div style="display:flex;gap:16px;font-size:12px">
+          <a href="https://www.facebook.com/SGLongbridge" style="color:var(--text2)">Facebook</a>
+          <a href="https://www.instagram.com/longbridge.sg" style="color:var(--text2)">Instagram</a>
+          <a href="https://x.com/sg_longbridge" style="color:var(--text2)">X</a>
+          <a href="https://www.tiktok.com/@longbridge.sg" style="color:var(--text2)">TikTok</a>
+          <a href="https://github.com/longbridge" style="color:var(--text2)">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;zh-CN&quot;,&quot;zh-HK&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Defaults&quot;},&quot;defaultTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Defaults&quot;}}">
+class Component extends DCLogic {
+  state = { lang: null, theme: null, langOpen: false };
+
+  detectOS() {
+    try {
+      const ua = navigator.userAgent || "";
+      if (/Mac|iPhone|iPad/i.test(ua)) return "macOS";
+      if (/Win/i.test(ua)) return "Windows";
+      return "Linux";
+    } catch (e) { return "macOS"; }
+  }
+
+  getI18N() {
+    return {
+      en: {
+        navHome: "Home", navRelease: "Release Notes", navDownload: "Download",
+        heroT1: "Faster, smoother,", heroT2: "more efficient.",
+        heroDesc: "Brand new trading desktop application of Longbridge Securities. We're constantly improving and optimizing the features in this latest version.",
+        heroPrevPre: "For access to more complete functionality, feel free to", heroPrevLink: "download the previous version.",
+        viewAll: "View all versions", prevBtn: "Download previous version",
+        also: "Also available for", and: "and",
+        statRender: "Rendering speed", statLaunch: "Instant launch", statCpu: "CPU usage", statMem: "Memory consumption",
+        archLabel: "UPGRADED ARCHITECTURE", archTitle: "Upgraded architecture, enhanced experience.",
+        f1t: "Lightning Speed", f1d: "Up to 120 FPS — seamless trading, setting a new speed benchmark.",
+        f2t: "Instant Launch", f2d: "Ready in under 2 seconds — seize every investment opportunity.",
+        f3t: "Featherlight Installation", f3d: "-40% CPU usage, -70% memory consumption.",
+        trackLabel: "REAL-TIME TRACKING", trackTitle: "Seizing the trading edge.",
+        trackDesc: "Get millisecond alerts on your watchlist, so you'll always catch key stock moves.",
+        tab1: "Smart Activity Monitoring", tab2: "Intuitive Heatmap", tab3: "Institutional Flow Tracking",
+        navSecLabel: "SMART NAVIGATION", navSecTitle: "Smart navigation, instant insights.",
+        navSecP1: "Customizable tabbed navigation for instant stock quotes", navSecP2: "One-click access to historical records",
+        multiLabel: "MULTI-PLATFORM", multiTitle: "Professional market monitoring, everywhere.",
+        multiDesc: "Native versions for Windows, Mac, and Linux. Multi-screen support for full control of market data, charts, and news.",
+        ctaTitle: "Start trading faster today.",
+        waTitle: "WhatsApp Chat (general enquiries)", dealingTitle: "Dealing Hotline",
+        tradingDays: "Trading days: 9a.m. – 12a.m. (GMT+8)", emailTitle: "Email",
+        colTerms: "TERMS & CONDITIONS", colAbout: "ABOUT", colMore: "MORE",
+        terms: ["Customer Agreement", "Privacy Policy", "Terms and Conditions", "Best Execution Policy", "Risk Disclosure Statement", "Account Opening"],
+        about: ["About us", "License & Regulatory", "News & Media", "Join us", "Column", "Blog"],
+        more: ["Welcome Rewards", "Referral Program", "Corporate Services", "OpenAPI"],
+        dl: (os) => "Download for " + os
+      },
+      "zh-CN": {
+        navHome: "首页", navRelease: "版本记录", navDownload: "下载",
+        heroT1: "更快、更流畅、", heroT2: "更高效。",
+        heroDesc: "长桥证券全新交易桌面端应用。我们正在持续改进和优化最新版本的功能。",
+        heroPrevPre: "如需更完整的功能，欢迎", heroPrevLink: "下载旧版本。",
+        viewAll: "查看全部版本", prevBtn: "下载旧版本",
+        also: "同时支持", and: "与",
+        statRender: "渲染速度", statLaunch: "启动时间", statCpu: "CPU 占用", statMem: "内存占用",
+        archLabel: "全新架构", archTitle: "全新架构，体验升级。",
+        f1t: "极速渲染", f1d: "高达 120 FPS，交易丝滑流畅，树立速度新标杆。",
+        f2t: "秒级启动", f2d: "2 秒内即刻就绪，把握每一个投资机会。",
+        f3t: "轻若无物", f3d: "CPU 占用降低 40%，内存占用降低 70%。",
+        trackLabel: "实时盯盘", trackTitle: "把握交易先机。",
+        trackDesc: "自选股异动毫秒级提醒，关键行情尽在掌握。",
+        tab1: "智能监控异动", tab2: "直观热力图", tab3: "机构资金追踪",
+        navSecLabel: "智能导航", navSecTitle: "智能导航，即刻洞察。",
+        navSecP1: "自定义标签页导航，行情即点即达", navSecP2: "一键直达历史记录",
+        multiLabel: "多端支持", multiTitle: "多屏协同，专业看盘。",
+        multiDesc: "Windows、Mac、Linux 原生版本。多屏协同，全面掌控行情、图表与资讯。",
+        ctaTitle: "即刻下载，更快开始交易。",
+        waTitle: "WhatsApp 咨询（一般查询）", dealingTitle: "交易热线",
+        tradingDays: "交易日：9:00 – 24:00 (GMT+8)", emailTitle: "邮箱",
+        colTerms: "条款与条件", colAbout: "关于", colMore: "更多",
+        terms: ["客户协议", "隐私政策", "条款与条件", "最佳执行政策", "风险披露声明", "开户"],
+        about: ["关于我们", "牌照与监管", "新闻与媒体", "加入我们", "专栏", "博客"],
+        more: ["新人奖励", "邀请好友", "企业服务", "OpenAPI"],
+        dl: (os) => "下载 " + os + " 版"
+      },
+      "zh-HK": {
+        navHome: "首頁", navRelease: "版本記錄", navDownload: "下載",
+        heroT1: "更快、更流暢、", heroT2: "更高效。",
+        heroDesc: "長橋證券全新交易桌面端應用。我們正在持續改進和優化最新版本的功能。",
+        heroPrevPre: "如需更完整的功能，歡迎", heroPrevLink: "下載舊版本。",
+        viewAll: "查看全部版本", prevBtn: "下載舊版本",
+        also: "同時支援", and: "與",
+        statRender: "渲染速度", statLaunch: "啟動時間", statCpu: "CPU 佔用", statMem: "記憶體佔用",
+        archLabel: "全新架構", archTitle: "全新架構，體驗升級。",
+        f1t: "極速渲染", f1d: "高達 120 FPS，交易絲滑流暢，樹立速度新標杆。",
+        f2t: "秒級啟動", f2d: "2 秒內即刻就緒，把握每一個投資機會。",
+        f3t: "輕若無物", f3d: "CPU 佔用降低 40%，記憶體佔用降低 70%。",
+        trackLabel: "實時盯盤", trackTitle: "把握交易先機。",
+        trackDesc: "自選股異動毫秒級提醒，關鍵行情盡在掌握。",
+        tab1: "智能監控異動", tab2: "直觀熱力圖", tab3: "機構資金追蹤",
+        navSecLabel: "智能導航", navSecTitle: "智能導航，即刻洞察。",
+        navSecP1: "自訂標籤頁導航，行情即點即達", navSecP2: "一鍵直達歷史記錄",
+        multiLabel: "多端支援", multiTitle: "多屏協同，專業看盤。",
+        multiDesc: "Windows、Mac、Linux 原生版本。多屏協同，全面掌控行情、圖表與資訊。",
+        ctaTitle: "即刻下載，更快開始交易。",
+        waTitle: "WhatsApp 諮詢（一般查詢）", dealingTitle: "交易熱線",
+        tradingDays: "交易日：9:00 – 24:00 (GMT+8)", emailTitle: "電郵",
+        colTerms: "條款與條件", colAbout: "關於", colMore: "更多",
+        terms: ["客戶協議", "私隱政策", "條款與條件", "最佳執行政策", "風險披露聲明", "開戶"],
+        about: ["關於我們", "牌照與監管", "新聞與媒體", "加入我們", "專欄", "網誌"],
+        more: ["新人獎賞", "邀請好友", "企業服務", "OpenAPI"],
+        dl: (os) => "下載 " + os + " 版"
+      }
+    };
+  }
+
+  getHrefs() {
+    return {
+      terms: [
+        "https://assets.lbctrl.com/uploads/a19e3990-7050-492f-bf02-d00d50c64ff1/318525f18a3242980632ee890c3fed66.pdf",
+        "https://support.longbridge.sg/topics/Other/privacy-policy",
+        "https://pub.lbkrs.com/files/202211/yyY2XRM5auoPCXfy/LBPL-Platform_TnCs__31_Oct_2022-FINAL_.pdf",
+        "https://pub.lbkrs.com/files/202211/gPW5qDbnsJtgzDbN/LBS_Best_Execution_Policy_V1_10-2022__4_Oct-PM_.pdf",
+        "https://pub.lbkrs.com/static/offline/202211/mM2JzzWCgmuHXRqb/1-LBS_Risk_Disclosures_and_Warning_Statement__for_main_website_upload_.pdf",
+        "https://longbridge.com/sg/support/topics/accountopening/safe?locale=en"
+      ],
+      about: [
+        "https://longbridge.com/sg/about",
+        "https://longbridge.com/sg/about/license-regulatory",
+        "https://longbridge.com/sg/reports",
+        "https://longbridge.com/sg/jobs",
+        "https://longbridge.com/sg/articles",
+        "https://longbridge.com/sg/blog"
+      ],
+      more: [
+        "https://longbridge.com/sg/promotions/welcome-rewards",
+        "https://activity.longbridge.sg/pages/longbridge_sg/8651/index.html?app_id=longbridge_sg&org_id=1&channel=SHMS00001&account_channel=lb_sg",
+        "https://longbridge.com/sg/institutions",
+        "https://open.longportapp.com"
+      ]
+    };
+  }
+
+  renderVals() {
+    let stored = {};
+    try { stored = { lang: localStorage.getItem("lbdesk_lang"), theme: localStorage.getItem("lbdesk_theme_v2") }; } catch (e) {}
+    const lang = this.state.lang || stored.lang || this.props.defaultLang || "en";
+    const theme = this.state.theme || stored.theme || this.props.defaultTheme || "dark";
+    const I18N = this.getI18N();
+    const t = I18N[lang] || I18N.en;
+    const os = this.detectOS();
+    const others = ["macOS", "Windows", "Linux"].filter((x) => x !== os);
+    const HREFS = this.getHrefs();
+    const zip = (labels, hrefs) => labels.map((label, i) => ({ label, href: hrefs[i] }));
+    const langNames = [["en", "English"], ["zh-CN", "简体中文"], ["zh-HK", "繁體中文"]];
+
+    return {
+      t,
+      theme,
+      themeIcon: theme === "dark" ? "☀" : "☾",
+      toggleTheme: () => {
+        const next = theme === "dark" ? "light" : "dark";
+        try { localStorage.setItem("lbdesk_theme_v2", next); } catch (e) {}
+        this.setState({ theme: next });
+      },
+      langOpen: this.state.langOpen,
+      toggleLangOpen: () => this.setState((s) => ({ langOpen: !s.langOpen })),
+      langLabel: lang === "zh-CN" ? "简" : lang === "zh-HK" ? "繁" : "EN",
+      langOptions: langNames.map(([code, label]) => ({
+        label,
+        mark: code === lang ? "✓" : "",
+        select: () => {
+          try { localStorage.setItem("lbdesk_lang", code); } catch (e) {}
+          this.setState({ lang: code, langOpen: false });
+        }
+      })),
+      downloadLabel: t.dl(os),
+      alsoAvailable: t.also + " " + others[0] + " " + t.and + " " + others[1],
+      termsLinks: zip(t.terms, HREFS.terms),
+      aboutLinks: zip(t.about, HREFS.about),
+      moreLinks: zip(t.more, HREFS.more)
+    };
+  }
+}
+
+</script>
+</body>
+</html>
