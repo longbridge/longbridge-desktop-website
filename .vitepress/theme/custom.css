@@ -397,6 +397,7 @@ a.lb-footer-link.\!text-muted:hover {
   border-radius: 6px;
   margin: 0 -8px;
   padding: 0 8px;
+  width: calc(100% + 16px);
 }
 .VPSidebarItem.level-1.is-active > .item > .link > .text {
   color: var(--vp-c-brand-1) !important;
@@ -413,5 +414,5 @@ a.lb-footer-link.\!text-muted:hover {
   color: var(--vp-c-brand-1);
 }
 .vp-doc div[class*="language-"] {
-  background: var(--vp-c-bg-soft);
+  background-color: var(--vp-c-bg-soft);
 }
