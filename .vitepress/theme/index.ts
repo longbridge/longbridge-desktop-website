@@ -1,6 +1,7 @@
 import { h } from "vue";
 import DefaultTheme from "vitepress/theme-without-fonts";
 import Footer from "../../docs/pages/Footer.vue";
+import NavDownload from "../../docs/pages/NavDownload.vue";
 import mediumZoom from "medium-zoom";
 import { useRoute, useRouter } from "vitepress";
 import { onMounted, watch, nextTick } from "vue";
@@ -15,6 +16,7 @@ export default {
   Layout() {
     return h(DefaultTheme.Layout, null, {
       "layout-bottom": () => h(Footer),
+      "nav-bar-content-after": () => h(NavDownload),
     });
   },
   enhanceApp({ app }) {

@@ -224,3 +224,113 @@
 .medium-zoom-image {
   z-index: 9999;
 }
+
+/* ============================================================
+ * Navbar — 60px, translucent + blur, centered menu
+ * ============================================================ */
+.VPNavBar,
+.VPNavBar.home.top,
+.VPNavBar:not(.home) {
+  background-color: var(--vp-nav-bg-color) !important;
+  backdrop-filter: saturate(1.8) blur(20px);
+  -webkit-backdrop-filter: saturate(1.8) blur(20px);
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+.VPNavBar .content-body {
+  position: static !important;
+  background-color: transparent !important;
+}
+.VPNavBar .divider {
+  display: none;
+}
+
+.VPNavBarTitle .title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--lb-h);
+}
+.VPNavBarTitle .logo {
+  height: 28px;
+  border-radius: 7px;
+}
+
+/* center the menu links (desktop only) */
+@media (min-width: 960px) {
+  .VPNavBar .container {
+    position: relative;
+  }
+  .VPNavBar .VPNavBarMenu {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+}
+
+.VPNavBarMenuLink {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--lb-h) !important;
+  padding: 0 12px !important;
+  margin: 14px 2px;
+  height: 32px !important;
+  line-height: 32px !important;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.VPNavBarMenuLink:hover {
+  background: var(--lb-hover-wash);
+}
+.VPNavBarMenuLink.active {
+  color: var(--lb-brand) !important;
+  font-weight: 700 !important;
+}
+
+/* language dropdown */
+.VPNavBarTranslations .button {
+  height: 32px;
+  border: 1px solid var(--lb-border);
+  border-radius: 8px;
+  padding: 0 10px;
+  font-size: 13px;
+}
+.VPNavBarTranslations .button:hover {
+  background: var(--lb-hover-wash);
+}
+
+/* GitHub icon button */
+.VPSocialLink {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.VPSocialLink:hover {
+  background: var(--lb-hover-wash);
+}
+
+/* appearance switch → compact icon-like toggle */
+.VPNavBarAppearance .VPSwitchAppearance {
+  border-color: var(--lb-border);
+}
+
+/* download pill (slot component) */
+.LBNavDownload {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  background: var(--lb-btn-bg);
+  color: var(--lb-btn-fg) !important;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 20px;
+  border-radius: 999px;
+  margin-left: 12px;
+  white-space: nowrap;
+  text-decoration: none !important;
+  transition: background 0.2s;
+}
+.LBNavDownload:hover {
+  background: var(--lb-btn-hover);
+}
