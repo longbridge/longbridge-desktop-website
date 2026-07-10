@@ -100,9 +100,12 @@ export default {
     points: ['自定义标签页导航，行情即点即达', '一键直达历史记录']
   },
   multiPlatform: {
-    title: '多端支持，专业盯盘更高效',
-    description:
-      '全新跨平台原生版本，支持 Windows、Mac、Linux<br/>支持扩展多屏幕，行情、图表、资讯分屏掌控'
+    label: '多端支持',
+    title: '多屏协同，专业看盘。',
+    description: 'Windows、Mac、Linux 原生版本。多屏协同，全面掌控行情、图表与资讯。'
+  },
+  bottomCta: {
+    title: '即刻下载，更快开始交易。'
   },
   footer: {
     whatsapp_title: 'WhatsApp 咨询（一般查询）',

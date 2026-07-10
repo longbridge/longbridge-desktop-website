@@ -119,9 +119,13 @@ export default {
     ]
   },
   multiPlatform: {
-    title: 'Multi-platform Support,<br/>Professional Market Monitoring',
+    label: 'Multi-Platform',
+    title: 'Professional market monitoring, everywhere.',
     description:
-      'Native versions for Windows, Mac, and Linux.<br/>Multi-screen support for full control of market data, charts, and news.'
+      'Native versions for Windows, Mac, and Linux. Multi-screen support for full control of market data, charts, and news.'
+  },
+  bottomCta: {
+    title: 'Start trading faster today.'
   },
   footer: {
     whatsapp_title: 'WhatsApp Chat (general enquiries)',
