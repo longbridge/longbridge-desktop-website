@@ -95,11 +95,9 @@ export default {
     ]
   },
   smartNav: {
-    button: '智能導航',
-    button_2: '歷史記錄',
-    title: '智能導航系統<br />市場動態一觸即達',
-    description: '獨創導航欄標籤頁，重要股票秒查報價。',
-    description_2: '一鍵回溯重要資訊，歷史記錄隨時調取。'
+    label: '智能導航',
+    title: '智能導航，即刻洞察。',
+    points: ['自訂標籤頁導航，行情即點即達', '一鍵直達歷史記錄']
   },
   multiPlatform: {
     title: '多端支援，專業盯盤更高效',

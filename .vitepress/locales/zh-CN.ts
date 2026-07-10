@@ -95,11 +95,9 @@ export default {
     ]
   },
   smartNav: {
-    button: '智能导航',
-    button_2: '历史记录',
-    title: '智能导航系统<br />市场动态一触即达',
-    description: '独创导航栏标签页，重要股票秒查报价。',
-    description_2: '一键回溯重要信息，历史记录随时调取。'
+    label: '智能导航',
+    title: '智能导航，即刻洞察。',
+    points: ['自定义标签页导航，行情即点即达', '一键直达历史记录']
   },
   multiPlatform: {
     title: '多端支持，专业盯盘更高效',

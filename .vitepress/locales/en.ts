@@ -111,11 +111,12 @@ export default {
     ]
   },
   smartNav: {
-    button: 'Smart Navigation',
-    button_2: 'History',
-    title: 'Smart Navigation,<br/>Instant Insights',
-    description: 'Customizable tabbed navigation <br/>for instant stock quotes',
-    description_2: 'One-click access to <br/>historical records'
+    label: 'Smart Navigation',
+    title: 'Smart navigation, instant insights.',
+    points: [
+      'Customizable tabbed navigation for instant stock quotes',
+      'One-click access to historical records'
+    ]
   },
   multiPlatform: {
     title: 'Multi-platform Support,<br/>Professional Market Monitoring',
