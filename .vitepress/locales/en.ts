@@ -115,5 +115,32 @@ export default {
     title: 'Multi-platform Support,<br/>Professional Market Monitoring',
     description:
       'Native versions for Windows, Mac, and Linux.<br/>Multi-screen support for full control of market data, charts, and news.'
+  },
+  footer: {
+    whatsapp_title: 'WhatsApp Chat (general enquiries)',
+    dealing_title: 'Dealing Hotline',
+    trading_days: 'Trading days: 9a.m. – 12a.m. (GMT+8)',
+    email_title: 'Email',
+    col_terms: 'Terms & Conditions',
+    col_about: 'About',
+    col_more: 'More',
+    terms: [
+      'Customer Agreement',
+      'Privacy Policy',
+      'Terms and Conditions',
+      'Best Execution Policy',
+      'Risk Disclosure Statement',
+      'Account Opening'
+    ],
+    about: [
+      'About us',
+      'License & Regulatory',
+      'News & Media',
+      'Join us',
+      'Column',
+      'Blog'
+    ],
+    more: ['Welcome Rewards', 'Referral Program', 'Corporate Services', 'OpenAPI'],
+    copyright: '© 2024 – Present Longbridge'
   }
 }

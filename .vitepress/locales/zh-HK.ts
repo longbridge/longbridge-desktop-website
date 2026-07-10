@@ -112,5 +112,18 @@ export default {
     title: '多端支援，專業盯盤更高效',
     description:
       '全新的跨平台原生版本，支援 Windows、Mac、Linux<br/>支援擴展多螢幕，行情、圖表、資訊分屏掌控'
+  },
+  footer: {
+    whatsapp_title: 'WhatsApp 諮詢（一般查詢）',
+    dealing_title: '交易熱線',
+    trading_days: '交易日：9:00 – 24:00 (GMT+8)',
+    email_title: '電郵',
+    col_terms: '條款與條件',
+    col_about: '關於',
+    col_more: '更多',
+    terms: ['客戶協議', '私隱政策', '條款與條件', '最佳執行政策', '風險披露聲明', '開戶'],
+    about: ['關於我們', '牌照與監管', '新聞與媒體', '加入我們', '專欄', '網誌'],
+    more: ['新人獎賞', '邀請好友', '企業服務', 'OpenAPI'],
+    copyright: '© 2024 – Present Longbridge'
   }
 }
