@@ -61,6 +61,7 @@
   --lb-track-bg: #f5f6f6;
   --lb-glow: rgba(0, 173, 162, 0.1);
   --lb-sidebar-active-bg: rgba(0, 173, 162, 0.08);
+  --lb-zoom-bg: #dddde3;
 
   /* Financial semantic colors — identical in both themes */
   --up-color: #00ada2;
@@ -118,6 +119,7 @@
   --lb-track-bg: #09252a;
   --lb-glow: rgba(0, 240, 196, 0.14);
   --lb-sidebar-active-bg: rgba(0, 240, 196, 0.08);
+  --lb-zoom-bg: #0a0e19;
 }
 
 /* ============================================================

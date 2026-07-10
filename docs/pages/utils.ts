@@ -1,5 +1,5 @@
 import { useWindowSize } from "@vueuse/core";
-import { useRouter } from "vitepress";
+import { useData, useRouter } from "vitepress";
 import { computed } from "vue";
 import en from "../../.vitepress/locales/en";
 import zh_cn from "../../.vitepress/locales/zh-CN";
@@ -61,6 +61,17 @@ export const useLocale = () => {
   }
   return locales['en']
 }
+
+/**
+ * Reactive locale for components that persist across route changes
+ * (e.g. layout slots). `useLocale()` reads the route once at setup and
+ * goes stale after SPA locale switches.
+ */
+export const useReactiveLocale = () => {
+  const { localeIndex } = useData();
+  const locales = { root: en, en, "zh-CN": zh_cn, "zh-HK": zh_hk };
+  return computed(() => locales[localeIndex.value] ?? en);
+};
 
 export const getLocaleByAppUA = () => {
   if (typeof navigator === 'undefined') return ''

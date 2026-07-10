@@ -1,13 +1,15 @@
 <script setup>
-import { useLocale } from "./utils";
+import { computed } from "vue";
+import { useReactiveLocale } from "./utils";
 import { FOOTER_LINKS, SOCIAL_LINKS } from "./links";
 
-const { footer } = useLocale();
-const columns = [
-  { title: footer.col_terms, labels: footer.terms, hrefs: FOOTER_LINKS.terms },
-  { title: footer.col_about, labels: footer.about, hrefs: FOOTER_LINKS.about },
-  { title: footer.col_more, labels: footer.more, hrefs: FOOTER_LINKS.more },
-];
+const t = useReactiveLocale();
+const footer = computed(() => t.value.footer);
+const columns = computed(() => [
+  { title: footer.value.col_terms, labels: footer.value.terms, hrefs: FOOTER_LINKS.terms },
+  { title: footer.value.col_about, labels: footer.value.about, hrefs: FOOTER_LINKS.about },
+  { title: footer.value.col_more, labels: footer.value.more, hrefs: FOOTER_LINKS.more },
+]);
 </script>
 
 <template>

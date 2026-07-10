@@ -7,6 +7,7 @@ const stableItems = getReleaseNotes(LOCALE, "");
 const previewItems = getReleaseNotes(LOCALE, "preview");
 
 export default defineConfig({
+  lang: "zh-CN",
   title: "Longbridge Pro",
   description: "全新长桥证券交易桌面客户端。",
   titleTemplate: ":title - 长桥桌面客户端 - Longbridge",
