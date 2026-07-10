@@ -350,3 +350,68 @@ a.lb-footer-link.\!text-muted:hover {
   color: var(--lb-brand) !important;
   opacity: 1;
 }
+
+/* ============================================================
+ * Docs (release notes) — sidebar & content polish
+ * ============================================================ */
+.VPSidebar {
+  background-color: var(--vp-sidebar-bg-color) !important;
+  border-right: 1px solid var(--vp-c-divider);
+}
+
+/* section headings: 11px uppercase
+ * !important on color: VitePress's own
+ * `.VPSidebarItem.level-0.has-active > .item > .text` rule (fires
+ * whenever the group contains the current page — i.e. on every
+ * release-notes detail page) is more specific (3 classes + its
+ * scoped data-v attribute vs our 2 classes) and would otherwise
+ * repaint the heading with --vp-c-text-1 instead of this muted gray.
+ */
+.VPSidebarItem.level-0 > .item > .text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3) !important;
+}
+
+/* items */
+.VPSidebarItem.level-1 > .item > .link > .text {
+  font-size: 13.5px;
+  color: var(--vp-c-text-2);
+}
+/* !important on color: VitePress's own
+ * `.VPSidebarItem.level-1.is-link > .item > .link:hover .text` rule
+ * outranks this selector (it also matches `.is-link` plus the
+ * component's scoped data-v attribute, which we can't reproduce), so
+ * without !important the hover state stays brand-colored instead of
+ * switching to --vp-c-text-1.
+ */
+.VPSidebarItem.level-1 > .item > .link:hover > .text {
+  color: var(--vp-c-text-1) !important;
+}
+
+/* active item: tinted pill + brand text */
+.VPSidebarItem.level-1.is-active > .item {
+  background: var(--lb-sidebar-active-bg);
+  border-radius: 6px;
+  margin: 0 -8px;
+  padding: 0 8px;
+}
+.VPSidebarItem.level-1.is-active > .item > .link > .text {
+  color: var(--vp-c-brand-1) !important;
+  font-weight: 600;
+}
+
+/* doc content */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  color: var(--lb-h);
+}
+.vp-doc a {
+  color: var(--vp-c-brand-1);
+}
+.vp-doc div[class*="language-"] {
+  background: var(--vp-c-bg-soft);
+}
