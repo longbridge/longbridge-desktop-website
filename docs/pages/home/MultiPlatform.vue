@@ -19,7 +19,7 @@ const platforms = ["macOS", "Windows", "Linux"];
         <h2 class="!text-28px lg:!text-36px !font-600 !leading-[1.15] text-heading !mb-5">
           {{ multiPlatform.title }}
         </h2>
-        <p class="!text-15px !leading-1.7 text-muted !mb-6">
+        <p class="!text-15px !leading-[1.7] text-muted !mb-6">
           {{ multiPlatform.description }}
         </p>
         <div class="flex gap-2">

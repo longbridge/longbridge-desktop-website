@@ -14,7 +14,7 @@ const activeTab = ref(0);
         <h2 class="!text-28px lg:!text-36px !font-600 !leading-[1.15] text-heading !mb-5">
           {{ realTimeTracking.title }}
         </h2>
-        <p class="!text-15px !leading-1.7 text-muted !mb-7">
+        <p class="!text-15px !leading-[1.7] text-muted !mb-7">
           {{ realTimeTracking.description }}
         </p>
         <div class="flex flex-col gap-2">

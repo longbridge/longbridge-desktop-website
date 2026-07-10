@@ -23,7 +23,7 @@ const version = import.meta.env.VERSION || "v0.1.30";
         {{ hero.title_1 }}<br />
         <span class="text-brand">{{ hero.title_2 }}</span>
       </h1>
-      <p class="max-w-[580px] mx-auto !text-16px !leading-1.7 text-muted mb-3">
+      <p class="max-w-[580px] mx-auto !text-16px !leading-[1.7] text-muted !mb-3">
         {{ hero.description }}
       </p>
       <div

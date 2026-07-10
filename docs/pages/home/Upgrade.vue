@@ -28,7 +28,7 @@ const { upgrade } = useLocale();
             {{ card.value }}<span class="text-20px text-muted">{{ card.unit }}</span>
           </div>
           <div class="text-19px font-700 text-heading mb-2">{{ card.title }}</div>
-          <p class="!text-14px !leading-1.6 text-muted">{{ card.description }}</p>
+          <p class="!text-14px !leading-[1.6] text-muted">{{ card.description }}</p>
         </div>
       </div>
     </div>

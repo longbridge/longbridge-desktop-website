@@ -23,7 +23,7 @@ const columns = [
             />
             <span class="text-14px font-700 text-heading">Longbridge Pro</span>
           </div>
-          <div class="text-12.5px leading-1.8 text-faint">
+          <div class="text-12.5px leading-[1.8] text-faint">
             {{ footer.whatsapp_title }} ·
             <a href="https://wa.me/6563303033" class="lb-footer-link">+65 6330 3033</a><br />
             {{ footer.dealing_title }} ·

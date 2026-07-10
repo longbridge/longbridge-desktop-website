@@ -12,7 +12,7 @@ const version = import.meta.env.VERSION || "v0.1.30";
       <h2 class="!text-28px lg:!text-36px !font-600 text-heading !mb-3">
         {{ t.bottomCta.title }}
       </h2>
-      <p class="text-14px text-faint mb-7">
+      <p class="text-14px text-faint !mb-7">
         {{ version }} Beta ·
         <a href="release-notes" class="font-700 text-brand !no-underline">{{ t.download_more }}</a>
       </p>
