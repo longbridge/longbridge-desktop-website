@@ -80,30 +80,27 @@ export default {
     ]
   },
   realTimeTracking: {
-    title: 'Real-Time Tracking, Seizing Trading Edge',
-    tabs: {
-      tab_0: {
+    label: 'Real-Time Tracking',
+    title: 'Seizing the trading edge.',
+    description:
+      "Get millisecond alerts on your watchlist, so you'll always catch key stock moves.",
+    tabs: [
+      {
         title: 'Smart Activity Monitoring',
-        description:
-          "Get millisecond alerts on your watchlist, so you'll always catch key stock moves.",
         image:
           'https://assets.lbctrl.com/uploads/019b7300-18da-4428-abe9-e7f438ad827b/market.png'
       },
-      tab_1: {
+      {
         title: 'Intuitive Heatmap',
-        description:
-          'Visualize market trends with interactive heat maps and real-time data analysis.',
         image:
           'https://assets.lbctrl.com/uploads/c67dcfba-bc16-4b16-b43b-70f4d7fa54b8/heatmap.png'
       },
-      tab_2: {
+      {
         title: 'Institutional Flow Tracking',
-        description:
-          'Track institutional movements and large volume transactions in real-time.',
         image:
           'https://assets.lbctrl.com/uploads/63c75cb2-cd57-4fd8-86d1-366be8b57192/detail.png'
       }
-    }
+    ]
   },
   globalTrade: {
     title: 'Global Trading,<br />at Your Fingertips',

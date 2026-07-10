@@ -65,27 +65,26 @@ export default {
     ]
   },
   realTimeTracking: {
-    title: '异动实时追踪，捕捉投资先机',
-    tabs: {
-      tab_0: {
-        title: '智能异动监测',
-        description: '毫秒级预警自选股异动，机会从不漏网',
+    label: '实时盯盘',
+    title: '把握交易先机。',
+    description: '自选股异动毫秒级提醒，关键行情尽在掌握。',
+    tabs: [
+      {
+        title: '智能监控异动',
         image:
           'https://assets.lbctrl.com/uploads/019b7300-18da-4428-abe9-e7f438ad827b/market.png'
       },
-      tab_1: {
-        title: '直观热力图谱',
-        description: '全市场行情一目了然，热点尽在掌握',
+      {
+        title: '直观热力图',
         image:
           'https://assets.lbctrl.com/uploads/c67dcfba-bc16-4b16-b43b-70f4d7fa54b8/heatmap.png'
       },
-      tab_2: {
-        title: '主力资金追踪',
-        description: '大单动向实时解析，迅速把握主力动向',
+      {
+        title: '机构资金追踪',
         image:
           'https://assets.lbctrl.com/uploads/63c75cb2-cd57-4fd8-86d1-366be8b57192/detail.png'
       }
-    }
+    ]
   },
   globalTrade: {
     title: '全球极速交易<br />多品种一键搞定',
