@@ -61,6 +61,7 @@
   --lb-track-bg: #f5f6f6;
   --lb-glow: rgba(0, 173, 162, 0.1);
   --lb-sidebar-active-bg: rgba(0, 173, 162, 0.08);
+  --lb-doc-glow: rgba(0, 173, 162, 0.09);
   --lb-zoom-bg: #dddde3;
 
   /* Financial semantic colors — identical in both themes */
@@ -119,6 +120,7 @@
   --lb-track-bg: #09252a;
   --lb-glow: rgba(0, 240, 196, 0.14);
   --lb-sidebar-active-bg: rgba(0, 240, 196, 0.08);
+  --lb-doc-glow: rgba(0, 240, 196, 0.05);
   --lb-zoom-bg: #0a0e19;
 }
 
@@ -359,6 +361,16 @@ a.lb-footer-link.\!text-muted:hover {
 .VPSidebar {
   background-color: var(--vp-sidebar-bg-color) !important;
   border-right: 1px solid var(--vp-c-divider);
+}
+
+/* soft brand wash at the top of the content area, à la open.longbridge.com */
+.VPDoc {
+  background-image: radial-gradient(
+    55% 480px at 50% 0%,
+    var(--lb-doc-glow),
+    transparent 70%
+  );
+  background-repeat: no-repeat;
 }
 
 /* section headings: 11px uppercase
