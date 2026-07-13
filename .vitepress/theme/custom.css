@@ -56,6 +56,7 @@
     ),
     radial-gradient(rgba(10, 14, 25, 0.22) 1px, transparent 1px);
   --lb-shot-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+  --lb-shot-border: #eaebec;
   --lb-card-hover-border: #dcdee0;
   --lb-card-hover-shadow: 0px 2px 8px rgba(0, 0, 0, 0.04);
   --lb-track-bg: #f5f6f6;
@@ -115,10 +116,11 @@
     ),
     radial-gradient(rgba(223, 223, 214, 0.18) 1px, transparent 1px);
   --lb-shot-shadow: 0px 4px 24px rgba(0, 0, 0, 0.4);
+  --lb-shot-border: rgba(255, 255, 255, 0.18);
   --lb-card-hover-border: #4f5260;
   --lb-card-hover-shadow: 0px 2px 8px rgba(0, 240, 196, 0.06);
   --lb-track-bg: #09252a;
-  --lb-glow: rgba(0, 240, 196, 0.14);
+  --lb-glow: rgba(0, 240, 196, 0.22);
   --lb-sidebar-active-bg: rgba(0, 240, 196, 0.08);
   --lb-doc-glow: rgba(0, 240, 196, 0.05);
   --lb-zoom-bg: #0a0e19;
