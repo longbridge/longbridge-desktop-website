@@ -57,6 +57,12 @@ export default createContentLoader(
             /(<h[34][^>]*>)([\s\S]*?)<a class="header-anchor"[^>]*>[\s\S]*?<\/a>/g,
             "$1$2",
           );
+        // collapse the trailing Downloads section (5 links per version add
+        // up to a wall of links on the aggregated page)
+        html = html.replace(
+          /<h3[^>]*>\s*(Downloads|下载|下載)\s*<\/h3>([\s\S]*)$/,
+          '<details class="lb-downloads"><summary>$1</summary>$2</details>',
+        );
 
         releases[locale].push({ version, html });
       }

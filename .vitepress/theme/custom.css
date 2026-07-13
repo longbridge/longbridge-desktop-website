@@ -438,3 +438,24 @@
     transform: none;
   }
 }
+
+/* collapsed Downloads sections on the aggregated changelog */
+.lb-changelog details.lb-downloads {
+  margin: 16px 0;
+}
+.lb-changelog details.lb-downloads summary {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  user-select: none;
+}
+.lb-changelog details.lb-downloads summary:hover {
+  color: var(--vp-c-brand-1);
+}
+.lb-changelog details.lb-downloads[open] summary {
+  margin-bottom: 4px;
+}
+.lb-changelog details.lb-downloads ul {
+  margin: 8px 0 0;
+}
