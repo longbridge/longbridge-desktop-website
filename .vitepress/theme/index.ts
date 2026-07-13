@@ -1,5 +1,7 @@
+import { h } from "vue";
 import DefaultTheme from "vitepress/theme-without-fonts";
-import Layout from "./Layout.vue";
+import Footer from "../../docs/pages/Footer.vue";
+import NavDownload from "../../docs/pages/NavDownload.vue";
 import mediumZoom from "medium-zoom";
 import { useRoute, useRouter } from "vitepress";
 import { onMounted, watch, nextTick } from "vue";
@@ -11,7 +13,12 @@ import googleAnalytics from "vitepress-plugin-google-analytics";
 
 export default {
   extends: DefaultTheme,
-  Layout,
+  Layout() {
+    return h(DefaultTheme.Layout, null, {
+      "layout-bottom": () => h(Footer),
+      "nav-bar-content-after": () => h(NavDownload),
+    });
+  },
   enhanceApp({ app }) {
     app.use(MotionPlugin);
     googleAnalytics({
