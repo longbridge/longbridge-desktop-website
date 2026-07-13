@@ -4,6 +4,16 @@ import { useLocale, motionVisible } from "../utils";
 
 const { hero } = useLocale();
 const version = import.meta.env.VERSION || "v0.1.30";
+
+// per-character reveal timing for the headline
+const CHAR_STAGGER = 35;
+const LINE_PAUSE = 150;
+const line1 = Array.from(hero.title_1);
+const line2 = Array.from(hero.title_2);
+const charDelay = (i, offset = 0) => ({
+  animationDelay: `${offset + i * CHAR_STAGGER}ms`,
+});
+const line2Offset = line1.length * CHAR_STAGGER + LINE_PAUSE;
 </script>
 
 <template>
@@ -18,10 +28,25 @@ const version = import.meta.env.VERSION || "v0.1.30";
       </div>
       <h1
         class="!text-40px lg:!text-64px !leading-[1.05] !font-600 text-heading !mb-5"
-        v-motion="motionVisible()"
+        :aria-label="`${hero.title_1} ${hero.title_2}`"
       >
-        {{ hero.title_1 }}<br />
-        <span class="text-brand">{{ hero.title_2 }}</span>
+        <span aria-hidden="true">
+          <span
+            v-for="(ch, i) in line1"
+            :key="`l1-${i}`"
+            class="lb-char"
+            :style="charDelay(i)"
+          >{{ ch }}</span>
+          <br />
+          <span class="text-brand">
+            <span
+              v-for="(ch, i) in line2"
+              :key="`l2-${i}`"
+              class="lb-char"
+              :style="charDelay(i, line2Offset)"
+            >{{ ch }}</span>
+          </span>
+        </span>
       </h1>
       <p class="max-w-[580px] !mx-auto !text-16px !leading-[1.7] text-muted !mb-3">
         {{ hero.description }}
