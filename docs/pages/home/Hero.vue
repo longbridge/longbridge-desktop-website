@@ -52,7 +52,7 @@ const version = import.meta.env.VERSION || "v0.1.30";
             src="https://assets.lbctrl.com/uploads/f4da8c9b-cd12-4a4d-804c-f850d326ca21/home.png"
             alt="Longbridge Pro - Watchlist"
             class="block"
-            style="width: 106.742%; margin: -2.267% -3.4% -4.475% -3.341%"
+            style="width: 106.742%; max-width: none; margin: -2.267% -3.4% -4.475% -3.341%"
           />
         </div>
       </div>
