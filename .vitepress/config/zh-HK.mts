@@ -3,7 +3,6 @@ import { getReleaseNotes } from "./utils";
 
 const LOCALE = "zh-HK";
 
-const stableItems = getReleaseNotes(LOCALE, "");
 const previewItems = getReleaseNotes(LOCALE, "preview");
 
 export default defineConfig({
@@ -19,11 +18,7 @@ export default defineConfig({
     ],
 
     sidebar: [
-      {
-        text: "發布日誌",
-        base: `/${LOCALE}/release-notes/`,
-        items: stableItems,
-      },
+      { text: "發布日誌", link: `/${LOCALE}/release-notes/` },
       ...(previewItems.length > 0
         ? [
             {
