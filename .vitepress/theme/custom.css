@@ -339,22 +339,6 @@
   background: var(--lb-btn-hover);
 }
 
-/* footer links */
-.lb-footer-link {
-  color: var(--lb-brand);
-  text-decoration: none !important;
-  transition: color 0.2s;
-}
-.lb-footer-link:hover {
-  color: var(--lb-brand);
-  opacity: 0.85;
-}
-a.lb-footer-link.\!text-body:hover,
-a.lb-footer-link.\!text-muted:hover {
-  color: var(--lb-brand) !important;
-  opacity: 1;
-}
-
 /* ============================================================
  * Docs (release notes) — sidebar & content polish
  * ============================================================ */

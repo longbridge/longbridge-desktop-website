@@ -59,12 +59,6 @@ export default {
     dealing_title: '交易热线',
     trading_days: '交易日：9:00 – 24:00 (GMT+8)',
     email_title: '邮箱',
-    col_terms: '条款与条件',
-    col_about: '关于',
-    col_more: '更多',
-    terms: ['客户协议', '隐私政策', '条款与条件', '最佳执行政策', '风险披露声明', '开户'],
-    about: ['关于我们', '牌照与监管', '新闻与媒体', '加入我们', '专栏', '博客'],
-    more: ['新人奖励', '邀请好友', '企业服务', 'OpenAPI'],
     copyright: '© 2024 – Present Longbridge'
   }
 }
