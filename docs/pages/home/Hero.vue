@@ -72,7 +72,7 @@ const line2Offset = line1.length * CHAR_STAGGER + LINE_PAUSE;
              bottom 150); crop the excess so all four gaps match the top -->
         <div
           class="relative overflow-hidden border border-edge rounded-16px"
-          style="box-shadow: var(--lb-shot-shadow)"
+          style="box-shadow: var(--lb-shot-shadow); background: var(--lb-surface)"
         >
           <img
             src="https://assets.lbctrl.com/uploads/f4da8c9b-cd12-4a4d-804c-f850d326ca21/home.png"
