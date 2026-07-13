@@ -45,7 +45,7 @@ const version = import.meta.env.VERSION || "v0.1.30";
         <img
           src="https://assets.lbctrl.com/uploads/f4da8c9b-cd12-4a4d-804c-f850d326ca21/home.png"
           alt="Longbridge Pro - Watchlist"
-          class="relative block w-full border border-[var(--lb-shot-border)] !border-b-0 rounded-t-16px"
+          class="relative block w-full border border-edge !border-b-0 rounded-t-16px"
           style="box-shadow: var(--lb-shot-shadow)"
         />
       </div>
