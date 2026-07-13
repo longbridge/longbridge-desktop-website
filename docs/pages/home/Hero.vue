@@ -17,7 +17,7 @@ const version = import.meta.env.VERSION || "v0.1.30";
         LONGBRIDGE PRO · {{ version.toUpperCase() }} BETA
       </div>
       <h1
-        class="!text-40px lg:!text-64px !leading-[1.05] !font-600 text-heading mb-5"
+        class="!text-40px lg:!text-64px !leading-[1.05] !font-600 text-heading !mb-5"
         v-motion="motionVisible()"
       >
         {{ hero.title_1 }}<br />
