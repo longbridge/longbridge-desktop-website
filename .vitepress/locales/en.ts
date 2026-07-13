@@ -74,12 +74,5 @@ export default {
   },
   bottomCta: {
     title: 'Start trading faster today.'
-  },
-  footer: {
-    whatsapp_title: 'WhatsApp Chat (general enquiries)',
-    dealing_title: 'Dealing Hotline',
-    trading_days: 'Trading days: 9a.m. – 12a.m. (GMT+8)',
-    email_title: 'Email',
-    copyright: '© 2024 – Present Longbridge'
   }
 }

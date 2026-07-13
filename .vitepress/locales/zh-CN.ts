@@ -53,12 +53,5 @@ export default {
   },
   bottomCta: {
     title: '即刻下载，更快开始交易。'
-  },
-  footer: {
-    whatsapp_title: 'WhatsApp 咨询（一般查询）',
-    dealing_title: '交易热线',
-    trading_days: '交易日：9:00 – 24:00 (GMT+8)',
-    email_title: '邮箱',
-    copyright: '© 2024 – Present Longbridge'
   }
 }
