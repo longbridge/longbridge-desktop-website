@@ -42,12 +42,20 @@ const version = import.meta.env.VERSION || "v0.1.30";
           class="absolute -left-15 -right-15 -top-10 h-70 pointer-events-none"
           style="background: radial-gradient(50% 100% at 50% 100%, var(--lb-glow) 0%, transparent 70%)"
         ></div>
-        <img
-          src="https://assets.lbctrl.com/uploads/f4da8c9b-cd12-4a4d-804c-f850d326ca21/home.png"
-          alt="Longbridge Pro - Watchlist"
-          class="relative block w-full border border-edge rounded-16px"
+        <!-- home.png bakes in uneven transparent padding (window at
+             x 112-3464, y 76-2174 of 3578x2324: top 76 / sides ~113 /
+             bottom 150); crop the excess so all four gaps match the top -->
+        <div
+          class="relative overflow-hidden border border-edge rounded-16px"
           style="box-shadow: var(--lb-shot-shadow)"
-        />
+        >
+          <img
+            src="https://assets.lbctrl.com/uploads/f4da8c9b-cd12-4a4d-804c-f850d326ca21/home.png"
+            alt="Longbridge Pro - Watchlist"
+            class="block"
+            style="width: 102.112%; max-width: none; margin: 0 -1.084% -2.112% -1.027%"
+          />
+        </div>
       </div>
     </div>
   </section>
