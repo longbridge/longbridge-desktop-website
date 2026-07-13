@@ -244,6 +244,7 @@ function changelogIndexBody(locale: Locale): string {
   return `---
 title: ${title}
 outline: 2
+sidebar: false
 editLink: false
 lastUpdated: false
 ---

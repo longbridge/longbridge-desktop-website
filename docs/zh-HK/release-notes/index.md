@@ -1,6 +1,7 @@
 ---
 title: 發布日誌
 outline: 2
+sidebar: false
 editLink: false
 lastUpdated: false
 ---

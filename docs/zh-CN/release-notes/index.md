@@ -1,6 +1,7 @@
 ---
 title: 发布日志
 outline: 2
+sidebar: false
 editLink: false
 lastUpdated: false
 ---

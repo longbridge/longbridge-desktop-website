@@ -1,6 +1,7 @@
 ---
 title: Release Notes
 outline: 2
+sidebar: false
 editLink: false
 lastUpdated: false
 ---
