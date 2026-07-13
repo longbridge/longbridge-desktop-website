@@ -183,11 +183,12 @@
   border: 1px solid var(--lb-border);
   border-radius: 16px;
   padding: 28px 24px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 .lb-card:hover {
   border-color: var(--lb-card-hover-border);
   box-shadow: var(--lb-card-hover-shadow);
+  transform: translateY(-2px);
 }
 
 .lb-hero {
@@ -458,4 +459,57 @@
 }
 .lb-changelog details.lb-downloads ul {
   margin: 8px 0 0;
+}
+
+/* ============================================================
+ * Motion polish
+ * ============================================================ */
+/* real-time tracking tab image crossfade */
+.lb-fade-enter-active,
+.lb-fade-leave-active {
+  transition: opacity 0.18s ease;
+}
+.lb-fade-enter-from,
+.lb-fade-leave-to {
+  opacity: 0;
+}
+
+/* changelog Downloads expand/collapse (progressive enhancement) */
+.lb-changelog details.lb-downloads {
+  interpolate-size: allow-keywords;
+}
+.lb-changelog details.lb-downloads::details-content {
+  height: 0;
+  overflow: clip;
+  transition:
+    height 0.25s ease,
+    content-visibility 0.25s allow-discrete;
+}
+.lb-changelog details.lb-downloads[open]::details-content {
+  height: auto;
+}
+
+/* theme toggle circular reveal (View Transitions API) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root),
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+::view-transition-new(root),
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-fade-enter-active,
+  .lb-fade-leave-active {
+    transition: none;
+  }
+  .lb-changelog details.lb-downloads::details-content {
+    transition: none;
+  }
 }

@@ -1,7 +1,41 @@
 <script setup>
+import { onMounted, ref } from "vue";
 import { useLocale, motionVisible } from "../utils";
 
 const { upgrade } = useLocale();
+
+// count the big metric values up from 0 once the cards scroll into
+// view; SSR renders the final values, reduced-motion keeps them
+const displays = ref(upgrade.cards.map((c) => c.value));
+const grid = ref(null);
+
+onMounted(() => {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const targets = upgrade.cards.map((c) => {
+    const m = c.value.match(/^(\D*)(\d+)$/);
+    return m ? { prefix: m[1], num: Number(m[2]) } : null;
+  });
+  const io = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) return;
+      io.disconnect();
+      targets.forEach((t, i) => {
+        if (!t) return;
+        const start = performance.now();
+        const duration = 1200;
+        const tick = (now) => {
+          const p = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - p, 3);
+          displays.value[i] = t.prefix + Math.round(eased * t.num);
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    },
+    { threshold: 0.3 },
+  );
+  if (grid.value) io.observe(grid.value);
+});
 </script>
 
 <template>
@@ -14,7 +48,7 @@ const { upgrade } = useLocale();
       >
         {{ upgrade.title }}
       </h2>
-      <div class="grid md:grid-cols-3 grid-cols-1 gap-8 lt-sm:gap-4">
+      <div ref="grid" class="grid md:grid-cols-3 grid-cols-1 gap-8 lt-sm:gap-4">
         <div
           v-for="(card, i) in upgrade.cards"
           :key="card.title"
@@ -25,7 +59,7 @@ const { upgrade } = useLocale();
             class="text-44px font-600 leading-none text-brand mb-4"
             style="font-family: var(--vp-font-family-mono)"
           >
-            {{ card.value }}<span class="text-20px text-muted">{{ card.unit }}</span>
+            {{ displays[i] }}<span class="text-20px text-muted">{{ card.unit }}</span>
           </div>
           <div class="text-19px font-700 text-heading mb-2">{{ card.title }}</div>
           <p class="!text-14px !leading-[1.6] text-muted">{{ card.description }}</p>

@@ -33,12 +33,16 @@ const activeTab = ref(0);
           </button>
         </div>
       </div>
-      <img
-        :src="realTimeTracking.tabs[activeTab].image"
-        :alt="realTimeTracking.tabs[activeTab].title"
-        class="w-full border border-edge rounded-16px bg-surface"
-        v-motion="motionVisible(300)"
-      />
+      <div v-motion="motionVisible(300)">
+        <Transition name="lb-fade" mode="out-in">
+          <img
+            :key="activeTab"
+            :src="realTimeTracking.tabs[activeTab].image"
+            :alt="realTimeTracking.tabs[activeTab].title"
+            class="w-full border border-edge rounded-16px bg-surface"
+          />
+        </Transition>
+      </div>
     </div>
   </section>
 </template>
