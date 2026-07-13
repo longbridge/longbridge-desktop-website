@@ -7,7 +7,7 @@ const version = import.meta.env.VERSION || "v0.1.30";
 </script>
 
 <template>
-  <section id="download" class="lb-hero relative overflow-hidden px-6 lt-sm:px-3 pt-22 lt-sm:pt-12 text-center">
+  <section id="download" class="lb-hero relative overflow-hidden px-6 lt-sm:px-3 pt-22 lt-sm:(pt-12 pb-8) pb-16 text-center">
     <div class="max-w-[1200px] mx-auto">
       <div
         class="inline-flex items-center gap-2 text-11px font-700 tracking-[1px] text-label mb-5"
@@ -45,7 +45,7 @@ const version = import.meta.env.VERSION || "v0.1.30";
         <img
           src="https://assets.lbctrl.com/uploads/f4da8c9b-cd12-4a4d-804c-f850d326ca21/home.png"
           alt="Longbridge Pro - Watchlist"
-          class="relative block w-full border border-edge !border-b-0 rounded-t-16px"
+          class="relative block w-full border border-edge rounded-16px"
           style="box-shadow: var(--lb-shot-shadow)"
         />
       </div>
