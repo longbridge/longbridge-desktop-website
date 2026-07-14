@@ -1,9 +1,17 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useLocale, motionVisible } from "../utils";
 
 const { realTimeTracking } = useLocale();
 const activeTab = ref(0);
+
+// warm up the other tab screenshots so switching never waits on the network
+onMounted(() => {
+  realTimeTracking.tabs.forEach((tab) => {
+    const img = new Image();
+    img.src = tab.image;
+  });
+});
 </script>
 
 <template>
@@ -34,14 +42,21 @@ const activeTab = ref(0);
         </div>
       </div>
       <div v-motion="motionVisible(300)">
-        <Transition name="lb-fade" mode="out-in">
-          <img
-            :key="activeTab"
-            :src="realTimeTracking.tabs[activeTab].image"
-            :alt="realTimeTracking.tabs[activeTab].title"
-            class="w-full border border-edge rounded-16px bg-surface"
-          />
-        </Transition>
+        <!-- fixed aspect ratio so the box never collapses while the next
+             screenshot is still loading (all three are ~3584x2324) -->
+        <div
+          class="relative overflow-hidden border border-edge rounded-16px bg-surface"
+          style="aspect-ratio: 3584 / 2324"
+        >
+          <Transition name="lb-fade" mode="out-in">
+            <img
+              :key="activeTab"
+              :src="realTimeTracking.tabs[activeTab].image"
+              :alt="realTimeTracking.tabs[activeTab].title"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+          </Transition>
+        </div>
       </div>
     </div>
   </section>
