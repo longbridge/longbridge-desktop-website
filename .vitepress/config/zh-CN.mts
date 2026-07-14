@@ -3,10 +3,10 @@ import { getReleaseNotes } from "./utils";
 
 const LOCALE = "zh-CN";
 
-const stableItems = getReleaseNotes(LOCALE, "");
 const previewItems = getReleaseNotes(LOCALE, "preview");
 
 export default defineConfig({
+  lang: "zh-CN",
   title: "Longbridge Pro",
   description: "全新长桥证券交易桌面客户端。",
   titleTemplate: ":title - 长桥桌面客户端 - Longbridge",
@@ -18,11 +18,7 @@ export default defineConfig({
     ],
 
     sidebar: [
-      {
-        text: "发布日志",
-        base: `/${LOCALE}/release-notes/`,
-        items: stableItems,
-      },
+      { text: "发布日志", link: `/${LOCALE}/release-notes/` },
       ...(previewItems.length > 0
         ? [
             {

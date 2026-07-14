@@ -227,6 +227,38 @@ ${downloads}
 `.trim();
 }
 
+const INDEX_TITLES: Record<Locale, string> = {
+  en: "Release Notes",
+  "zh-CN": "发布日志",
+  "zh-HK": "發布日誌",
+};
+
+// The stable index is a static aggregated changelog page: the
+// <Changelog /> component pulls in every release note at build time
+// (docs/pages/releases.data.ts), so the index only needs rewriting
+// here to stay in sync with this template.
+function changelogIndexBody(locale: Locale): string {
+  const title = INDEX_TITLES[locale];
+  const componentPath =
+    locale === "en" ? "../pages/Changelog.vue" : "../../pages/Changelog.vue";
+  return `---
+title: ${title}
+outline: 2
+sidebar: false
+editLink: false
+lastUpdated: false
+---
+
+# ${title}
+
+<script setup>
+import Changelog from '${componentPath}'
+</script>
+
+<Changelog />
+`;
+}
+
 function generateIndex(locale: Locale) {
   let stableDir = "release-notes";
   if (locale != "en") {
@@ -240,6 +272,11 @@ function generateIndex(locale: Locale) {
   let root = path.join(process.cwd(), "docs", dir);
   if (!fs.existsSync(root)) {
     console.error(`Directory does not exist: ${root}`);
+    return;
+  }
+
+  if (!IS_PREVIEW) {
+    Bun.write(path.join("./docs", dir, "index.md"), changelogIndexBody(locale));
     return;
   }
 

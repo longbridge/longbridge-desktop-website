@@ -1,6 +1,7 @@
 import { h } from "vue";
 import DefaultTheme from "vitepress/theme-without-fonts";
 import Footer from "../../docs/pages/Footer.vue";
+import NavDownload from "../../docs/pages/NavDownload.vue";
 import mediumZoom from "medium-zoom";
 import { useRoute, useRouter } from "vitepress";
 import { onMounted, watch, nextTick } from "vue";
@@ -15,6 +16,7 @@ export default {
   Layout() {
     return h(DefaultTheme.Layout, null, {
       "layout-bottom": () => h(Footer),
+      "nav-bar-content-after": () => h(NavDownload),
     });
   },
   enhanceApp({ app }) {
@@ -28,10 +30,33 @@ export default {
     const route = useRoute();
     const router = useRouter();
     const initZoom = () => {
-      new mediumZoom(".content-container .main img", { background: "#dddde3" });
+      new mediumZoom(".content-container .main img", {
+        background: "var(--lb-zoom-bg)",
+      });
     };
     onMounted(() => {
       initZoom();
+
+      // smooth-scroll same-page anchor jumps (outline, #download) without
+      // slowing down route-change scroll restoration
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        window.addEventListener(
+          "click",
+          (e) => {
+            const a = (e.target as Element)?.closest?.("a");
+            if (!a || !(a instanceof HTMLAnchorElement)) return;
+            const url = new URL(a.href, location.href);
+            if (url.pathname === location.pathname && url.hash) {
+              const html = document.documentElement;
+              html.style.scrollBehavior = "smooth";
+              setTimeout(() => {
+                html.style.scrollBehavior = "";
+              }, 1000);
+            }
+          },
+          { capture: true },
+        );
+      }
     });
     watch(
       () => route.path,

@@ -11,7 +11,7 @@ export default defineConfig({
   outDir: 'dist',
   lastUpdated: true,
   cleanUrls: true,
-  appearance: false,
+  appearance: 'dark',
   vite: {
     plugins: [
       Unocss({
@@ -31,6 +31,18 @@ export default defineConfig({
         rel: 'icon',
         href: 'https://assets.wbrks.com/assets/logo/logo1.png'
       }
+    ],
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    [
+      'link',
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
+    ],
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap'
+      }
     ]
   ],
   themeConfig: {
@@ -40,23 +52,5 @@ export default defineConfig({
     root: { label: 'English', ...en },
     'zh-CN': { label: '简体中文', ...zh_cn },
     'zh-HK': { label: '繁體中文', ...zh_hk }
-  },
-  transformHead({ assets }) {
-    const h1Font = assets.find(asset =>
-      /Cera-Pro-Light\.[\w-]+\.otf/.test(asset)
-    )
-    if (!h1Font) return []
-    return [
-      [
-        'link',
-        {
-          rel: 'preload',
-          href: h1Font,
-          as: 'font',
-          type: 'font/otf',
-          crossorigin: ''
-        }
-      ]
-    ]
   }
 })

@@ -1,42 +1,87 @@
 <script setup>
-import DownloadInfo from './DownloadInfo.vue'
-import { useLocale, motionVisible } from '../utils'
+import DownloadInfo from "./DownloadInfo.vue";
+import { useLocale, motionVisible } from "../utils";
 
-const { name, tagline } = useLocale()
+const { hero } = useLocale();
+const version = import.meta.env.VERSION || "v0.1.30";
+
+// per-character reveal timing for the headline
+const CHAR_STAGGER = 35;
+const LINE_PAUSE = 150;
+const line1 = Array.from(hero.title_1);
+const line2 = Array.from(hero.title_2);
+const charDelay = (i, offset = 0) => ({
+  animationDelay: `${offset + i * CHAR_STAGGER}ms`,
+});
+const line2Offset = line1.length * CHAR_STAGGER + LINE_PAUSE;
 </script>
+
 <template>
-  <div class="max-w-[1200px] mx-auto">
-    <div class="flex flex-col items-center justify-center mb-5">
-      <div class="relative">
-        <h1
-          class="sm:!text-4xl md:!text-5xl lg:!text-6xl font-bold text-black mb-4 flex !items-baseline justify-center gap-4 relative"
-        >
-          {{ name }}
-          <span
-            class="absolute bottom-7px -right-[calc(3rem+12px)] lg:-right-[calc(5.25rem+12px)] flex items-center justify-center w-12 h-5 lg:w-21 lg:h-8 bg-black text-white px-3 py-1 rounded-full text-xs md:text-sm lg:text-lg font-bold"
-            >NEW</span
-          >
-        </h1>
+  <section id="download" class="lb-hero relative overflow-hidden px-6 lt-sm:px-3 pt-22 lt-sm:(pt-12 pb-8) pb-16 text-center">
+    <div class="max-w-[1200px] mx-auto">
+      <div
+        class="inline-flex items-center gap-2 text-11px font-700 tracking-[1px] text-label mb-5"
+        v-motion="motionVisible()"
+      >
+        <span class="w-6px h-6px rounded-full bg-label"></span>
+        LONGBRIDGE PRO · {{ version.toUpperCase() }} BETA
       </div>
-      <p class="max-w-2xl mx-auto text-lg text-[var(--lb-gray-1)]">
-        {{ tagline }}
+      <h1
+        class="!text-40px lg:!text-64px !leading-[1.05] !font-600 text-heading !mb-5"
+        :aria-label="`${hero.title_1} ${hero.title_2}`"
+      >
+        <span aria-hidden="true">
+          <span
+            v-for="(ch, i) in line1"
+            :key="`l1-${i}`"
+            class="lb-char"
+            :style="charDelay(i)"
+          >{{ ch }}</span>
+          <br />
+          <span class="text-brand">
+            <span
+              v-for="(ch, i) in line2"
+              :key="`l2-${i}`"
+              class="lb-char"
+              :style="charDelay(i, line2Offset)"
+            >{{ ch }}</span>
+          </span>
+        </span>
+      </h1>
+      <p class="max-w-[580px] !mx-auto !text-16px !leading-[1.7] text-muted !mb-3">
+        {{ hero.description }}
       </p>
-    </div>
+      <div
+        class="text-13.5px text-faint mb-8 [&_a]:(text-brand font-700 !no-underline)"
+        v-html="hero.legacy"
+      ></div>
 
-    <!-- Download Buttons -->
-    <DownloadInfo class="mb-1" />
+      <DownloadInfo class="mb-14" />
 
-    <!-- Main App Screenshot -->
-    <div
-      class="w-auto mx-auto lg:w-5xl px-0 lg:px-2"
-      id="hero-image"
-      v-motion="motionVisible(300, 'visible')"
-    >
-      <img
-        src="https://assets.lbctrl.com/uploads/f4da8c9b-cd12-4a4d-804c-f850d326ca21/home.png"
-        alt="Longbridge Pro - Watchlist"
-        class="w-full h-auto rounded-lg"
-      />
+      <div
+        class="relative max-w-[1080px] mx-auto"
+        id="hero-image"
+        v-motion="motionVisible(300, 'visible')"
+      >
+        <div
+          class="absolute -left-15 -right-15 -top-10 h-70 pointer-events-none"
+          style="background: radial-gradient(50% 100% at 50% 100%, var(--lb-glow) 0%, transparent 70%)"
+        ></div>
+        <!-- home.png bakes in uneven transparent padding (window at
+             x 112-3464, y 76-2174 of 3578x2324: top 76 / sides ~113 /
+             bottom 150); crop the excess so all four gaps match the top -->
+        <div
+          class="relative overflow-hidden border border-edge rounded-16px"
+          style="box-shadow: var(--lb-shot-shadow); background: var(--lb-surface)"
+        >
+          <img
+            src="https://assets.lbctrl.com/uploads/f4da8c9b-cd12-4a4d-804c-f850d326ca21/home.png"
+            alt="Longbridge Pro - Watchlist"
+            class="block"
+            style="width: 102.112%; max-width: none; margin: 0 -1.084% -2.112% -1.027%"
+          />
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 </template>

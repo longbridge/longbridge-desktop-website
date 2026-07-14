@@ -3,7 +3,6 @@ import { getReleaseNotes } from "./utils";
 
 const LOCALE = "en";
 
-const stableItems = getReleaseNotes(LOCALE, "");
 const previewItems = getReleaseNotes(LOCALE, "preview");
 
 // https://vitepress.dev/reference/site-config
@@ -21,11 +20,7 @@ export default defineConfig({
     ],
 
     sidebar: [
-      {
-        text: "Release Notes",
-        base: "/release-notes/",
-        items: stableItems,
-      },
+      { text: "Release Notes", link: "/release-notes/" },
       ...(previewItems.length > 0
         ? [
             {
