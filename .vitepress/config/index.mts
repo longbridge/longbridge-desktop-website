@@ -5,6 +5,9 @@ import en from './en.mts'
 import zh_cn from './zh-CN.mts'
 import zh_hk from './zh-HK.mts'
 
+// 站点部署的源站域名，用于生成 <link rel="canonical">
+const SITE_ORIGIN = 'https://longbridge.com'
+
 export default defineConfig({
   base: '/desktop/',
   srcDir: 'docs',
@@ -40,6 +43,20 @@ export default defineConfig({
     root: { label: 'English', ...en },
     'zh-CN': { label: '简体中文', ...zh_cn },
     'zh-HK': { label: '繁體中文', ...zh_hk }
+  },
+  transformPageData(pageData, { siteConfig }) {
+    const pagePath = pageData.relativePath
+      .replace(/(^|\/)index\.md$/, '$1')
+      .replace(/\.md$/, siteConfig.cleanUrls ? '' : '.html')
+
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push([
+      'link',
+      {
+        rel: 'canonical',
+        href: `${SITE_ORIGIN}${siteConfig.site.base}${pagePath}`
+      }
+    ])
   },
   transformHead({ assets }) {
     const h1Font = assets.find(asset =>
