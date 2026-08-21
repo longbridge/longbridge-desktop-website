@@ -2,6 +2,9 @@ export default {
   name: 'Longbridge Pro',
   tagline: '全新的專業證券交易桌面端，更專業、更流暢、更高效',
   download_more: '查看更多版本',
+  install_pkg_label: '或下載安裝包：',
+  install_sh_copy: '複製命令',
+  install_sh_copied: '已複製',
   legacy_info:
     '當前為全新一代版本，功能正在持續優化和完善中，如需更完整的功能，可選擇 <a href="https://longbridge.com/download" target="_blank">下載上一代</a>',
   features: [
