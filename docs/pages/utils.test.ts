@@ -51,12 +51,6 @@ describe("createDownloadUrl", () => {
     );
   });
 
-  test("should create Linux AppImage download URL", () => {
-    expect(createDownloadUrl("1.0.0", "linux", "x86_64", "appimage")).toBe(
-      "https://assets.lbctrl.com/github/release/longbridge-desktop/stable/longbridge-1.0.0-linux-x86_64.AppImage"
-    );
-  });
-
   test("should create Linux deb download URL", () => {
     expect(createDownloadUrl("1.0.0", "linux", "x86_64", "deb")).toBe(
       "https://assets.lbctrl.com/github/release/longbridge-desktop/stable/longbridge-1.0.0-linux-x86_64.deb"
@@ -67,7 +61,7 @@ describe("createDownloadUrl", () => {
 describe("getDownloads", () => {
   test("all platform", () => {
     const downloads = getDownloads("1.0.0");
-    expect(downloads).toHaveLength(5);
+    expect(downloads).toHaveLength(4);
     expect(downloads[0]).toEqual({
       text: "Windows",
       suffix: "x86_64",
@@ -87,12 +81,6 @@ describe("getDownloads", () => {
       platform: "macos",
     });
     expect(downloads[3]).toEqual({
-      text: "Linux",
-      suffix: "AppImage",
-      url: "https://assets.lbctrl.com/github/release/longbridge-desktop/stable/longbridge-1.0.0-linux-x86_64.AppImage",
-      platform: "linux",
-    });
-    expect(downloads[4]).toEqual({
       text: "Linux",
       suffix: "deb",
       url: "https://assets.lbctrl.com/github/release/longbridge-desktop/stable/longbridge-1.0.0-linux-x86_64.deb",

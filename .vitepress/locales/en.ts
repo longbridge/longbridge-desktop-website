@@ -2,6 +2,9 @@ export default {
   name: 'Longbridge Pro',
   tagline: 'Faster, smoother, more efficient',
   download_more: 'View all versions',
+  install_pkg_label: 'Or download the installer:',
+  install_sh_copy: 'Copy command',
+  install_sh_copied: 'Copied',
   legacy_info: `We're constantly improving and optimizing the features in this latest version. <br />For access to more complete functionality, feel free to <a href="https://longbridge.com/download" target="_blank">download the previous version.</a>`,
   features: [
     {

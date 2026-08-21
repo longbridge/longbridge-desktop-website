@@ -1,12 +1,31 @@
 <script setup>
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { getDownloads, getPlatform, useLocale } from "../utils";
 
-const { download_more, legacy_info } = useLocale();
+const { download_more, legacy_info, install_sh_copy, install_sh_copied, install_pkg_label } = useLocale();
 
 const version = import.meta.env.VERSION || "v0.1.30";
 
 const downloads = computed(() => getDownloads(version));
+
+const INSTALL_SH_COMMAND = "curl -fsSL https://longbridge.com/desktop/install.sh | sh";
+const copied = ref(false);
+
+const copyInstallCommand = async () => {
+    try {
+        await navigator.clipboard.writeText(INSTALL_SH_COMMAND);
+    } catch {
+        // Clipboard API unavailable (e.g. insecure context), fall back
+        const textarea = document.createElement("textarea");
+        textarea.value = INSTALL_SH_COMMAND;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+    }
+    copied.value = true;
+    setTimeout(() => (copied.value = false), 2000);
+};
 
 onMounted(() => {
     const platform = getPlatform();
@@ -17,7 +36,7 @@ onMounted(() => {
                 btn.classList.add("active");
             });
     } else {
-        document.querySelectorAll(".btn-download").forEach((btn) => {
+        document.querySelectorAll("[data-platform]").forEach((btn) => {
             btn.classList.add("active");
         });
     }
@@ -25,6 +44,31 @@ onMounted(() => {
 </script>
 <template>
     <div>
+        <div class="install-sh hidden flex-col items-center gap-4 mb-4 px-4" data-platform="linux">
+            <div
+                class="flex items-center gap-2 max-w-full rounded-md border border-[var(--vp-c-divider)] bg-[var(--vp-c-bg-soft)] py-2 pl-4 pr-2 font-mono text-sm">
+                <code
+                    class="whitespace-nowrap overflow-x-auto text-[var(--vp-c-text-1)] !bg-transparent !p-0 !rounded-none"><span class="text-[var(--lb-gray-1)] select-none">$ </span>{{ INSTALL_SH_COMMAND }}</code>
+                <button type="button"
+                    class="flex shrink-0 items-center justify-center w-7 h-7 rounded cursor-pointer transition-colors duration-200 hover:bg-[var(--vp-c-default-soft)]"
+                    :class="copied ? 'text-green-600' : 'text-[var(--lb-gray-1)]'"
+                    :title="copied ? install_sh_copied : install_sh_copy"
+                    :aria-label="copied ? install_sh_copied : install_sh_copy" @click="copyInstallCommand">
+                    <svg v-if="copied" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M5 12l5 5L20 7" />
+                    </svg>
+                    <svg v-else xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2">
+                            <rect width="13" height="13" x="9" y="9" rx="2" />
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <p class="text-sm text-[var(--lb-gray-1)]">{{ install_pkg_label }}</p>
+        </div>
         <div class="flex flex-wrap items-center gap-4 justify-center mb-5 lt-sm:(flex-col [&>a]:(w-35%))">
             <template v-for="link in downloads">
                 <a :href="link.url"
@@ -90,5 +134,9 @@ onMounted(() => {
 .btn-download.active {
     display: flex;
     align-items: center;
+}
+
+.install-sh.active {
+    display: flex;
 }
 </style>

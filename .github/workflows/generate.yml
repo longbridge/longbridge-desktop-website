@@ -34,8 +34,8 @@ jobs:
 
       - name: Setup Git
         run: |
-          git config --global user.name "AutoBot"
-          git config --global user.email "bot@users.noreply.github.com"
+          git config --global user.name "Floyd Wang"
+          git config --global user.email "codelife721@gmail.com"
 
       - name: Create PR
         run: |

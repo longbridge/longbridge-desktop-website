@@ -51,7 +51,7 @@ export const createDownloadUrl = (
   version: string,
   os: "windows" | "macos" | "linux",
   arch: 'x86_64' | 'aarch64' | 'arm64',
-  suffix: "appimage" | "deb" | "" = ""
+  suffix: "deb" | "" = ""
 ) => {
   const baseUrl =
     "https://assets.lbctrl.com/github/release/longbridge-desktop/stable";
@@ -61,7 +61,6 @@ export const createDownloadUrl = (
     macos: `macos-${arch}.dmg`,
     linux: {
       deb: `linux-${arch}.deb`,
-      appimage: `linux-${arch}.AppImage`,
     },
   };
 
@@ -92,12 +91,6 @@ export const getDownloads = (version: string) => {
         url: createDownloadUrl(version, "linux", "x86_64", "deb"),
         platform: "linux",
       },
-      {
-        text: "Linux",
-        suffix: "AppImage",
-        url: createDownloadUrl(version, "linux", "x86_64", "appimage"),
-        platform: "linux",
-      }
     ],
     macos: [
       {
