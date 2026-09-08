@@ -18,6 +18,7 @@ const DRY = !!process.env.DRY;
 const CHANNEL = TAG.includes("preview") ? "preview" : "stable";
 
 const CDN_URL = "https://assets.lbkrs.com";
+const INSTALL_SH_URL = "https://longbridge.com/desktop/install.sh";
 const OSS_HOST = "oss-cn-hangzhou.aliyuncs.com";
 const OSS_BUCKET = "lb-assets";
 const OSS_PREFIX = `/github/release/longbridge-desktop/${CHANNEL}`;
@@ -81,12 +82,19 @@ async function fetchRelease() {
 
 /**
  * Build Markdown download links
- * @param assets
+ * @param version
+ * @param locale
  * @returns
  */
-export function buildDownloadLinks(version: string): string {
+export function buildDownloadLinks(version: string, locale: Locale): string {
   if (!version.startsWith("v")) {
     version = `v${version}`;
+  }
+
+  // install.sh installs the stable channel by default, previews need the flag.
+  let installCommand = `curl -fsSL ${INSTALL_SH_URL} | sh`;
+  if (IS_PREVIEW) {
+    installCommand += " -s -- --channel preview";
   }
 
   return `
@@ -94,7 +102,13 @@ export function buildDownloadLinks(version: string): string {
 - [macOS ARM](${CDN_URL}${OSS_PREFIX}/longbridge-${version}-macos-aarch64.dmg)
 - [macOS x86_64](${CDN_URL}${OSS_PREFIX}/longbridge-${version}-macos-x86_64.dmg)
 - [Linux x64 (Debian)](${CDN_URL}${OSS_PREFIX}/longbridge-${version}-linux-x86_64.deb)
-- [Linux x64 (AppImage)](${CDN_URL}${OSS_PREFIX}/longbridge-${version}-linux-x86_64.AppImage)
+- [Linux x64 (Tarball)](${CDN_URL}${OSS_PREFIX}/longbridge-${version}-linux-x86_64.tar.gz)
+
+${locales.installSh[locale]}
+
+\`\`\`sh
+${installCommand}
+\`\`\`
   `.trim();
 }
 
@@ -184,6 +198,11 @@ const locales = {
     "zh-CN": "发布日期：",
     "zh-HK": "發布日期：",
   },
+  installSh: {
+    en: "Or install on Linux with a single command:",
+    "zh-CN": "Linux 也可一键安装：",
+    "zh-HK": "Linux 亦可一鍵安裝：",
+  },
   previewNote: {
     en: "This is a preview version for early access, causing a high update frequency, it may have some issues. If you encounter any problems, please try upgrading or downgrading the version.",
     "zh-CN":
@@ -200,7 +219,7 @@ function buildNotePage(locale: Locale, json: any, body: string): string {
   // 2025-05-08T12:20:56Z => 2025/05/08
   let releaseDate = new Date(json.published_at).toISOString().split("T")[0];
 
-  let downloads = buildDownloadLinks(TAG);
+  let downloads = buildDownloadLinks(TAG, locale);
   let headingSuffix = "";
   let previewNote = "";
   if (IS_PREVIEW) {

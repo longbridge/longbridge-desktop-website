@@ -6,16 +6,30 @@ import {
 } from "../.vitepress/config/utils";
 
 test("buildDownloadLinks", () => {
-  let links = buildDownloadLinks("v0.2.0");
+  let links = buildDownloadLinks("v0.2.0", "en");
   expect(links).toEqual(
     `
 - [Windows x86_64](https://assets.lbkrs.com/github/release/longbridge-desktop/stable/longbridge-v0.2.0-windows-x86_64.exe)
 - [macOS ARM](https://assets.lbkrs.com/github/release/longbridge-desktop/stable/longbridge-v0.2.0-macos-aarch64.dmg)
 - [macOS x86_64](https://assets.lbkrs.com/github/release/longbridge-desktop/stable/longbridge-v0.2.0-macos-x86_64.dmg)
 - [Linux x64 (Debian)](https://assets.lbkrs.com/github/release/longbridge-desktop/stable/longbridge-v0.2.0-linux-x86_64.deb)
-- [Linux x64 (AppImage)](https://assets.lbkrs.com/github/release/longbridge-desktop/stable/longbridge-v0.2.0-linux-x86_64.AppImage)
+- [Linux x64 (Tarball)](https://assets.lbkrs.com/github/release/longbridge-desktop/stable/longbridge-v0.2.0-linux-x86_64.tar.gz)
+
+Or install on Linux with a single command:
+
+\`\`\`sh
+curl -fsSL https://longbridge.com/desktop/install.sh | sh
+\`\`\`
   `.trim(),
   );
+});
+
+test("buildDownloadLinks uses the locale for the install.sh hint", () => {
+  let links = buildDownloadLinks("0.2.0", "zh-CN");
+  expect(links).toContain(
+    "- [Linux x64 (Tarball)](https://assets.lbkrs.com/github/release/longbridge-desktop/stable/longbridge-v0.2.0-linux-x86_64.tar.gz)",
+  );
+  expect(links).toContain("Linux 也可一键安装：");
 });
 
 
