@@ -8,7 +8,7 @@ jobs:
   publish:
     name: build
     timeout-minutes: 30
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Tester]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -16,8 +16,15 @@ jobs:
 
       - name: Download ossutils zip
         run: |
-          wget https://github.com/aliyun/ossutil/releases/download/v1.7.17/ossutil-v1.7.17-linux-amd64.zip
-          unzip ossutil-v1.7.17-linux-amd64.zip && cp ./ossutil-v1.7.17-linux-amd64/ossutil ${{github.workspace}}/ && chmod +x ${{github.workspace}}/ossutil
+          case "${{ runner.os }}-${{ runner.arch }}" in
+            macOS-ARM64) PLATFORM=mac-arm64 ;;
+            macOS-X64) PLATFORM=mac-amd64 ;;
+            Linux-ARM64) PLATFORM=linux-arm64 ;;
+            *) PLATFORM=linux-amd64 ;;
+          esac
+          NAME=ossutil-v1.7.17-$PLATFORM
+          curl -fsSL -o $NAME.zip https://github.com/aliyun/ossutil/releases/download/v1.7.17/$NAME.zip
+          unzip -o -q $NAME.zip && cp ./$NAME/ossutil ${{github.workspace}}/ && chmod +x ${{github.workspace}}/ossutil
 
       - name: Test ossutil
         run: |

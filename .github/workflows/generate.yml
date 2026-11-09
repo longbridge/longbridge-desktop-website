@@ -15,7 +15,7 @@ permissions:
 jobs:
   run:
     name: Generate
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Tester]
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@v4
@@ -34,8 +34,8 @@ jobs:
 
       - name: Setup Git
         run: |
-          git config --global user.name "Floyd Wang"
-          git config --global user.email "codelife721@gmail.com"
+          git config user.name "Floyd Wang"
+          git config user.email "codelife721@gmail.com"
 
       - name: Create PR
         run: |
