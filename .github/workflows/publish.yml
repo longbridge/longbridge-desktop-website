@@ -8,27 +8,24 @@ jobs:
   publish:
     name: build
     timeout-minutes: 30
-    runs-on: [self-hosted, Tester]
+    runs-on: ${{ fromJSON(vars.LINUX_RUNNER || '["self-hosted","Linux","X64"]') }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
-      - name: Download ossutils zip
+      - name: Install ossutil
+        working-directory: ${{ runner.temp }}
         run: |
-          case "${{ runner.os }}-${{ runner.arch }}" in
-            macOS-ARM64) PLATFORM=mac-arm64 ;;
-            macOS-X64) PLATFORM=mac-amd64 ;;
-            Linux-ARM64) PLATFORM=linux-arm64 ;;
-            *) PLATFORM=linux-amd64 ;;
-          esac
-          NAME=ossutil-v1.7.17-$PLATFORM
-          curl -fsSL -o $NAME.zip https://github.com/aliyun/ossutil/releases/download/v1.7.17/$NAME.zip
-          unzip -o -q $NAME.zip && cp ./$NAME/ossutil ${{github.workspace}}/ && chmod +x ${{github.workspace}}/ossutil
+          curl -fsSL -o ossutil.zip https://github.com/aliyun/ossutil/releases/download/v1.7.17/ossutil-v1.7.17-linux-amd64.zip
+          unzip -q -o ossutil.zip
+          # No sudo on self-hosted runners: install into the job's temp directory and put it on PATH
+          install -D ossutil-v1.7.17-linux-amd64/ossutil "$RUNNER_TEMP/bin/ossutil"
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
 
       - name: Test ossutil
         run: |
-          ${{github.workspace}}/ossutil --version
+          ossutil --version
 
       - uses: oven-sh/setup-bun@v2
 
@@ -56,5 +53,5 @@ jobs:
           PREFIX: github/release/longbridge-desktop/website/
           OSS_HOST: oss-cn-hangzhou.aliyuncs.com
         run: |
-          ${{github.workspace}}/ossutil cp dist/assets/ oss://lb-assets/$PREFIX/assets/ -u -r -j 10 -e $OSS_HOST -i ${{ secrets.FE_LB_ASSET_ACCESS_KEY_ID }} -k ${{ secrets.FE_LB_ASSET_ACCESS_KEY_SECRET }} --meta=Cache-Control:max-age=31536000
-          ${{github.workspace}}/ossutil cp dist/ oss://lb-assets/$PREFIX -u -r -j 10 -e $OSS_HOST -i ${{ secrets.FE_LB_ASSET_ACCESS_KEY_ID }} -k ${{ secrets.FE_LB_ASSET_ACCESS_KEY_SECRET }} --meta=Cache-Control:no-cache
+          ossutil cp dist/assets/ oss://lb-assets/$PREFIX/assets/ -u -r -j 10 -e $OSS_HOST -i ${{ secrets.FE_LB_ASSET_ACCESS_KEY_ID }} -k ${{ secrets.FE_LB_ASSET_ACCESS_KEY_SECRET }} --meta=Cache-Control:max-age=31536000
+          ossutil cp dist/ oss://lb-assets/$PREFIX -u -r -j 10 -e $OSS_HOST -i ${{ secrets.FE_LB_ASSET_ACCESS_KEY_ID }} -k ${{ secrets.FE_LB_ASSET_ACCESS_KEY_SECRET }} --meta=Cache-Control:no-cache
