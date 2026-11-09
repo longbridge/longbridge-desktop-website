@@ -1,3 +1,5 @@
+# All workflows run on the organization's self-hosted Linux runners. To switch, set the repository variable
+# LINUX_RUNNER to a JSON runs-on value, e.g. '["self-hosted","Linux","X64"]' (default) or '"ubuntu-latest"'.
 name: Generate Version
 
 on:
@@ -15,7 +17,7 @@ permissions:
 jobs:
   run:
     name: Generate
-    runs-on: [self-hosted, Tester]
+    runs-on: ${{ fromJSON(vars.LINUX_RUNNER || '["self-hosted","Linux","X64"]') }}
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@v4
